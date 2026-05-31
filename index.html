@@ -1,0 +1,19 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="robots" content="noindex, follow"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>The South of France</title><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="canonical" href="https://the-south-of-france.com/en/"><meta http-equiv="refresh" content="0; url=/en/"><script>(function(){const live = "[\"en\",\"fr\",\"it\",\"de\",\"es\"]";
+const fallback = "en";
+
+    (function () {
+      try {
+        var supported = JSON.parse(live);
+        var pref = (navigator.languages || [navigator.language || fallback])
+          .map(function (l) { return String(l).slice(0, 2).toLowerCase(); });
+        var pick = fallback;
+        for (var i = 0; i < pref.length; i++) {
+          if (supported.indexOf(pref[i]) !== -1) { pick = pref[i]; break; }
+        }
+        window.location.replace('/' + pick + '/');
+      } catch (e) {
+        window.location.replace('/' + fallback + '/');
+      }
+    })();
+  })();</script></head> <body> <p style="font-family: Georgia, serif; padding: 2rem;">
+Redirecting… <a href="/en/">The South of France</a> </p> </body></html>
