@@ -1,0 +1,114 @@
+---
+import '../../styles/pages/adresse.css';
+import { localizedPath, type Locale } from '../../i18n/config';
+import type { AdresseContent } from '../../data/adresse';
+
+interface Props { locale: Locale; c: AdresseContent; }
+const { locale, c } = Astro.props;
+const home = localizedPath(locale, 'home');
+const stars = '★'.repeat(c.stars);
+// Human label for each breadcrumb section key (kept local; the crumb is decorative).
+const crumbLabel: Record<string, string> = {
+  provence: 'Provence', 'french-riviera': 'Côte d’Azur', languedoc: 'Languedoc', camargue: 'Camargue',
+  stays: locale === 'fr' ? 'Où dormir' : 'Stays',
+};
+---
+<div class="adresse-page">
+  <header class="ahero">
+    <img src={c.heroImg} alt={c.heroAlt} />
+    <div class="veil"></div>
+    <div class="inner">
+      <div class="wrap">
+        <div class="crumb">
+          <a href={home}>The South of France</a>
+          {c.crumb.map((key) => (
+            <span> &nbsp;/&nbsp; <a href={localizedPath(locale, key)}>{crumbLabel[key] ?? key}</a></span>
+          ))}
+        </div>
+        <div class="cat">{c.cat}</div>
+        <h1 class="didone" set:html={c.h1}></h1>
+        <div class="meta">
+          <span class="loc">{c.loc}</span>
+          <span class="dot">·</span>
+          <span class="stars">{stars}</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="facts">
+    <div class="wrap">
+      {c.facts.map((f) => (
+        <div class="f"><div class="k">{f.k}</div><div class="v didone">{f.v}</div></div>
+      ))}
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="layout">
+      <div class="body">
+        <div class="kicker">{c.bodyKicker}</div>
+        <h2 class="didone" set:html={c.bodyH2}></h2>
+        {c.body.map((b) => {
+          if (b.type === 'h3') return <h3 class="didone" set:html={b.html}></h3>;
+          if (b.type === 'h2') return <h2 class="didone" set:html={b.html}></h2>;
+          return <p class={b.lede ? 'lede' : undefined} set:html={b.html}></p>;
+        })}
+
+        <div class="verdict">
+          <div class="label">{c.verdictLabel}</div>
+          <p>{c.verdictText}</p>
+        </div>
+      </div>
+
+      <aside class="aside">
+        <div class="pcard">
+          <div class="top">
+            <div class="label">{c.pcardLabel}</div>
+            <div class="nm didone">{c.pcardName}</div>
+          </div>
+          <div class="rows">
+            {c.pcardRows.map((r) => (
+              <div class="r"><div class="k">{r.k}</div><div class="v" set:html={r.v}></div></div>
+            ))}
+          </div>
+          <a class="cta" href={localizedPath(locale, 'contact')}>{c.pcardCta}</a>
+        </div>
+        <div class="map" role="img" aria-label={c.mapLabel}>
+          <span class="pin"></span>
+          <span class="lab">{c.mapLabel}</span>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <section class="gallery">
+    <div class="wrap">
+      <div class="g-head"><div class="label">{c.galleryLabel}</div></div>
+      <div class="g-grid">
+        {c.gallery.map((g) => (
+          <figure class={g.wide ? 'g1' : undefined}><img src={g.img} alt={g.alt} /></figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="nearby">
+    <div class="wrap">
+      <div class="n-head">
+        <div class="label">{c.nearbyLabel}</div>
+        <h3 class="didone" set:html={c.nearbyHeading}></h3>
+      </div>
+      <div class="n-grid">
+        {c.nearby.map((n) => (
+          <a class="nc" href={localizedPath(locale, n.href)}>
+            <div class="ph"><img src={n.img} alt={n.alt} /></div>
+            <div class="rk">{n.rk}</div>
+            <h4 class="didone">{n.title}</h4>
+            <div class="pl">{n.place}</div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</div>

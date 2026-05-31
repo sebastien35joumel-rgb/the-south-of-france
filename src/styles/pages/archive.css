@@ -1,0 +1,59 @@
+/* Journal / Archive — page-specific styles (shared chrome lives in global.css). */
+
+/* ——— JOURNAL MASTHEAD ——— */
+.jhead { text-align: center; padding: 86px 0 30px; }
+.jhead .label { margin-bottom: 22px; }
+.jhead h1 { font-family: 'Bodoni Moda', serif; font-weight: 300; font-size: clamp(54px, 8vw, 104px); line-height: 0.96; letter-spacing: -0.012em; }
+.jhead h1 em { font-style: italic; }
+.jhead .deck { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(19px, 2vw, 24px); color: var(--ink-soft); margin: 22px auto 0; max-width: 30em; }
+
+/* ——— FILTER SUBNAV ——— */
+.subnav { position: sticky; top: 62px; z-index: 30; background: rgba(252,251,247,0.94); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin-top: 46px; }
+.subnav .wrap { display: flex; justify-content: center; flex-wrap: wrap; }
+.subnav a { font-family: 'Inter', sans-serif; font-size: 10.5px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-soft); text-decoration: none; padding: 18px 20px; transition: color 0.3s; }
+.subnav a.on, .subnav a:hover { color: var(--sea); }
+
+/* ——— FEATURED ——— */
+.feat { padding: 84px 0 78px; border-bottom: 1px solid var(--line-faint); }
+.feat-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 64px; align-items: center; }
+.feat-fig { position: relative; }
+.feat-fig img { width: 100%; height: 540px; object-fit: cover; display: block; }
+.feat-fig .tag { position: absolute; top: 20px; left: 20px; background: var(--paper); font-family: 'Inter', sans-serif; font-size: 9.5px; letter-spacing: 0.26em; text-transform: uppercase; padding: 9px 15px; }
+.feat-txt .rk { font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 0.34em; text-transform: uppercase; color: var(--sea); margin-bottom: 20px; }
+.feat-txt h2 { font-family: 'Bodoni Moda', serif; font-weight: 300; font-size: clamp(34px, 3.8vw, 54px); line-height: 1.04; letter-spacing: -0.01em; }
+.feat-txt h2 em { font-style: italic; }
+.feat-txt .deck { font-size: 19px; line-height: 1.66; color: var(--ink-soft); margin: 22px 0 26px; }
+.feat-txt .by { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 15px; color: var(--grey); margin-bottom: 24px; }
+.feat-txt .read { font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 0.26em; text-transform: uppercase; color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--ink); padding-bottom: 4px; transition: color 0.3s, border-color 0.3s; }
+.feat-txt .read:hover { color: var(--sea); border-color: var(--sea); }
+
+/* ——— ARCHIVE GRID ——— */
+.grid-sec { padding: 80px 0 40px; }
+.grid-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 48px; }
+.grid-head h3 { font-family: 'Bodoni Moda', serif; font-weight: 300; font-size: 34px; }
+.grid-head h3 em { font-style: italic; }
+.grid-head .cnt { font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--grey); }
+.a-grid { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 48px; row-gap: 64px; }
+.card { text-decoration: none; color: var(--ink); display: block; }
+.card .ph { overflow: hidden; position: relative; }
+.card .ph img { width: 100%; height: 270px; object-fit: cover; display: block; transition: transform 0.9s cubic-bezier(.2,.7,.2,1); }
+.card:hover .ph img { transform: scale(1.05); }
+.card .ph .iss { position: absolute; left: 14px; bottom: 12px; font-family: 'Inter', sans-serif; font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: #fff; background: rgba(12,58,87,0.74); padding: 5px 9px; }
+.card .rk { font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--sea); margin: 16px 0 8px; }
+.card h4 { font-family: 'Bodoni Moda', serif; font-weight: 400; font-size: 23px; line-height: 1.16; margin-bottom: 8px; }
+.card p { font-size: 16px; line-height: 1.55; color: var(--ink-soft); }
+.card .pl { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 14px; color: var(--grey); margin-top: 10px; }
+
+/* ——— PAGER ——— */
+.pager { display: flex; justify-content: center; align-items: center; gap: 8px; padding: 76px 0 96px; }
+.pager a, .pager span { font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 0.12em; text-decoration: none; color: var(--ink-soft); width: 42px; height: 42px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--line-faint); transition: all 0.3s; }
+.pager a:hover { border-color: var(--sea); color: var(--sea); }
+.pager .on { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.pager .nx { width: auto; padding: 0 22px; letter-spacing: 0.2em; text-transform: uppercase; font-size: 10px; }
+
+@media (max-width: 900px) {
+  .subnav .wrap { justify-content: flex-start; overflow-x: auto; flex-wrap: nowrap; }
+  .feat-grid { grid-template-columns: 1fr; gap: 40px; }
+  .feat-fig img { height: 380px; }
+  .a-grid { grid-template-columns: 1fr; gap: 56px; }
+}

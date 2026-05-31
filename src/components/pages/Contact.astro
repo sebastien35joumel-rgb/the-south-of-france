@@ -1,0 +1,72 @@
+---
+import '../../styles/pages/contact.css';
+import { type Locale } from '../../i18n/config';
+import type { ContactContent } from '../../data/contact';
+
+interface Props { locale: Locale; c: ContactContent; }
+const { c } = Astro.props;
+---
+<header class="chead">
+  <div class="wrap">
+    <div class="label">{c.headLabel}</div>
+    <h1 class="didone" set:html={c.h1}></h1>
+    <p class="deck">{c.deck}</p>
+  </div>
+</header>
+
+<section class="cbody">
+  <div class="wrap">
+    <div class="cgrid">
+      <div class="ways">
+        {c.ways.map((way) => (
+          <div class="way">
+            <h3 class="didone">{way.title}</h3>
+            <p>{way.text}</p>
+            <a href={`mailto:${way.email}`}>{way.email}</a>
+          </div>
+        ))}
+        <div class="addr">
+          <div class="city">{c.address.city}</div>
+          {c.address.lines.map((line, i) => (
+            <>{line}{i < c.address.lines.length - 1 && <br />}</>
+          ))}
+        </div>
+      </div>
+
+      <form class="form-card" onsubmit="return false;">
+        <div class="form-grid2">
+          <div class="form-row">
+            <label class="fl" for="name">{c.form.nameLabel}</label>
+            <input id="name" type="text" placeholder={c.form.namePlaceholder} />
+          </div>
+          <div class="form-row">
+            <label class="fl" for="email">{c.form.emailLabel}</label>
+            <input id="email" type="email" placeholder={c.form.emailPlaceholder} />
+          </div>
+        </div>
+        <div class="form-row">
+          <label class="fl" for="subject">{c.form.subjectLabel}</label>
+          <select id="subject">
+            {c.form.subjectOptions.map((opt) => (
+              <option>{opt}</option>
+            ))}
+          </select>
+        </div>
+        <div class="form-row">
+          <label class="fl" for="msg">{c.form.messageLabel}</label>
+          <textarea id="msg" placeholder={c.form.messagePlaceholder}></textarea>
+        </div>
+        <button class="submit" type="submit">{c.form.submit}</button>
+        <p class="note">{c.form.note}</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="label">{c.bandLabel}</div>
+    <div class="q didone" set:html={c.bandQ}></div>
+    <p class="fr">{c.bandFr}</p>
+  </div>
+</section>

@@ -1,0 +1,64 @@
+---
+import '../styles/global.css';
+import {
+  htmlLang,
+  hreflangAlternates,
+  localizedUrl,
+  type Locale,
+  type SectionKey,
+} from '../i18n/config';
+
+interface Props {
+  locale: Locale;
+  section: SectionKey;
+  title: string;
+  description: string;
+  /** Set noindex on utility pages (legal, etc.). */
+  noindex?: boolean;
+  /** Override canonical/hreflang for nested pages (article, address). */
+  canonicalUrl?: string;
+  alternates?: { hreflang: string; href: string }[];
+}
+
+const {
+  locale,
+  section,
+  title,
+  description,
+  noindex = false,
+  canonicalUrl,
+  alternates: alternatesOverride,
+} = Astro.props;
+const canonical = canonicalUrl ?? localizedUrl(locale, section);
+const alternates = alternatesOverride ?? hreflangAlternates(section);
+---
+<!DOCTYPE html>
+<html lang={htmlLang[locale]}>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  {noindex && <meta name="robots" content="noindex, follow" />}
+  <link rel="canonical" href={canonical} />
+  {alternates.map((a) => (
+    <link rel="alternate" hreflang={a.hreflang} href={a.href} />
+  ))}
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="The South of France" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:locale" content={htmlLang[locale]} />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,300;0,6..96,400;0,6..96,500;1,6..96,300;1,6..96,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <slot />
+</body>
+</html>

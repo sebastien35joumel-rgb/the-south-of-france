@@ -1,0 +1,44 @@
+---
+import { localizedPath, type Locale } from '../i18n/config';
+import { chrome } from '../i18n/ui';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const f = chrome[locale].footer;
+---
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="mk didone">The South <em>of</em> France</div>
+        <p>{f.blurb}</p>
+      </div>
+      <div class="foot-col">
+        <h5>{f.sections.heading}</h5>
+        {f.sections.links.map((l) => (
+          <a href={localizedPath(locale, l.section)} set:html={l.label} />
+        ))}
+      </div>
+      <div class="foot-col">
+        <h5>{f.journal.heading}</h5>
+        {f.journal.links.map((l) => (
+          <a href={localizedPath(locale, l.section)} set:html={l.label} />
+        ))}
+      </div>
+      <div class="foot-news">
+        <h5 set:html={f.letterHeading} />
+        <p>{f.letterBlurb}</p>
+        <form onsubmit="return false;">
+          <input type="email" placeholder={f.letterPlaceholder} aria-label="Email" />
+          <button type="submit">{f.letterButton}</button>
+        </form>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span class="fine" set:html={f.fineLeft.replace('·', '<span class="dot">·</span>')} />
+      <span class="fine" set:html={f.fineRight.replace('·', '<span class="dot">·</span>')} />
+    </div>
+  </div>
+</footer>

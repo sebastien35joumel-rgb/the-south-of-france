@@ -1,0 +1,56 @@
+---
+import '../../styles/pages/newsletter.css';
+import { type Locale } from '../../i18n/config';
+import type { NewsletterContent } from '../../data/newsletter';
+
+interface Props { locale: Locale; c: NewsletterContent; }
+const { locale, c } = Astro.props;
+---
+<header class="nhero">
+  <img src={c.heroImg} alt={c.heroAlt} />
+  <div class="veil"></div>
+  <div class="wrap">
+    <div class="inner">
+      <div class="label">{c.heroLabel}</div>
+      <h1 class="didone" set:html={c.h1}></h1>
+      <p class="deck">{c.deck}</p>
+      <form class="sub-form">
+        <input type="email" placeholder={c.emailPlaceholder} aria-label="Email" />
+        <button type="submit">{c.submit}</button>
+      </form>
+      <p class="fine">{c.fine}</p>
+    </div>
+  </div>
+</header>
+
+<section class="gets">
+  <div class="wrap">
+    <div class="gets-head">
+      <div class="label">{c.getsLabel}</div>
+      <h2 class="didone" set:html={c.getsHeading}></h2>
+    </div>
+    <div class="gets-grid">
+      {c.gets.map((g) => (
+        <div class="get">
+          <div class="no">{g.no}</div>
+          <h3 class="didone">{g.h3}</h3>
+          <p>{g.text}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="sample">
+  <div class="wrap">
+    <div class="sample-card">
+      <div class="ph"><img src={c.sampleImg} alt={c.sampleAlt} /></div>
+      <div class="tx">
+        <div class="label">{c.sampleLabel}</div>
+        <h3 class="didone" set:html={c.sampleQuote}></h3>
+        <p>{c.sampleBody}</p>
+        <p class="sig">{c.sampleSig}</p>
+      </div>
+    </div>
+  </div>
+</section>

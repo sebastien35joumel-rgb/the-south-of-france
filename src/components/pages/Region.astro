@@ -1,0 +1,92 @@
+---
+import '../../styles/pages/region.css';
+import { localizedPath, type Locale } from '../../i18n/config';
+import type { RegionContent } from '../../data/regions';
+
+interface Props { locale: Locale; c: RegionContent; }
+const { locale, c } = Astro.props;
+const home = localizedPath(locale, 'home');
+---
+<header class="rhero">
+  <img src={c.heroImg} alt={c.heroAlt} />
+  <div class="veil"></div>
+  <div class="inner">
+    <div class="wrap" style="padding-bottom:54px;">
+      <div class="crumb"><a href={home}>The South of France</a> &nbsp;/&nbsp; {c.crumb}</div>
+      <h1 class="didone">{c.h1}</h1>
+      <div class="sub">{c.sub}</div>
+    </div>
+  </div>
+</header>
+
+<section class="r-intro">
+  <div class="wrap">
+    <div class="label">{c.introLabel}</div>
+    <p class="didone" set:html={c.introText}></p>
+  </div>
+</section>
+
+<nav class="subnav">
+  <div class="wrap">
+    {c.subnav.map((s, i) => (
+      <a href="#" class={i === 0 ? 'on' : ''}>{s}</a>
+    ))}
+  </div>
+</nav>
+
+<section class="feat">
+  <div class="wrap">
+    <div class="feat-grid">
+      <figure class="feat-fig">
+        <img src={c.feat.img} alt={c.feat.alt} />
+        <span class="tag">{c.feat.rk}</span>
+      </figure>
+      <div class="feat-txt">
+        <div class="rk">{c.feat.rk}</div>
+        <h2 class="didone" set:html={c.feat.h2}></h2>
+        <p class="deck">{c.feat.deck}</p>
+        <div class="by">{c.feat.by}</div>
+        <a class="read" href={localizedPath(locale, 'journal')}>{c.feat.read}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="grid-sec">
+  <div class="wrap">
+    <div class="grid-head">
+      <h3 class="didone" set:html={c.gridHeading}></h3>
+      <a class="all" href={localizedPath(locale, 'journal')}>{c.gridAll}</a>
+    </div>
+    <div class="a-grid">
+      {c.cards.map((card) => (
+        <a class="card" href="#">
+          <div class="ph"><img src={card.img} alt={card.alt} /></div>
+          <div class="rk">{card.rk}</div>
+          <h4 class="didone">{card.title}</h4>
+          <p>{card.text}</p>
+          <div class="pl">{card.place}</div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="adr">
+  <div class="wrap">
+    <div class="a-head">
+      <div class="label">{c.adrLabel}</div>
+      <h3 class="didone" set:html={c.adrHeading}></h3>
+    </div>
+    <div class="adr-grid">
+      {c.adrItems.map((it) => (
+        <div class="adr-item">
+          <div class="cat">{it.cat}</div>
+          <h5 class="didone">{it.name}</h5>
+          <div class="loc">{it.loc}</div>
+        </div>
+      ))}
+    </div>
+    <div class="more-wrap"><a href={localizedPath(locale, 'stays')}>{c.adrMore}</a></div>
+  </div>
+</section>

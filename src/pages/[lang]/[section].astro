@@ -1,0 +1,93 @@
+---
+import Base from '../../layouts/Base.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import Region from '../../components/pages/Region.astro';
+import Archive from '../../components/pages/Archive.astro';
+import About from '../../components/pages/About.astro';
+import Contact from '../../components/pages/Contact.astro';
+import Newsletter from '../../components/pages/Newsletter.astro';
+import Legal from '../../components/pages/Legal.astro';
+import { slugs, liveLocales, type Locale, type SectionKey } from '../../i18n/config';
+import { regions, type RegionKey } from '../../data/regions';
+import { hubs } from '../../data/hubs';
+import { archive } from '../../data/archive';
+import { about } from '../../data/about';
+import { contact } from '../../data/contact';
+import { newsletter } from '../../data/newsletter';
+import { legal } from '../../data/legal';
+
+// One dispatcher for every single-segment section page. Slugs are
+// translated, so we emit one path per (locale, section) from the slug
+// table. getStaticPaths is isolated by Astro → locals live inside it.
+export function getStaticPaths() {
+  const REGION_KEYS: RegionKey[] = ['provence', 'french-riviera', 'languedoc', 'camargue'];
+  const HUB_KEYS = ['the-table', 'stays'] as const;
+  // section → single-content store keyed by locale.
+  const SINGLES = [
+    { kind: 'archive', section: 'journal', store: archive },
+    { kind: 'about', section: 'about', store: about },
+    { kind: 'contact', section: 'contact', store: contact },
+    { kind: 'newsletter', section: 'newsletter', store: newsletter },
+    { kind: 'legal', section: 'legal', store: legal },
+  ] as const;
+
+  const paths: any[] = [];
+  for (const lang of liveLocales) {
+    for (const key of REGION_KEYS) {
+      if (!regions[key][lang]) continue;
+      paths.push({
+        params: { lang, section: slugs[key][lang] },
+        props: { kind: 'region', dataKey: key, store: 'regions', locale: lang },
+      });
+    }
+    for (const key of HUB_KEYS) {
+      if (!hubs[key][lang]) continue;
+      paths.push({
+        params: { lang, section: slugs[key][lang] },
+        props: { kind: 'region', dataKey: key, store: 'hubs', locale: lang },
+      });
+    }
+    for (const s of SINGLES) {
+      if (!s.store[lang]) continue;
+      paths.push({
+        params: { lang, section: slugs[s.section as SectionKey][lang] },
+        props: { kind: s.kind, section: s.section, locale: lang },
+      });
+    }
+  }
+  return paths;
+}
+
+const props = Astro.props as any;
+const locale = props.locale as Locale;
+const kind = props.kind as string;
+
+let sectionKey: SectionKey;
+let content: any;
+if (kind === 'region') {
+  sectionKey = props.dataKey as SectionKey;
+  content = props.store === 'hubs' ? hubs[props.dataKey][locale] : regions[props.dataKey as RegionKey][locale];
+} else {
+  sectionKey = props.section as SectionKey;
+  const stores: Record<string, any> = { archive, about, contact, newsletter, legal };
+  content = stores[kind][locale];
+}
+const noindex = kind === 'legal';
+---
+<Base
+  locale={locale}
+  section={sectionKey}
+  title={content.title}
+  description={content.description}
+  noindex={noindex}
+>
+  <Nav locale={locale} section={sectionKey} />
+  {kind === 'region' && <Region locale={locale} c={content} />}
+  {kind === 'archive' && <Archive locale={locale} c={content} />}
+  {kind === 'about' && <About locale={locale} c={content} />}
+  {kind === 'contact' && <Contact locale={locale} c={content} />}
+  {kind === 'newsletter' && <Newsletter locale={locale} c={content} />}
+  {kind === 'legal' && <Legal locale={locale} c={content} />}
+  <Footer locale={locale} />
+</Base>

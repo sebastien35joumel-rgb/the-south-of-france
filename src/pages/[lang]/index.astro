@@ -1,0 +1,132 @@
+---
+import Base from '../../layouts/Base.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import { home } from '../../data/home';
+import {
+  liveLocales,
+  localizedPath,
+  localizedUrl,
+  localeLabel,
+  type Locale,
+} from '../../i18n/config';
+
+export function getStaticPaths() {
+  return liveLocales.map((lang) => ({ params: { lang } }));
+}
+
+const locale = Astro.params.lang as Locale;
+const c = home[locale]!;
+const section = 'home' as const;
+---
+<Base locale={locale} section={section} title={c.title} description={c.description}>
+  <section class="hero">
+    <img src={c.hero.img} alt={c.hero.alt} />
+    <div class="veil-top"></div>
+    <div class="veil-bot"></div>
+
+    <div class="topbar">
+      <div class="wrap">
+        <span class="label">{c.hero.issue}</span>
+        <div class="lang">
+          {liveLocales.map((loc) => (
+            <a class={loc === locale ? 'on' : ''} href={localizedUrl(loc, section)}>{localeLabel[loc]}</a>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-title">
+      <h1 class="didone">The South <span class="of">of</span> France</h1>
+      <div class="sub"><span class="label">{c.hero.sub}</span></div>
+    </div>
+
+    <div class="coverlines">
+      {c.hero.coverlines.map((cl) => (
+        <div class="cl"><div class="t" set:html={cl.t}></div><div class="s">{cl.s}</div></div>
+      ))}
+    </div>
+
+    <div class="hero-cover">
+      <div class="kicker">{c.hero.coverKicker}</div>
+      <div class="big didone">{c.hero.coverBig}</div>
+      <div class="deck">{c.hero.coverDeck}</div>
+    </div>
+  </section>
+
+  <Nav locale={locale} section={section} />
+
+  <section class="lead">
+    <div class="wrap">
+      <div class="lead-grid">
+        <figure class="lead-fig">
+          <img src={c.lead.img} alt={c.lead.alt} />
+          <span class="tag">{c.lead.tag}</span>
+          <figcaption class="cap">{c.lead.cap}</figcaption>
+        </figure>
+        <div class="lead-txt">
+          <div class="kicker">{c.lead.kicker}</div>
+          <h2 class="didone" set:html={c.lead.h2}></h2>
+          <div class="byline">{c.lead.byline}</div>
+          <p class="body">{c.lead.body}</p>
+          <a class="read" href={localizedPath(locale, 'journal')}>{c.lead.read}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="carnet">
+    <div class="wrap">
+      <div class="carnet-head">
+        <div class="label">{c.carnet.label}</div>
+        <h3 class="didone" set:html={c.carnet.heading}></h3>
+      </div>
+      <div class="carnet-grid">
+        {c.carnet.entries.map((e) => (
+          <article class="entry">
+            <div class="ph">
+              <img src={e.img} alt={e.alt} />
+              <span class="num didone">{e.num}</span>
+            </div>
+            <div class="meta"><span class="reg">{e.reg}</span><span class="cat">{e.cat}</span></div>
+            <h4 class="didone">{e.title}</h4>
+            <div class="place">{e.place}</div>
+            <p>{e.text}</p>
+            <a class="read" href={localizedPath(locale, e.section)}>{e.read}</a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="regions">
+    <div class="wrap">
+      <div class="reg-head">
+        <div class="label">{c.regions.label}</div>
+        <h3 class="didone" set:html={c.regions.heading}></h3>
+      </div>
+      <div class="reg-grid">
+        {c.regions.items.map((r) => (
+          <a class="reg" href={localizedPath(locale, r.section)}>
+            <div class="ix">{r.ix}</div>
+            <div class="name didone">{r.name}</div>
+            <div class="desc">{r.desc}</div>
+            <div class="count">{r.count}</div>
+            <span class="arrow">&rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="label">{c.band.label}</div>
+      <div class="q didone" set:html={c.band.q}></div>
+      <p class="fr">{c.band.fr}</p>
+      <div class="sig">{c.band.sig}</div>
+    </div>
+  </section>
+
+  <Footer locale={locale} />
+</Base>

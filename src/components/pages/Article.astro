@@ -1,0 +1,124 @@
+---
+import '../../styles/pages/article.css';
+import { localizedPath, type Locale } from '../../i18n/config';
+import type { ArticleContent } from '../../data/article';
+
+interface Props { locale: Locale; c: ArticleContent; }
+const { locale, c } = Astro.props;
+---
+<div class="progress" id="progress"></div>
+
+<header class="art-hero">
+  <img src={c.heroImg} alt={c.heroAlt} />
+  <div class="veil"></div>
+  <span class="cap-credit">{c.heroCredit}</span>
+  <div class="head">
+    <div class="wrap">
+      <div class="kicker">{c.kicker}</div>
+      <h1 class="didone" set:html={c.h1}></h1>
+      <p class="deck">{c.deck}</p>
+    </div>
+  </div>
+</header>
+
+<div class="meta-bar">
+  <div class="wrap">
+    <div class="by" set:html={c.by}></div>
+    <div class="info">
+      {c.metaInfo.map((m) => <span>{m}</span>)}
+      <span class="share">{c.shareLabel} {c.shareLinks.map((s) => <a href={s.href}>{s.label}</a>)}</span>
+    </div>
+  </div>
+</div>
+
+<article class="article">
+  {c.blocks.map((b) => {
+    if (b.type === 'p') {
+      return <p class={b.lede ? 'lede' : undefined} set:html={b.html}></p>;
+    }
+    if (b.type === 'h2') {
+      return (
+        <h2 class="didone">
+          {b.num && <span class="n">{b.num}</span>}
+          <span set:html={b.html}></span>
+        </h2>
+      );
+    }
+    if (b.type === 'pull') {
+      return (
+        <div class="pull">
+          <p>{b.quote}</p>
+          <div class="src">{b.src}</div>
+        </div>
+      );
+    }
+    if (b.type === 'inset') {
+      return (
+        <figure class="inset">
+          <img src={b.img} alt={b.alt} />
+          <figcaption>{b.caption}</figcaption>
+        </figure>
+      );
+    }
+    if (b.type === 'fullbleed') {
+      return (
+        <figure class="fullbleed">
+          <img src={b.img} alt={b.alt} />
+          <figcaption>{b.caption}</figcaption>
+        </figure>
+      );
+    }
+    return null;
+  })}
+
+  <div class="pratique">
+    <div class="label">{c.pratiqueLabel}</div>
+    <h3 class="didone" set:html={c.pratiqueHeading}></h3>
+    {c.pratiqueRows.map((r) => (
+      <div class="row">
+        <div class="k">{r.k}</div>
+        <div class="v" set:html={r.v}></div>
+      </div>
+    ))}
+  </div>
+
+  <div class="author">
+    <div class="av didone">{c.authorInitial}</div>
+    <div class="who">
+      <div class="label">{c.authorLabel}</div>
+      <h4 class="didone">{c.authorName}</h4>
+      <div class="role">{c.authorRole}</div>
+      <p>{c.authorBio}</p>
+      <a class="more" href={localizedPath(locale, 'journal')}>{c.authorMore}</a>
+    </div>
+  </div>
+</article>
+
+<section class="related">
+  <div class="wrap">
+    <div class="r-head">
+      <div class="label">{c.relatedLabel}</div>
+      <h3 class="didone" set:html={c.relatedHeading}></h3>
+    </div>
+    <div class="r-grid">
+      {c.related.map((r) => (
+        <a class="rc" href={localizedPath(locale, r.href)}>
+          <div class="ph"><img src={r.img} alt={r.alt} /></div>
+          <div class="rk">{r.rk}</div>
+          <h4 class="didone">{r.title}</h4>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  var bar = document.getElementById('progress');
+  if (bar) {
+    window.addEventListener('scroll', function () {
+      var h = document.documentElement;
+      var scrolled = h.scrollTop / (h.scrollHeight - h.clientHeight);
+      bar.style.width = scrolled * 100 + '%';
+    }, { passive: true });
+  }
+</script>

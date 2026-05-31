@@ -1,0 +1,77 @@
+---
+import '../../styles/pages/about.css';
+import { localizedPath, type Locale } from '../../i18n/config';
+import type { AboutContent } from '../../data/about';
+
+interface Props { locale: Locale; c: AboutContent; }
+const { locale, c } = Astro.props;
+const home = localizedPath(locale, 'home');
+---
+<header class="ahero">
+  <img src={c.heroImg} alt={c.heroAlt} />
+  <div class="veil"></div>
+  <div class="inner">
+    <div class="wrap" style="padding-bottom:52px;">
+      <div class="crumb"><a href={home}>The South of France</a> &nbsp;/&nbsp; {c.crumb}</div>
+      <h1 class="didone" set:html={c.h1}></h1>
+    </div>
+  </div>
+</header>
+
+<section class="mani">
+  <div class="wrap narrow">
+    <div class="label">{c.maniLabel}</div>
+    <p class="lede didone" set:html={c.maniLede}></p>
+    <div class="cols">
+      {c.maniCols.map((p) => (
+        <p set:html={p}></p>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="prin">
+  <div class="wrap">
+    <div class="prin-head">
+      <div class="label">{c.prinLabel}</div>
+      <h2 class="didone" set:html={c.prinHeading}></h2>
+    </div>
+    <div class="prin-grid">
+      {c.principles.map((p) => (
+        <div class="prin-c">
+          <div class="no">{p.no}</div>
+          <h3 class="didone">{p.title}</h3>
+          <p>{p.text}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="eds">
+  <div class="wrap">
+    <div class="eds-head">
+      <div class="label">{c.edsLabel}</div>
+      <h2 class="didone" set:html={c.edsHeading}></h2>
+    </div>
+    <div class="eds-grid">
+      {c.editors.map((ed) => (
+        <div class="ed">
+          <div class="ph"><img src={ed.img} alt={ed.alt} /></div>
+          <h4 class="didone">{ed.name}</h4>
+          <div class="role">{ed.role}</div>
+          <p>{ed.text}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="label">{c.bandLabel}</div>
+    <div class="q didone" set:html={c.bandQ}></div>
+    <p class="fr">{c.bandFr}</p>
+    <div class="sig">{c.bandSig}</div>
+  </div>
+</section>

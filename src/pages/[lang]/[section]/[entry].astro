@@ -1,0 +1,55 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Nav from '../../../components/Nav.astro';
+import Footer from '../../../components/Footer.astro';
+import Article from '../../../components/pages/Article.astro';
+import Adresse from '../../../components/pages/Adresse.astro';
+import { slugs, liveLocales, nestedUrl, nestedAlternates, type Locale, type SectionKey } from '../../../i18n/config';
+import { article } from '../../../data/article';
+import { adresse } from '../../../data/adresse';
+
+// Nested content pages: an article lives under its region, an address
+// under "stays". The entry slug is stable across locales; only the
+// parent (section) slug is translated.
+export function getStaticPaths() {
+  const NESTED = [
+    { kind: 'article', parent: 'provence', entry: 'iles-d-or', store: article },
+    { kind: 'adresse', parent: 'stays', entry: 'crillon-le-brave', store: adresse },
+  ] as const;
+
+  const paths: any[] = [];
+  for (const lang of liveLocales) {
+    for (const n of NESTED) {
+      if (!n.store[lang]) continue;
+      paths.push({
+        params: { lang, section: slugs[n.parent as SectionKey][lang], entry: n.entry },
+        props: { kind: n.kind, parent: n.parent, entry: n.entry, locale: lang },
+      });
+    }
+  }
+  return paths;
+}
+
+const props = Astro.props as any;
+const locale = props.locale as Locale;
+const kind = props.kind as string;
+const parent = props.parent as SectionKey;
+const entry = props.entry as string;
+
+const content: any = kind === 'article' ? article[locale] : adresse[locale];
+const canonicalUrl = nestedUrl(locale, parent, entry);
+const alternates = nestedAlternates(parent, entry);
+---
+<Base
+  locale={locale}
+  section={parent}
+  title={content.title}
+  description={content.description}
+  canonicalUrl={canonicalUrl}
+  alternates={alternates}
+>
+  <Nav locale={locale} section={parent} />
+  {kind === 'article' && <Article locale={locale} c={content} />}
+  {kind === 'adresse' && <Adresse locale={locale} c={content} />}
+  <Footer locale={locale} />
+</Base>

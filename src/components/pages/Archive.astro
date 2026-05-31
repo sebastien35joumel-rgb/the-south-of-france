@@ -1,0 +1,72 @@
+---
+import '../../styles/pages/archive.css';
+import { localizedPath, type Locale, type SectionKey } from '../../i18n/config';
+import type { ArchiveContent } from '../../data/archive';
+
+interface Props { locale: Locale; c: ArchiveContent; }
+const { locale, c } = Astro.props;
+
+const cardHref = (href: string) =>
+  href === '#' ? '#' : localizedPath(locale, href as SectionKey);
+---
+<header class="jhead">
+  <div class="wrap">
+    <div class="label">{c.headLabel}</div>
+    <h1 class="didone" set:html={c.h1}></h1>
+    <p class="deck">{c.deck}</p>
+  </div>
+</header>
+
+<nav class="subnav">
+  <div class="wrap">
+    {c.filters.map((f, i) => (
+      <a href="#" class={i === 0 ? 'on' : ''}>{f}</a>
+    ))}
+  </div>
+</nav>
+
+<section class="feat">
+  <div class="wrap">
+    <div class="feat-grid">
+      <figure class="feat-fig">
+        <img src={c.feat.img} alt={c.feat.alt} />
+        <span class="tag">{c.feat.tag}</span>
+      </figure>
+      <div class="feat-txt">
+        <div class="rk">{c.feat.rk}</div>
+        <h2 class="didone" set:html={c.feat.h2}></h2>
+        <p class="deck">{c.feat.deck}</p>
+        <div class="by">{c.feat.by}</div>
+        <a class="read" href={localizedPath(locale, 'journal')}>{c.feat.read}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="grid-sec">
+  <div class="wrap">
+    <div class="grid-head">
+      <h3 class="didone" set:html={c.gridHeading}></h3>
+      <span class="cnt">{c.gridCount}</span>
+    </div>
+    <div class="a-grid">
+      {c.cards.map((card) => (
+        <a class="card" href={cardHref(card.href)}>
+          <div class="ph"><img src={card.img} alt={card.alt} /><span class="iss">{card.iss}</span></div>
+          <div class="rk">{card.rk}</div>
+          <h4 class="didone">{card.title}</h4>
+          <p>{card.text}</p>
+          <div class="pl">{card.place}</div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<div class="pager">
+  <span class="on">1</span>
+  <a href="#">2</a>
+  <a href="#">3</a>
+  <a href="#">4</a>
+  <a class="nx" href="#">Next &rarr;</a>
+</div>

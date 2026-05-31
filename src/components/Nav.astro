@@ -1,0 +1,32 @@
+---
+import { localizedPath, localizedUrl, liveLocales, localeLabel, type Locale, type SectionKey } from '../i18n/config';
+import { chrome } from '../i18n/ui';
+
+interface Props {
+  locale: Locale;
+  section: SectionKey;
+}
+const { locale, section } = Astro.props;
+const nav = chrome[locale].nav;
+---
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand didone" href={localizedPath(locale, 'home')}>The South <em>of</em> France</a>
+    <div class="links">
+      {nav.map((item) => (
+        <a
+          class={`navlink${item.sub ? ' sub' : ''}${item.section === section ? ' cur' : ''}`}
+          href={localizedPath(locale, item.section)}
+          set:html={item.label}
+        />
+      ))}
+      <span class="langsep">·</span>
+      {liveLocales.map((loc, i) => (
+        <>
+          {i > 0 && <span class="langsep">·</span>}
+          <a class={`lang${loc === locale ? ' on' : ''}`} href={localizedUrl(loc, section)}>{localeLabel[loc]}</a>
+        </>
+      ))}
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,58 @@
+---
+import '../../styles/pages/legal.css';
+import { type Locale } from '../../i18n/config';
+import type { LegalContent } from '../../data/legal';
+
+interface Props { locale: Locale; c: LegalContent; }
+const { locale, c } = Astro.props;
+---
+<header class="lhead">
+  <div class="wrap">
+    <div class="label">{c.headLabel}</div>
+    <h1 class="didone" set:html={c.h1}></h1>
+    <div class="upd">{c.updated}<span class="ph">{c.updatedDate}</span></div>
+  </div>
+</header>
+
+<section class="lbody">
+  <div class="wrap">
+    <div class="lgrid">
+      <aside class="toc">
+        <h5>{c.tocTitle}</h5>
+        {c.sections.map((s) => (
+          <a href={`#${s.id}`}>{s.tocLabel}</a>
+        ))}
+      </aside>
+
+      <div class="lcontent">
+        {c.sections.map((s) => (
+          <div class="sec" id={s.id}>
+            <div class="no">{s.no}</div>
+            <h2 class="didone" set:html={s.h2}></h2>
+            <div class="fr-h">{s.frH}</div>
+            {s.blocks.map((b) => (
+              b.kind === 'p' ? (
+                <p set:html={b.html}></p>
+              ) : b.kind === 'ul' ? (
+                <ul>
+                  {b.items.map((it) => (<li set:html={it}></li>))}
+                </ul>
+              ) : (
+                <dl class="dl">
+                  {b.rows.map((r) => (
+                    <>
+                      <dt>{r.dt}</dt>
+                      {r.placeholder
+                        ? <dd><span class="ph">{r.dd}</span></dd>
+                        : <dd set:html={r.dd}></dd>}
+                    </>
+                  ))}
+                </dl>
+              )
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,40 @@
+/* Legal & Privacy — page-specific styles (shared chrome lives in global.css). */
+.lhead { padding: 78px 0 50px; border-bottom: 1px solid var(--line-faint); }
+.lhead .label { margin-bottom: 20px; }
+.lhead h1 { font-family: 'Bodoni Moda', serif; font-weight: 300; font-size: clamp(44px, 6vw, 80px); line-height: 0.98; letter-spacing: -0.012em; }
+.lhead h1 em { font-style: italic; }
+.lhead .upd { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 16px; color: var(--grey); margin-top: 16px; }
+
+/* ——— BODY ——— */
+.lbody { padding: 64px 0 96px; }
+.lgrid { display: grid; grid-template-columns: 250px 1fr; gap: 72px; align-items: start; }
+.toc { position: sticky; top: 92px; }
+.toc h5 { font-family: 'Inter', sans-serif; font-size: 9.5px; letter-spacing: 0.26em; text-transform: uppercase; color: var(--grey); margin-bottom: 18px; }
+.toc a { display: block; font-family: 'Cormorant Garamond', serif; font-size: 17px; color: var(--ink-soft); text-decoration: none; padding: 7px 0; border-bottom: 1px solid var(--line-faint); transition: color 0.3s; }
+.toc a:hover { color: var(--sea); }
+
+.sec { padding-bottom: 50px; margin-bottom: 50px; border-bottom: 1px solid var(--line-faint); scroll-margin-top: 90px; }
+.sec:last-child { border-bottom: 0; }
+.sec .no { font-family: 'Bodoni Moda', serif; font-style: italic; font-size: 16px; color: var(--sea); margin-bottom: 12px; }
+.sec h2 { font-family: 'Bodoni Moda', serif; font-weight: 400; font-size: clamp(26px, 3vw, 34px); line-height: 1.1; margin-bottom: 8px; }
+.sec .fr-h { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 16px; color: var(--grey); margin-bottom: 22px; }
+.sec p { font-size: 17.5px; line-height: 1.72; color: var(--ink-soft); margin-bottom: 16px; }
+.sec p strong { color: var(--ink); font-weight: 500; }
+.sec ul { list-style: none; margin: 4px 0 18px; }
+.sec ul li { position: relative; padding-left: 22px; font-size: 17px; line-height: 1.66; color: var(--ink-soft); margin-bottom: 8px; }
+.sec ul li::before { content: "\00B7"; position: absolute; left: 4px; color: var(--sea); font-size: 22px; line-height: 1; top: 2px; }
+.sec ul li strong { color: var(--ink); font-weight: 500; }
+.sec a.inl { color: var(--sea); text-decoration: none; border-bottom: 1px solid var(--line); }
+.sec a.inl:hover { border-color: var(--sea); }
+.ph { background: rgba(232,184,74,0.16); color: #8a6a18; font-family: 'Inter', sans-serif; font-size: 12px; letter-spacing: 0.04em; padding: 2px 7px; border-radius: 2px; }
+.dl { display: grid; grid-template-columns: 200px 1fr; gap: 6px 24px; margin: 4px 0 18px; }
+.dl dt { font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--grey); padding-top: 5px; }
+.dl dd { font-size: 17.5px; color: var(--ink-soft); }
+.dl dd a.inl { color: var(--sea); text-decoration: none; border-bottom: 1px solid var(--line); }
+
+@media (max-width: 900px) {
+  .lgrid { grid-template-columns: 1fr; gap: 40px; }
+  .toc { position: static; }
+  .dl { grid-template-columns: 1fr; gap: 2px; }
+  .dl dt { padding-top: 12px; }
+}

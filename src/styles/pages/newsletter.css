@@ -1,0 +1,48 @@
+/* Newsletter ("The Letter") — page-specific styles (shared chrome lives in global.css). */
+.nhero { position: relative; min-height: 78vh; display: flex; align-items: center; overflow: hidden; }
+.nhero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.nhero .veil { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(8,24,36,0.78), rgba(8,24,36,0.42) 55%, rgba(8,24,36,0.2)); }
+.nhero .inner { position: relative; z-index: 3; padding: 90px 0; max-width: 640px; }
+.nhero .label { color: rgba(255,255,255,0.72); margin-bottom: 24px; }
+.nhero h1 { font-family: 'Bodoni Moda', serif; font-weight: 300; font-size: clamp(46px, 6.4vw, 88px); line-height: 0.98; letter-spacing: -0.012em; color: #fff; text-shadow: 0 2px 44px rgba(0,0,0,0.32); }
+.nhero h1 em { font-style: italic; }
+.nhero .deck { font-family: 'Cormorant Garamond', serif; font-size: clamp(19px, 2vw, 23px); line-height: 1.55; color: rgba(255,255,255,0.9); margin: 26px 0 38px; max-width: 30em; }
+.sub-form { display: flex; max-width: 480px; background: rgba(252,251,247,0.96); padding: 8px 8px 8px 22px; }
+.sub-form input { flex: 1; border: 0; background: transparent; font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--ink); outline: none; }
+.sub-form input::placeholder { color: var(--grey); font-style: italic; }
+.sub-form button { border: 0; cursor: pointer; background: var(--sea-deep); color: var(--paper); font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; padding: 14px 26px; transition: background 0.3s; }
+.sub-form button:hover { background: var(--sea); }
+.nhero .fine { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 15px; color: rgba(255,255,255,0.7); margin-top: 16px; }
+
+/* ——— WHAT YOU GET ——— */
+.gets { padding: 100px 0 60px; }
+.gets-head { text-align: center; margin-bottom: 62px; }
+.gets-head .label { margin-bottom: 16px; }
+.gets-head h2 { font-family: 'Bodoni Moda', serif; font-weight: 300; font-size: 42px; }
+.gets-head h2 em { font-style: italic; }
+.gets-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--line); }
+.get { padding: 48px 34px 52px; border-bottom: 1px solid var(--line-faint); }
+.get:nth-child(3n+2), .get:nth-child(3n) { border-left: 1px solid var(--line-faint); }
+.get .no { font-family: 'Bodoni Moda', serif; font-style: italic; font-size: 30px; color: #E8B84A; margin-bottom: 18px; }
+.get h3 { font-family: 'Bodoni Moda', serif; font-weight: 400; font-size: 24px; line-height: 1.12; margin-bottom: 12px; }
+.get p { font-size: 16.5px; line-height: 1.6; color: var(--ink-soft); }
+
+/* ——— SAMPLE / DERNIÈRE LETTRE ——— */
+.sample { padding: 80px 0 100px; }
+.sample-card { display: grid; grid-template-columns: 0.9fr 1.1fr; border: 1px solid var(--line-faint); background: #fff; box-shadow: 0 30px 70px -50px rgba(12,58,87,0.45); }
+.sample-card .ph img { width: 100%; height: 100%; min-height: 360px; object-fit: cover; display: block; }
+.sample-card .tx { padding: 52px 50px; }
+.sample-card .tx .label { color: var(--sea); margin-bottom: 18px; }
+.sample-card .tx h3 { font-family: 'Bodoni Moda', serif; font-weight: 300; font-size: clamp(28px, 3vw, 40px); line-height: 1.08; margin-bottom: 18px; }
+.sample-card .tx h3 em { font-style: italic; }
+.sample-card .tx p { font-size: 18px; line-height: 1.7; color: var(--ink-soft); margin-bottom: 16px; }
+.sample-card .tx .sig { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 16px; color: var(--grey); }
+
+@media (max-width: 900px) {
+  .nhero .veil { background: linear-gradient(0deg, rgba(8,24,36,0.82), rgba(8,24,36,0.35)); }
+  .gets-grid { grid-template-columns: 1fr; }
+  .get { border-left: none !important; }
+  .sample-card { grid-template-columns: 1fr; }
+  .sample-card .ph img { min-height: 240px; }
+  .sample-card .tx { padding: 38px 28px; }
+}

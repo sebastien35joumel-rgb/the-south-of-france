@@ -1,0 +1,52 @@
+/* Contact page — page-specific styles (shared chrome lives in global.css). */
+
+/* ——— HEAD ——— */
+.chead { text-align: center; padding: 92px 0 26px; }
+.chead .label { margin-bottom: 22px; }
+.chead h1 { font-family: 'Bodoni Moda', serif; font-weight: 300; font-size: clamp(54px, 8vw, 108px); line-height: 0.95; letter-spacing: -0.012em; }
+.chead h1 em { font-style: italic; }
+.chead .deck { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(19px, 2vw, 24px); color: var(--ink-soft); margin: 22px auto 0; max-width: 28em; }
+
+/* ——— BODY GRID ——— */
+.cbody { padding: 70px 0 96px; }
+.cgrid { display: grid; grid-template-columns: 0.82fr 1.18fr; gap: 80px; align-items: start; }
+
+/* left: ways to reach us */
+.ways .way { padding: 26px 0; border-top: 1px solid var(--line-faint); }
+.ways .way:first-child { border-top: 0; padding-top: 0; }
+.ways .way h3 { font-family: 'Bodoni Moda', serif; font-weight: 400; font-size: 22px; margin-bottom: 6px; }
+.ways .way p { font-size: 16.5px; line-height: 1.55; color: var(--ink-soft); margin-bottom: 10px; }
+.ways .way a { font-family: 'Inter', sans-serif; font-size: 12px; letter-spacing: 0.08em; color: var(--sea); text-decoration: none; border-bottom: 1px solid var(--line); padding-bottom: 2px; }
+.ways .way a:hover { border-color: var(--sea); }
+.ways .addr { margin-top: 36px; padding-top: 30px; border-top: 1px solid var(--line); font-family: 'Cormorant Garamond', serif; font-size: 17px; line-height: 1.6; color: var(--ink-soft); }
+.ways .addr .city { font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--grey); margin-bottom: 10px; }
+
+/* right: form */
+.form-card { background: #fff; border: 1px solid var(--line-faint); padding: 48px 46px 52px; box-shadow: 0 24px 60px -40px rgba(12,58,87,0.4); }
+.form-card .fl { display: block; font-family: 'Inter', sans-serif; font-size: 9.5px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--grey); margin-bottom: 9px; }
+.form-row { margin-bottom: 28px; }
+.form-grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.form-card input, .form-card select, .form-card textarea {
+  width: 100%; border: 0; border-bottom: 1px solid var(--line); background: transparent;
+  font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--ink); padding: 8px 0; outline: none; transition: border-color 0.3s;
+}
+.form-card input:focus, .form-card select:focus, .form-card textarea:focus { border-color: var(--sea); }
+.form-card textarea { resize: vertical; min-height: 120px; line-height: 1.6; }
+.form-card select { -webkit-appearance: none; appearance: none; cursor: pointer; }
+.form-card .submit { margin-top: 8px; display: inline-flex; align-items: center; gap: 12px; background: var(--sea-deep); color: var(--paper); border: 0; cursor: pointer; font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 0.26em; text-transform: uppercase; padding: 16px 34px; transition: background 0.3s; }
+.form-card .submit:hover { background: var(--sea); }
+.form-card .note { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 14px; color: var(--grey); margin-top: 20px; }
+
+/* ——— PROMISE BAND ——— */
+/* Base band (.band + .label/.q em/.sig) is shared chrome (global.css).
+   Contact tunes the spacing and quote size only. */
+.band { padding: 100px 0; }
+.band .label { margin-bottom: 30px; }
+.band .q { font-size: clamp(26px, 3.2vw, 44px); line-height: 1.24; max-width: 17em; }
+.band .fr { font-size: 18px; max-width: 32em; margin: 26px auto 0; }
+
+@media (max-width: 900px) {
+  .cgrid { grid-template-columns: 1fr; gap: 52px; }
+  .form-grid2 { grid-template-columns: 1fr; gap: 28px; }
+  .form-card { padding: 36px 26px 40px; }
+}
