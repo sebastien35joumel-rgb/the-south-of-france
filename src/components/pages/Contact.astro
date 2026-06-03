@@ -2,9 +2,10 @@
 import '../../styles/pages/contact.css';
 import { type Locale } from '../../i18n/config';
 import type { ContactContent } from '../../data/contact';
+import { FORMSUBMIT_ACTION } from '../../data/contact';
 
 interface Props { locale: Locale; c: ContactContent; }
-const { c } = Astro.props;
+const { locale, c } = Astro.props;
 ---
 <header class="chead">
   <div class="wrap">
@@ -22,31 +23,38 @@ const { c } = Astro.props;
           <div class="way">
             <h3 class="didone">{way.title}</h3>
             <p>{way.text}</p>
-            <a href={`mailto:${way.email}`}>{way.email}</a>
           </div>
         ))}
-        <div class="addr">
-          <div class="city">{c.address.city}</div>
-          {c.address.lines.map((line, i) => (
-            <>{line}{i < c.address.lines.length - 1 && <br />}</>
-          ))}
-        </div>
       </div>
 
-      <form class="form-card" onsubmit="return false;">
+      <form
+        class="form-card"
+        action={FORMSUBMIT_ACTION}
+        method="POST"
+        data-contact-form
+        data-sending={c.form.sending}
+        data-success={c.form.success}
+        data-error={c.form.error}
+      >
+        <input type="hidden" name="_subject" value="The South of France — new message" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="locale" value={locale} />
+        {/* honeypot: bots fill it, humans never see it (FormSubmit reads _honey) */}
+        <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true" />
         <div class="form-grid2">
           <div class="form-row">
             <label class="fl" for="name">{c.form.nameLabel}</label>
-            <input id="name" type="text" placeholder={c.form.namePlaceholder} />
+            <input id="name" name="name" type="text" placeholder={c.form.namePlaceholder} required />
           </div>
           <div class="form-row">
             <label class="fl" for="email">{c.form.emailLabel}</label>
-            <input id="email" type="email" placeholder={c.form.emailPlaceholder} />
+            <input id="email" name="email" type="email" placeholder={c.form.emailPlaceholder} required />
           </div>
         </div>
         <div class="form-row">
           <label class="fl" for="subject">{c.form.subjectLabel}</label>
-          <select id="subject">
+          <select id="subject" name="subject">
             {c.form.subjectOptions.map((opt) => (
               <option>{opt}</option>
             ))}
@@ -54,10 +62,10 @@ const { c } = Astro.props;
         </div>
         <div class="form-row">
           <label class="fl" for="msg">{c.form.messageLabel}</label>
-          <textarea id="msg" placeholder={c.form.messagePlaceholder}></textarea>
+          <textarea id="msg" name="message" placeholder={c.form.messagePlaceholder} required></textarea>
         </div>
         <button class="submit" type="submit">{c.form.submit}</button>
-        <p class="note">{c.form.note}</p>
+        <p class="note" data-form-note>{c.form.note}</p>
       </form>
     </div>
   </div>
@@ -70,3 +78,51 @@ const { c } = Astro.props;
     <p class="fr">{c.bandFr}</p>
   </div>
 </section>
+
+<script>
+  // Progressive enhancement: submit to FormSubmit's AJAX endpoint via fetch
+  // so the reader stays on the page and gets inline feedback. Falls back to a
+  // normal POST (FormSubmit's own thank-you page) if JS is off.
+  document.querySelectorAll('form[data-contact-form]').forEach((el) => {
+    const form = el as HTMLFormElement;
+    const note = form.querySelector('[data-form-note]') as HTMLElement | null;
+    const btn = form.querySelector('button[type="submit"]') as HTMLButtonElement | null;
+    const sending = form.dataset.sending || 'Sending…';
+    const success = form.dataset.success || 'Thank you.';
+    const error = form.dataset.error || 'Something went wrong.';
+    const restNote = note ? note.textContent : '';
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (btn) btn.disabled = true;
+      if (note) { note.textContent = sending; note.removeAttribute('data-state'); }
+      try {
+        // FormSubmit exposes a JSON endpoint at /ajax/<email>.
+        const endpoint = form.action.replace('formsubmit.co/', 'formsubmit.co/ajax/');
+        const res = await fetch(endpoint, {
+          method: 'POST',
+          headers: { Accept: 'application/json' },
+          body: new FormData(form),
+        });
+        const data = await res.json().catch(() => ({}));
+        // FormSubmit returns success as the string "true".
+        if (res.ok && String(data.success) === 'true') {
+          form.reset();
+          if (note) { note.textContent = success; note.setAttribute('data-state', 'ok'); }
+        } else {
+          if (note) { note.textContent = error; note.setAttribute('data-state', 'err'); }
+        }
+      } catch {
+        if (note) { note.textContent = error; note.setAttribute('data-state', 'err'); }
+      } finally {
+        if (btn) btn.disabled = false;
+        if (note) {
+          window.setTimeout(() => {
+            note.textContent = restNote;
+            note.removeAttribute('data-state');
+          }, 8000);
+        }
+      }
+    });
+  });
+</script>

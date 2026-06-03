@@ -44,6 +44,16 @@
 .card p { font-size: 16px; line-height: 1.55; color: var(--ink-soft); }
 .card .pl { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 14px; color: var(--grey); margin-top: 10px; }
 
+/* ——— COMPLETE INDEX ——— */
+.jindex { padding: 40px 0 20px; }
+.jindex-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); column-gap: 56px; border-top: 1px solid var(--line-faint); }
+.jindex-list li { border-bottom: 1px solid var(--line-faint); }
+.jindex-list a { display: flex; flex-direction: column; gap: 6px; padding: 22px 4px; text-decoration: none; color: var(--ink); transition: padding-left 0.3s, color 0.3s; }
+.jindex-list a:hover { padding-left: 14px; color: var(--sea); }
+.jindex-list .ix-rk { font-family: 'Inter', sans-serif; font-size: 9.5px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--grey); }
+.jindex-list .ix-title { font-family: 'Bodoni Moda', serif; font-weight: 400; font-size: 22px; line-height: 1.18; }
+.jindex-list .ix-title em { font-style: italic; }
+
 /* ——— PAGER ——— */
 .pager { display: flex; justify-content: center; align-items: center; gap: 8px; padding: 76px 0 96px; }
 .pager a, .pager span { font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 0.12em; text-decoration: none; color: var(--ink-soft); width: 42px; height: 42px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--line-faint); transition: all 0.3s; }
@@ -56,4 +66,5 @@
   .feat-grid { grid-template-columns: 1fr; gap: 40px; }
   .feat-fig img { height: 380px; }
   .a-grid { grid-template-columns: 1fr; gap: 56px; }
+  .jindex-list { grid-template-columns: 1fr; column-gap: 0; }
 }

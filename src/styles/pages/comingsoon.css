@@ -1,0 +1,20 @@
+/* ——— Coming soon / In preparation ——— */
+.cs { position: relative; min-height: calc(100vh - 62px); display: flex; align-items: center; overflow: hidden; }
+.cs-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.cs-veil { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(12,58,87,0.62), rgba(12,30,45,0.82)); }
+.cs-inner { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; padding: 96px 52px; text-align: center; color: #fff; }
+.cs-inner .crumb { font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(255,255,255,0.7); margin-bottom: 40px; }
+.cs-inner .crumb a { color: rgba(255,255,255,0.7); text-decoration: none; }
+.cs-inner .crumb a:hover { color: #fff; }
+.cs-label { color: rgba(255,255,255,0.78); margin-bottom: 22px; }
+.cs-inner h1 { font-size: clamp(40px, 8vw, 78px); font-weight: 300; line-height: 1.04; letter-spacing: -0.01em; }
+.cs-inner h1 em { font-style: italic; }
+.cs-lede { font-size: clamp(20px, 3.4vw, 26px); font-style: italic; font-weight: 300; color: rgba(255,255,255,0.92); margin: 26px 0 18px; }
+.cs-note { font-size: 17px; line-height: 1.75; color: rgba(255,255,255,0.82); max-width: 560px; margin: 0 auto 38px; }
+.cs-back { display: inline-block; font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #fff; text-decoration: none; padding: 14px 26px; border: 1px solid rgba(255,255,255,0.5); transition: background 0.3s, color 0.3s; }
+.cs-back:hover { background: #fff; color: var(--sea-deep); }
+
+@media (max-width: 600px) {
+  .cs-inner { padding: 72px 24px; }
+  .cs-note { font-size: 16px; }
+}

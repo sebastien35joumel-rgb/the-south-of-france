@@ -12,7 +12,11 @@ const nav = chrome[locale].nav;
 <nav class="nav">
   <div class="wrap">
     <a class="brand didone" href={localizedPath(locale, 'home')}>The South <em>of</em> France</a>
-    <div class="links">
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden />
+    <label for="nav-toggle" class="burger" aria-label="Menu" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </label>
+    <div class="links" id="nav-links">
       {nav.map((item) => (
         <a
           class={`navlink${item.sub ? ' sub' : ''}${item.section === section ? ' cur' : ''}`}
@@ -21,12 +25,14 @@ const nav = chrome[locale].nav;
         />
       ))}
       <span class="langsep">·</span>
-      {liveLocales.map((loc, i) => (
-        <>
-          {i > 0 && <span class="langsep">·</span>}
-          <a class={`lang${loc === locale ? ' on' : ''}`} href={localizedUrl(loc, section)}>{localeLabel[loc]}</a>
-        </>
-      ))}
+      <span class="langrow">
+        {liveLocales.map((loc, i) => (
+          <>
+            {i > 0 && <span class="langsep">·</span>}
+            <a class={`lang${loc === locale ? ' on' : ''}`} href={localizedUrl(loc, section)}>{localeLabel[loc]}</a>
+          </>
+        ))}
+      </span>
     </div>
   </div>
 </nav>

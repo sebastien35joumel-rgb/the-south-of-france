@@ -54,7 +54,9 @@
 .adr .a-head h3 { font-family: 'Bodoni Moda', serif; font-weight: 300; font-size: 38px; }
 .adr .a-head h3 em { font-style: italic; }
 .adr-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid rgba(255,255,255,0.16); }
-.adr-item { padding: 30px 28px; border-bottom: 1px solid rgba(255,255,255,0.12); }
+.adr-item { display: block; padding: 30px 28px; border-bottom: 1px solid rgba(255,255,255,0.12); color: inherit; text-decoration: none; transition: background 0.3s; }
+a.adr-item:hover { background: rgba(255,255,255,0.05); }
+a.adr-item:hover h5 { color: #fff; }
 .adr-item:nth-child(3n+2), .adr-item:nth-child(3n) { border-left: 1px solid rgba(255,255,255,0.12); }
 .adr-item .cat { font-family: 'Inter', sans-serif; font-size: 9.5px; letter-spacing: 0.24em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 12px; }
 .adr-item h5 { font-family: 'Bodoni Moda', serif; font-weight: 400; font-size: 22px; margin-bottom: 4px; }

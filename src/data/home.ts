@@ -122,7 +122,7 @@ export const home: Partial<Record<Locale, HomeContent>> = {
     band: {
       label: 'Our promise · Notre promesse',
       q: 'We write only about places we have paid for, slept in, and would <em>return to.</em>',
-      fr: 'Aucune publicité déguisée, aucun séjour offert. Les bonnes adresses ne se vendent pas — elles se méritent.',
+      fr: 'Nous y allons nous-mêmes, et nous écrivons ce que nous avons vu.',
       sig: 'The Editors · Marseille',
     },
   },
@@ -183,7 +183,7 @@ export const home: Partial<Record<Locale, HomeContent>> = {
     band: {
       label: 'Notre promesse · Our promise',
       q: 'Nous n’écrivons que sur des lieux que nous avons payés, où nous avons dormi, et où nous <em>reviendrions.</em>',
-      fr: 'No undisclosed advertising, no free stays. The best addresses are not for sale — they are earned.',
+      fr: 'We go ourselves, and we write down what we saw.',
       sig: 'La rédaction · Marseille',
     },
   },
@@ -244,7 +244,7 @@ export const home: Partial<Record<Locale, HomeContent>> = {
     band: {
       label: 'La nostra promessa · Notre promesse',
       q: 'Scriviamo solo di luoghi che abbiamo pagato, in cui abbiamo dormito e a cui <em>torneremmo.</em>',
-      fr: 'Nessuna pubblicità mascherata, nessun soggiorno offerto. Gli indirizzi migliori non si vendono — si meritano.',
+      fr: 'Andiamo noi stessi, e scriviamo ciò che abbiamo visto.',
       sig: 'La redazione · Marsiglia',
     },
   },
@@ -305,7 +305,7 @@ export const home: Partial<Record<Locale, HomeContent>> = {
     band: {
       label: 'Unser Versprechen · Notre promesse',
       q: 'Wir schreiben nur über Orte, die wir bezahlt haben, in denen wir geschlafen haben und an die wir <em>zurückkehren würden.</em>',
-      fr: 'Keine verdeckte Werbung, keine geschenkten Aufenthalte. Die besten Adressen sind nicht käuflich — man verdient sie sich.',
+      fr: 'Wir gehen selbst hin und schreiben auf, was wir gesehen haben.',
       sig: 'Die Redaktion · Marseille',
     },
   },
@@ -366,7 +366,7 @@ export const home: Partial<Record<Locale, HomeContent>> = {
     band: {
       label: 'Nuestra promesa · Notre promesse',
       q: 'Solo escribimos sobre lugares que hemos pagado, en los que hemos dormido y a los que <em>volveríamos.</em>',
-      fr: 'Sin publicidad encubierta, sin estancias regaladas. Las mejores direcciones no se venden — se ganan.',
+      fr: 'Vamos nosotros mismos, y escribimos lo que hemos visto.',
       sig: 'La redacción · Marsella',
     },
   },

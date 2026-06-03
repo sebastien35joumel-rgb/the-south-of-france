@@ -1,0 +1,22 @@
+---
+import '../../styles/pages/comingsoon.css';
+import { localizedPath, type Locale } from '../../i18n/config';
+import type { ComingSoonContent } from '../../data/comingsoon';
+
+interface Props { locale: Locale; c: ComingSoonContent; }
+const { locale, c } = Astro.props;
+const home = localizedPath(locale, 'home');
+const backHref = localizedPath(locale, c.backSection);
+---
+<section class="cs">
+  <img class="cs-bg" src={c.heroImg} alt={c.heroAlt} />
+  <div class="cs-veil"></div>
+  <div class="cs-inner">
+    <div class="crumb"><a href={home}>The South of France</a> &nbsp;/&nbsp; {c.crumb}</div>
+    <div class="cs-label label">{c.label}</div>
+    <h1 class="didone" set:html={c.h1}></h1>
+    <p class="cs-lede didone">{c.lede}</p>
+    <p class="cs-note">{c.note}</p>
+    <a class="cs-back" href={backHref}>{c.backLabel} &nbsp;→</a>
+  </div>
+</section>

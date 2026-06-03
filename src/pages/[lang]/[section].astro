@@ -8,6 +8,8 @@ import About from '../../components/pages/About.astro';
 import Contact from '../../components/pages/Contact.astro';
 import Newsletter from '../../components/pages/Newsletter.astro';
 import Legal from '../../components/pages/Legal.astro';
+import ComingSoon from '../../components/pages/ComingSoon.astro';
+import Contribute from '../../components/pages/Contribute.astro';
 import { slugs, liveLocales, type Locale, type SectionKey } from '../../i18n/config';
 import { regions, type RegionKey } from '../../data/regions';
 import { hubs } from '../../data/hubs';
@@ -16,6 +18,8 @@ import { about } from '../../data/about';
 import { contact } from '../../data/contact';
 import { newsletter } from '../../data/newsletter';
 import { legal } from '../../data/legal';
+import { comingSoon } from '../../data/comingsoon';
+import { contribute } from '../../data/contribute';
 
 // One dispatcher for every single-segment section page. Slugs are
 // translated, so we emit one path per (locale, section) from the slug
@@ -30,6 +34,10 @@ export function getStaticPaths() {
     { kind: 'contact', section: 'contact', store: contact },
     { kind: 'newsletter', section: 'newsletter', store: newsletter },
     { kind: 'legal', section: 'legal', store: legal },
+    { kind: 'contribute', section: 'contribute', store: contribute['contribute'] },
+    { kind: 'contribute', section: 'become-contributor', store: contribute['become-contributor'] },
+    { kind: 'comingsoon', section: 'things-to-do', store: comingSoon['things-to-do'] },
+    { kind: 'comingsoon', section: 'riviera-jewellers', store: comingSoon['riviera-jewellers'] },
   ] as const;
 
   const paths: any[] = [];
@@ -70,10 +78,23 @@ if (kind === 'region') {
   content = props.store === 'hubs' ? hubs[props.dataKey][locale] : regions[props.dataKey as RegionKey][locale];
 } else {
   sectionKey = props.section as SectionKey;
-  const stores: Record<string, any> = { archive, about, contact, newsletter, legal };
-  content = stores[kind][locale];
+  // Resolve by SECTION (not kind): 'contribute' and 'comingsoon' kinds each
+  // back two distinct sections, so the section is the real discriminator.
+  const stores: Record<string, any> = {
+    journal: archive,
+    about,
+    contact,
+    newsletter,
+    legal,
+    contribute: contribute['contribute'],
+    'become-contributor': contribute['become-contributor'],
+    'things-to-do': comingSoon['things-to-do'],
+    'riviera-jewellers': comingSoon['riviera-jewellers'],
+  };
+  content = stores[sectionKey][locale];
 }
-const noindex = kind === 'legal';
+// Coming-soon sections are deliberately kept out of the index until written.
+const noindex = kind === 'legal' || kind === 'comingsoon';
 ---
 <Base
   locale={locale}
@@ -83,11 +104,13 @@ const noindex = kind === 'legal';
   noindex={noindex}
 >
   <Nav locale={locale} section={sectionKey} />
-  {kind === 'region' && <Region locale={locale} c={content} />}
+  {kind === 'region' && <Region locale={locale} c={content} sectionKey={sectionKey} />}
   {kind === 'archive' && <Archive locale={locale} c={content} />}
   {kind === 'about' && <About locale={locale} c={content} />}
   {kind === 'contact' && <Contact locale={locale} c={content} />}
   {kind === 'newsletter' && <Newsletter locale={locale} c={content} />}
   {kind === 'legal' && <Legal locale={locale} c={content} />}
+  {kind === 'contribute' && <Contribute locale={locale} c={content} />}
+  {kind === 'comingsoon' && <ComingSoon locale={locale} c={content} />}
   <Footer locale={locale} />
 </Base>

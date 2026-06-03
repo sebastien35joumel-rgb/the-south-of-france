@@ -45,7 +45,7 @@ export const legal: Partial<Record<Locale, LegalContent>> = {
     headLabel: 'The fine print · Informations légales',
     h1: 'Legal & <em>Privacy</em>',
     updated: 'Last updated — ',
-    updatedDate: PLACEHOLDER,
+    updatedDate: 'May 31, 2026',
     tocTitle: 'On this page',
     sections: [
       {
@@ -53,16 +53,16 @@ export const legal: Partial<Record<Locale, LegalContent>> = {
         blocks: [
           { kind: 'p', html: 'This website, <strong>the-south-of-france.com</strong>, is published by:' },
           { kind: 'dl', rows: [
-            { dt: 'Company', dd: PLACEHOLDER, placeholder: true },
-            { dt: 'Legal form', dd: PLACEHOLDER, placeholder: true },
-            { dt: 'Share capital', dd: PLACEHOLDER, placeholder: true },
-            { dt: 'Registered office', dd: PLACEHOLDER, placeholder: true },
-            { dt: 'SIREN / SIRET', dd: PLACEHOLDER, placeholder: true },
-            { dt: 'VAT number', dd: PLACEHOLDER, placeholder: true },
-            { dt: 'Publication director', dd: PLACEHOLDER, placeholder: true },
-            { dt: 'Contact', dd: '<a class="inl" href="mailto:editors@the-south-of-france.com">editors@the-south-of-france.com</a>' },
+            { dt: 'Company', dd: 'NEWP' },
+            { dt: 'Legal form', dd: 'SAS (French simplified joint-stock company)' },
+            { dt: 'Share capital', dd: '€1,000' },
+            { dt: 'Registered office', dd: '4 route du Sept Un, 16100 Boutiers-Saint-Trojan, France' },
+            { dt: 'SIREN / SIRET', dd: '830 852 976 00034' },
+            { dt: 'VAT number', dd: 'FR89830852976' },
+            { dt: 'Publication director', dd: 'Sébastien Joumel' },
+            { dt: 'Contact', dd: '<a class="inl" href="/en/contact/">Contact form</a>' },
           ] },
-          { kind: 'p', html: `The publisher is registered with the <span class="ph">${PLACEHOLDER}</span> of <span class="ph">${PLACEHOLDER}</span>.` },
+          { kind: 'p', html: 'The publisher is registered with the Trade and Companies Register (RCS) of Angoulême under SIREN 830 852 976.' },
         ],
       },
       {
@@ -70,9 +70,9 @@ export const legal: Partial<Record<Locale, LegalContent>> = {
         blocks: [
           { kind: 'p', html: 'The website is hosted by:' },
           { kind: 'dl', rows: [
-            { dt: 'Host', dd: PLACEHOLDER, placeholder: true },
-            { dt: 'Address', dd: PLACEHOLDER, placeholder: true },
-            { dt: 'Phone', dd: PLACEHOLDER, placeholder: true },
+            { dt: 'Host', dd: 'GitHub, Inc. — GitHub Pages' },
+            { dt: 'Address', dd: '88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, United States' },
+            { dt: 'Support', dd: '<a class="inl" href="https://support.github.com" rel="nofollow noopener">support.github.com</a>' },
           ] },
         ],
       },
@@ -99,9 +99,9 @@ export const legal: Partial<Record<Locale, LegalContent>> = {
             '<strong>The Letter</strong> — when you subscribe, we store your email address for the sole purpose of sending the monthly letter. You can unsubscribe at any time via the link in each email.',
             '<strong>Contact</strong> — the name, email and message you send through the contact form are used only to answer you, and kept no longer than necessary.',
           ] },
-          { kind: 'p', html: 'Data is never sold or shared with third parties for advertising. You have the right to access, rectify, delete, restrict and port your data, and to object to its processing. To exercise these rights, write to <a class="inl" href="mailto:privacy@the-south-of-france.com">privacy@the-south-of-france.com</a>.' },
+          { kind: 'p', html: 'Data is never sold or shared with third parties for advertising. You have the right to access, rectify, delete, restrict and port your data, and to object to its processing. To exercise these rights, use our <a class="inl" href="/en/contact/">contact form</a> or write to the registered office above.' },
           { kind: 'p', html: 'You may also lodge a complaint with the <a class="inl" href="https://www.cnil.fr" rel="nofollow noopener">CNIL</a>, the French data protection authority.' },
-          { kind: 'p', html: `Data controller: <span class="ph">${PLACEHOLDER}</span>.` },
+          { kind: 'p', html: 'Data controller: <strong>NEWP</strong>.' },
         ],
       },
       {
@@ -110,7 +110,7 @@ export const legal: Partial<Record<Locale, LegalContent>> = {
           { kind: 'p', html: 'This site keeps cookies to a minimum. We use no advertising trackers and no third-party social cookies.' },
           { kind: 'ul', items: [
             '<strong>Essential cookies</strong> — required for the site to function (language preference, form security). These do not require consent.',
-            `<strong>Audience measurement</strong> — <span class="ph">${PLACEHOLDER}</span>, configured to respect your privacy. <span class="ph">${PLACEHOLDER}</span>`,
+            '<strong>Audience measurement</strong> — we currently use no audience-measurement cookies. Should we add a privacy-first, cookieless analytics tool, this notice will be updated beforehand.',
           ] },
           { kind: 'p', html: 'You can refuse or delete cookies at any time through your browser settings.' },
         ],
@@ -129,7 +129,7 @@ export const legal: Partial<Record<Locale, LegalContent>> = {
     headLabel: 'Informations légales · The fine print',
     h1: 'Mentions <em>légales</em>',
     updated: 'Dernière mise à jour — ',
-    updatedDate: PLACEHOLDER,
+    updatedDate: '31 mai 2026',
     tocTitle: 'Sur cette page',
     sections: [
       {
@@ -137,16 +137,16 @@ export const legal: Partial<Record<Locale, LegalContent>> = {
         blocks: [
           { kind: 'p', html: 'Ce site, <strong>the-south-of-france.com</strong>, est édité par :' },
           { kind: 'dl', rows: [
-            { dt: 'Raison sociale', dd: PLACEHOLDER, placeholder: true },
-            { dt: 'Forme juridique', dd: PLACEHOLDER, placeholder: true },
-            { dt: 'Capital social', dd: PLACEHOLDER, placeholder: true },
-            { dt: 'Siège social', dd: PLACEHOLDER, placeholder: true },
-            { dt: 'SIREN / SIRET', dd: PLACEHOLDER, placeholder: true },
-            { dt: 'Numéro de TVA', dd: PLACEHOLDER, placeholder: true },
-            { dt: 'Directeur de publication', dd: PLACEHOLDER, placeholder: true },
-            { dt: 'Contact', dd: '<a class="inl" href="mailto:editors@the-south-of-france.com">editors@the-south-of-france.com</a>' },
+            { dt: 'Raison sociale', dd: 'NEWP' },
+            { dt: 'Forme juridique', dd: 'SAS (société par actions simplifiée)' },
+            { dt: 'Capital social', dd: '1 000 €' },
+            { dt: 'Siège social', dd: '4 route du Sept Un, 16100 Boutiers-Saint-Trojan, France' },
+            { dt: 'SIREN / SIRET', dd: '830 852 976 00034' },
+            { dt: 'Numéro de TVA', dd: 'FR89830852976' },
+            { dt: 'Directeur de publication', dd: 'Sébastien Joumel' },
+            { dt: 'Contact', dd: '<a class="inl" href="/fr/contact/">Formulaire de contact</a>' },
           ] },
-          { kind: 'p', html: `L’éditeur est immatriculé au <span class="ph">${PLACEHOLDER}</span> de <span class="ph">${PLACEHOLDER}</span>.` },
+          { kind: 'p', html: 'L’éditeur est immatriculé au Registre du commerce et des sociétés (RCS) d’Angoulême sous le numéro SIREN 830 852 976.' },
         ],
       },
       {
@@ -154,9 +154,9 @@ export const legal: Partial<Record<Locale, LegalContent>> = {
         blocks: [
           { kind: 'p', html: 'Le site est hébergé par :' },
           { kind: 'dl', rows: [
-            { dt: 'Hébergeur', dd: PLACEHOLDER, placeholder: true },
-            { dt: 'Adresse', dd: PLACEHOLDER, placeholder: true },
-            { dt: 'Téléphone', dd: PLACEHOLDER, placeholder: true },
+            { dt: 'Hébergeur', dd: 'GitHub, Inc. — GitHub Pages' },
+            { dt: 'Adresse', dd: '88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis' },
+            { dt: 'Support', dd: '<a class="inl" href="https://support.github.com" rel="nofollow noopener">support.github.com</a>' },
           ] },
         ],
       },
@@ -183,9 +183,9 @@ export const legal: Partial<Record<Locale, LegalContent>> = {
             '<strong>La Lettre</strong> — lorsque vous vous abonnez, nous conservons votre adresse e-mail dans le seul but de vous envoyer la lettre mensuelle. Vous pouvez vous désabonner à tout moment via le lien présent dans chaque e-mail.',
             '<strong>Contact</strong> — le nom, l’e-mail et le message envoyés via le formulaire de contact ne servent qu’à vous répondre et ne sont pas conservés plus longtemps que nécessaire.',
           ] },
-          { kind: 'p', html: 'Vos données ne sont jamais vendues ni partagées avec des tiers à des fins publicitaires. Vous disposez d’un droit d’accès, de rectification, d’effacement, de limitation et de portabilité de vos données, ainsi que d’un droit d’opposition à leur traitement. Pour exercer ces droits, écrivez à <a class="inl" href="mailto:privacy@the-south-of-france.com">privacy@the-south-of-france.com</a>.' },
+          { kind: 'p', html: 'Vos données ne sont jamais vendues ni partagées avec des tiers à des fins publicitaires. Vous disposez d’un droit d’accès, de rectification, d’effacement, de limitation et de portabilité de vos données, ainsi que d’un droit d’opposition à leur traitement. Pour exercer ces droits, utilisez notre <a class="inl" href="/fr/contact/">formulaire de contact</a> ou écrivez au siège social indiqué ci-dessus.' },
           { kind: 'p', html: 'Vous pouvez également introduire une réclamation auprès de la <a class="inl" href="https://www.cnil.fr" rel="nofollow noopener">CNIL</a>, l’autorité française de protection des données.' },
-          { kind: 'p', html: `Responsable de traitement : <span class="ph">${PLACEHOLDER}</span>.` },
+          { kind: 'p', html: 'Responsable de traitement : <strong>NEWP</strong>.' },
         ],
       },
       {
@@ -194,7 +194,7 @@ export const legal: Partial<Record<Locale, LegalContent>> = {
           { kind: 'p', html: 'Ce site limite les cookies au strict minimum. Nous n’utilisons aucun traceur publicitaire ni aucun cookie social tiers.' },
           { kind: 'ul', items: [
             '<strong>Cookies essentiels</strong> — nécessaires au fonctionnement du site (préférence de langue, sécurité des formulaires). Ils ne requièrent pas de consentement.',
-            `<strong>Mesure d’audience</strong> — <span class="ph">${PLACEHOLDER}</span>, configuré pour respecter votre vie privée. <span class="ph">${PLACEHOLDER}</span>`,
+            '<strong>Mesure d’audience</strong> — nous n’utilisons actuellement aucun cookie de mesure d’audience. Si nous ajoutons un outil d’analyse respectueux de la vie privée et sans cookie, cette mention sera mise à jour au préalable.',
           ] },
           { kind: 'p', html: 'Vous pouvez refuser ou supprimer les cookies à tout moment depuis les réglages de votre navigateur.' },
         ],
@@ -213,7 +213,7 @@ export const legal: Partial<Record<Locale, LegalContent>> = {
     headLabel: 'Le note in calce · Informations légales',
     h1: 'Note legali e <em>Privacy</em>',
     updated: 'Ultimo aggiornamento — ',
-    updatedDate: PLACEHOLDER,
+    updatedDate: '31 maggio 2026',
     tocTitle: 'In questa pagina',
     sections: [
       {
@@ -221,16 +221,16 @@ export const legal: Partial<Record<Locale, LegalContent>> = {
         blocks: [
           { kind: 'p', html: 'Questo sito, <strong>the-south-of-france.com</strong>, è pubblicato da:' },
           { kind: 'dl', rows: [
-            { dt: 'Ragione sociale', dd: PLACEHOLDER, placeholder: true },
-            { dt: 'Forma giuridica', dd: PLACEHOLDER, placeholder: true },
-            { dt: 'Capitale sociale', dd: PLACEHOLDER, placeholder: true },
-            { dt: 'Sede legale', dd: PLACEHOLDER, placeholder: true },
-            { dt: 'SIREN / SIRET', dd: PLACEHOLDER, placeholder: true },
-            { dt: 'Numero di partita IVA', dd: PLACEHOLDER, placeholder: true },
-            { dt: 'Direttore della pubblicazione', dd: PLACEHOLDER, placeholder: true },
-            { dt: 'Contatto', dd: '<a class="inl" href="mailto:editors@the-south-of-france.com">editors@the-south-of-france.com</a>' },
+            { dt: 'Ragione sociale', dd: 'NEWP' },
+            { dt: 'Forma giuridica', dd: 'SAS (società per azioni semplificata di diritto francese)' },
+            { dt: 'Capitale sociale', dd: '1 000 €' },
+            { dt: 'Sede legale', dd: '4 route du Sept Un, 16100 Boutiers-Saint-Trojan, Francia' },
+            { dt: 'SIREN / SIRET', dd: '830 852 976 00034' },
+            { dt: 'Numero di partita IVA', dd: 'FR89830852976' },
+            { dt: 'Direttore della pubblicazione', dd: 'Sébastien Joumel' },
+            { dt: 'Contatto', dd: '<a class="inl" href="/it/contatti/">Modulo di contatto</a>' },
           ] },
-          { kind: 'p', html: `L’editore è iscritto presso il <span class="ph">${PLACEHOLDER}</span> di <span class="ph">${PLACEHOLDER}</span>.` },
+          { kind: 'p', html: 'L’editore è iscritto al Registro del commercio e delle società (RCS) di Angoulême con numero SIREN 830 852 976.' },
         ],
       },
       {
@@ -238,9 +238,9 @@ export const legal: Partial<Record<Locale, LegalContent>> = {
         blocks: [
           { kind: 'p', html: 'Il sito è ospitato da:' },
           { kind: 'dl', rows: [
-            { dt: 'Provider', dd: PLACEHOLDER, placeholder: true },
-            { dt: 'Indirizzo', dd: PLACEHOLDER, placeholder: true },
-            { dt: 'Telefono', dd: PLACEHOLDER, placeholder: true },
+            { dt: 'Provider', dd: 'GitHub, Inc. — GitHub Pages' },
+            { dt: 'Indirizzo', dd: '88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, Stati Uniti' },
+            { dt: 'Support', dd: '<a class="inl" href="https://support.github.com" rel="nofollow noopener">support.github.com</a>' },
           ] },
         ],
       },
@@ -267,9 +267,9 @@ export const legal: Partial<Record<Locale, LegalContent>> = {
             '<strong>La Lettera</strong> — quando vi iscrivete, conserviamo il vostro indirizzo e-mail al solo scopo di inviarvi la lettera mensile. Potete disiscrivervi in qualsiasi momento tramite il link presente in ogni e-mail.',
             '<strong>Contatto</strong> — il nome, l’e-mail e il messaggio inviati tramite il modulo di contatto servono solo a rispondervi e non vengono conservati più a lungo del necessario.',
           ] },
-          { kind: 'p', html: 'I dati non vengono mai venduti né condivisi con terzi a fini pubblicitari. Avete diritto di accesso, rettifica, cancellazione, limitazione e portabilità dei vostri dati, nonché di opporvi al loro trattamento. Per esercitare tali diritti, scrivete a <a class="inl" href="mailto:privacy@the-south-of-france.com">privacy@the-south-of-france.com</a>.' },
+          { kind: 'p', html: 'I dati non vengono mai venduti né condivisi con terzi a fini pubblicitari. Avete diritto di accesso, rettifica, cancellazione, limitazione e portabilità dei vostri dati, nonché di opporvi al loro trattamento. Per esercitare tali diritti, utilizzate il nostro <a class="inl" href="/it/contatti/">modulo di contatto</a> o scrivete alla sede legale sopra indicata.' },
           { kind: 'p', html: 'Potete inoltre presentare un reclamo alla <a class="inl" href="https://www.cnil.fr" rel="nofollow noopener">CNIL</a>, l’autorità francese per la protezione dei dati.' },
-          { kind: 'p', html: `Titolare del trattamento: <span class="ph">${PLACEHOLDER}</span>.` },
+          { kind: 'p', html: 'Titolare del trattamento: <strong>NEWP</strong>.' },
         ],
       },
       {
@@ -278,7 +278,7 @@ export const legal: Partial<Record<Locale, LegalContent>> = {
           { kind: 'p', html: 'Questo sito riduce i cookie al minimo indispensabile. Non utilizziamo alcun tracker pubblicitario né alcun cookie social di terze parti.' },
           { kind: 'ul', items: [
             '<strong>Cookie essenziali</strong> — necessari al funzionamento del sito (preferenza di lingua, sicurezza dei moduli). Non richiedono consenso.',
-            `<strong>Misurazione del pubblico</strong> — <span class="ph">${PLACEHOLDER}</span>, configurato per rispettare la vostra privacy. <span class="ph">${PLACEHOLDER}</span>`,
+            '<strong>Misurazione del pubblico</strong> — attualmente non utilizziamo alcun cookie di misurazione del pubblico. Qualora aggiungessimo uno strumento di analisi rispettoso della privacy e senza cookie, questa informativa sarà aggiornata in anticipo.',
           ] },
           { kind: 'p', html: 'Potete rifiutare o eliminare i cookie in qualsiasi momento dalle impostazioni del vostro browser.' },
         ],
@@ -297,7 +297,7 @@ export const legal: Partial<Record<Locale, LegalContent>> = {
     headLabel: 'Das Kleingedruckte · Informations légales',
     h1: 'Impressum & <em>Datenschutz</em>',
     updated: 'Zuletzt aktualisiert — ',
-    updatedDate: PLACEHOLDER,
+    updatedDate: '31. Mai 2026',
     tocTitle: 'Auf dieser Seite',
     sections: [
       {
@@ -305,16 +305,16 @@ export const legal: Partial<Record<Locale, LegalContent>> = {
         blocks: [
           { kind: 'p', html: 'Diese Website, <strong>the-south-of-france.com</strong>, wird herausgegeben von:' },
           { kind: 'dl', rows: [
-            { dt: 'Firmenname', dd: PLACEHOLDER, placeholder: true },
-            { dt: 'Rechtsform', dd: PLACEHOLDER, placeholder: true },
-            { dt: 'Stammkapital', dd: PLACEHOLDER, placeholder: true },
-            { dt: 'Geschäftssitz', dd: PLACEHOLDER, placeholder: true },
-            { dt: 'SIREN / SIRET', dd: PLACEHOLDER, placeholder: true },
-            { dt: 'USt-IdNr.', dd: PLACEHOLDER, placeholder: true },
-            { dt: 'Verantwortlich für die Veröffentlichung', dd: PLACEHOLDER, placeholder: true },
-            { dt: 'Kontakt', dd: '<a class="inl" href="mailto:editors@the-south-of-france.com">editors@the-south-of-france.com</a>' },
+            { dt: 'Firmenname', dd: 'NEWP' },
+            { dt: 'Rechtsform', dd: 'SAS (vereinfachte Aktiengesellschaft französischen Rechts)' },
+            { dt: 'Stammkapital', dd: '1 000 €' },
+            { dt: 'Geschäftssitz', dd: '4 route du Sept Un, 16100 Boutiers-Saint-Trojan, Frankreich' },
+            { dt: 'SIREN / SIRET', dd: '830 852 976 00034' },
+            { dt: 'USt-IdNr.', dd: 'FR89830852976' },
+            { dt: 'Verantwortlich für die Veröffentlichung', dd: 'Sébastien Joumel' },
+            { dt: 'Kontakt', dd: '<a class="inl" href="/de/kontakt/">Kontaktformular</a>' },
           ] },
-          { kind: 'p', html: `Der Herausgeber ist beim <span class="ph">${PLACEHOLDER}</span> von <span class="ph">${PLACEHOLDER}</span> eingetragen.` },
+          { kind: 'p', html: 'Der Herausgeber ist beim Handels- und Gesellschaftsregister (RCS) von Angoulême unter der SIREN-Nummer 830 852 976 eingetragen.' },
         ],
       },
       {
@@ -322,9 +322,9 @@ export const legal: Partial<Record<Locale, LegalContent>> = {
         blocks: [
           { kind: 'p', html: 'Die Website wird gehostet von:' },
           { kind: 'dl', rows: [
-            { dt: 'Hoster', dd: PLACEHOLDER, placeholder: true },
-            { dt: 'Anschrift', dd: PLACEHOLDER, placeholder: true },
-            { dt: 'Telefon', dd: PLACEHOLDER, placeholder: true },
+            { dt: 'Hoster', dd: 'GitHub, Inc. — GitHub Pages' },
+            { dt: 'Anschrift', dd: '88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA' },
+            { dt: 'Support', dd: '<a class="inl" href="https://support.github.com" rel="nofollow noopener">support.github.com</a>' },
           ] },
         ],
       },
@@ -351,9 +351,9 @@ export const legal: Partial<Record<Locale, LegalContent>> = {
             '<strong>Der Brief</strong> — wenn Sie sich anmelden, speichern wir Ihre E-Mail-Adresse ausschließlich zum Zweck des Versands des monatlichen Briefes. Sie können sich jederzeit über den Link in jeder E-Mail abmelden.',
             '<strong>Kontakt</strong> — der über das Kontaktformular gesendete Name, die E-Mail und die Nachricht dienen ausschließlich Ihrer Beantwortung und werden nicht länger als nötig aufbewahrt.',
           ] },
-          { kind: 'p', html: 'Die Daten werden niemals verkauft oder zu Werbezwecken an Dritte weitergegeben. Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung und Übertragbarkeit Ihrer Daten sowie das Recht, deren Verarbeitung zu widersprechen. Um diese Rechte auszuüben, schreiben Sie an <a class="inl" href="mailto:privacy@the-south-of-france.com">privacy@the-south-of-france.com</a>.' },
+          { kind: 'p', html: 'Die Daten werden niemals verkauft oder zu Werbezwecken an Dritte weitergegeben. Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung und Übertragbarkeit Ihrer Daten sowie das Recht, deren Verarbeitung zu widersprechen. Um diese Rechte auszuüben, nutzen Sie unser <a class="inl" href="/de/kontakt/">Kontaktformular</a> oder schreiben Sie an den oben genannten Geschäftssitz.' },
           { kind: 'p', html: 'Sie können außerdem eine Beschwerde bei der <a class="inl" href="https://www.cnil.fr" rel="nofollow noopener">CNIL</a>, der französischen Datenschutzbehörde, einreichen.' },
-          { kind: 'p', html: `Verantwortlicher für die Verarbeitung: <span class="ph">${PLACEHOLDER}</span>.` },
+          { kind: 'p', html: 'Verantwortlicher für die Verarbeitung: <strong>NEWP</strong>.' },
         ],
       },
       {
@@ -362,7 +362,7 @@ export const legal: Partial<Record<Locale, LegalContent>> = {
           { kind: 'p', html: 'Diese Website hält Cookies auf ein Minimum. Wir verwenden keine Werbe-Tracker und keine Social-Cookies von Dritten.' },
           { kind: 'ul', items: [
             '<strong>Notwendige Cookies</strong> — für das Funktionieren der Website erforderlich (Spracheinstellung, Formularsicherheit). Sie bedürfen keiner Einwilligung.',
-            `<strong>Reichweitenmessung</strong> — <span class="ph">${PLACEHOLDER}</span>, so konfiguriert, dass Ihre Privatsphäre gewahrt bleibt. <span class="ph">${PLACEHOLDER}</span>`,
+            '<strong>Reichweitenmessung</strong> — derzeit verwenden wir keine Cookies zur Reichweitenmessung. Sollten wir ein datenschutzfreundliches, cookiefreies Analysewerkzeug einsetzen, wird dieser Hinweis zuvor aktualisiert.',
           ] },
           { kind: 'p', html: 'Sie können Cookies jederzeit über die Einstellungen Ihres Browsers ablehnen oder löschen.' },
         ],
@@ -381,7 +381,7 @@ export const legal: Partial<Record<Locale, LegalContent>> = {
     headLabel: 'La letra pequeña · Informations légales',
     h1: 'Aviso legal y <em>Privacidad</em>',
     updated: 'Última actualización — ',
-    updatedDate: PLACEHOLDER,
+    updatedDate: '31 de mayo de 2026',
     tocTitle: 'En esta página',
     sections: [
       {
@@ -389,16 +389,16 @@ export const legal: Partial<Record<Locale, LegalContent>> = {
         blocks: [
           { kind: 'p', html: 'Este sitio web, <strong>the-south-of-france.com</strong>, está editado por:' },
           { kind: 'dl', rows: [
-            { dt: 'Razón social', dd: PLACEHOLDER, placeholder: true },
-            { dt: 'Forma jurídica', dd: PLACEHOLDER, placeholder: true },
-            { dt: 'Capital social', dd: PLACEHOLDER, placeholder: true },
-            { dt: 'Domicilio social', dd: PLACEHOLDER, placeholder: true },
-            { dt: 'SIREN / SIRET', dd: PLACEHOLDER, placeholder: true },
-            { dt: 'Número de IVA', dd: PLACEHOLDER, placeholder: true },
-            { dt: 'Director de publicación', dd: PLACEHOLDER, placeholder: true },
-            { dt: 'Contacto', dd: '<a class="inl" href="mailto:editors@the-south-of-france.com">editors@the-south-of-france.com</a>' },
+            { dt: 'Razón social', dd: 'NEWP' },
+            { dt: 'Forma jurídica', dd: 'SAS (sociedad por acciones simplificada de derecho francés)' },
+            { dt: 'Capital social', dd: '1 000 €' },
+            { dt: 'Domicilio social', dd: '4 route du Sept Un, 16100 Boutiers-Saint-Trojan, Francia' },
+            { dt: 'SIREN / SIRET', dd: '830 852 976 00034' },
+            { dt: 'Número de IVA', dd: 'FR89830852976' },
+            { dt: 'Director de publicación', dd: 'Sébastien Joumel' },
+            { dt: 'Contacto', dd: '<a class="inl" href="/es/contacto/">Formulario de contacto</a>' },
           ] },
-          { kind: 'p', html: `El editor está inscrito en el <span class="ph">${PLACEHOLDER}</span> de <span class="ph">${PLACEHOLDER}</span>.` },
+          { kind: 'p', html: 'El editor está inscrito en el Registro Mercantil (RCS) de Angoulême con el número SIREN 830 852 976.' },
         ],
       },
       {
@@ -406,9 +406,9 @@ export const legal: Partial<Record<Locale, LegalContent>> = {
         blocks: [
           { kind: 'p', html: 'El sitio está alojado por:' },
           { kind: 'dl', rows: [
-            { dt: 'Proveedor', dd: PLACEHOLDER, placeholder: true },
-            { dt: 'Dirección', dd: PLACEHOLDER, placeholder: true },
-            { dt: 'Teléfono', dd: PLACEHOLDER, placeholder: true },
+            { dt: 'Proveedor', dd: 'GitHub, Inc. — GitHub Pages' },
+            { dt: 'Dirección', dd: '88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, Estados Unidos' },
+            { dt: 'Support', dd: '<a class="inl" href="https://support.github.com" rel="nofollow noopener">support.github.com</a>' },
           ] },
         ],
       },
@@ -435,9 +435,9 @@ export const legal: Partial<Record<Locale, LegalContent>> = {
             '<strong>La Carta</strong> — cuando se suscribe, conservamos su dirección de correo electrónico con el único fin de enviarle la carta mensual. Puede darse de baja en cualquier momento mediante el enlace presente en cada correo.',
             '<strong>Contacto</strong> — el nombre, el correo electrónico y el mensaje enviados a través del formulario de contacto solo sirven para responderle y no se conservan más tiempo del necesario.',
           ] },
-          { kind: 'p', html: 'Los datos nunca se venden ni se comparten con terceros con fines publicitarios. Tiene derecho a acceder, rectificar, suprimir, limitar y portar sus datos, así como a oponerse a su tratamiento. Para ejercer estos derechos, escriba a <a class="inl" href="mailto:privacy@the-south-of-france.com">privacy@the-south-of-france.com</a>.' },
+          { kind: 'p', html: 'Los datos nunca se venden ni se comparten con terceros con fines publicitarios. Tiene derecho a acceder, rectificar, suprimir, limitar y portar sus datos, así como a oponerse a su tratamiento. Para ejercer estos derechos, utilice nuestro <a class="inl" href="/es/contacto/">formulario de contacto</a> o escriba al domicilio social indicado arriba.' },
           { kind: 'p', html: 'También puede presentar una reclamación ante la <a class="inl" href="https://www.cnil.fr" rel="nofollow noopener">CNIL</a>, la autoridad francesa de protección de datos.' },
-          { kind: 'p', html: `Responsable del tratamiento: <span class="ph">${PLACEHOLDER}</span>.` },
+          { kind: 'p', html: 'Responsable del tratamiento: <strong>NEWP</strong>.' },
         ],
       },
       {
@@ -446,7 +446,7 @@ export const legal: Partial<Record<Locale, LegalContent>> = {
           { kind: 'p', html: 'Este sitio reduce las cookies al mínimo indispensable. No utilizamos ningún rastreador publicitario ni ninguna cookie social de terceros.' },
           { kind: 'ul', items: [
             '<strong>Cookies esenciales</strong> — necesarias para el funcionamiento del sitio (preferencia de idioma, seguridad de los formularios). No requieren consentimiento.',
-            `<strong>Medición de audiencia</strong> — <span class="ph">${PLACEHOLDER}</span>, configurada para respetar su privacidad. <span class="ph">${PLACEHOLDER}</span>`,
+            '<strong>Medición de audiencia</strong> — actualmente no utilizamos ninguna cookie de medición de audiencia. Si añadimos una herramienta de análisis respetuosa con la privacidad y sin cookies, este aviso se actualizará previamente.',
           ] },
           { kind: 'p', html: 'Puede rechazar o eliminar las cookies en cualquier momento desde la configuración de su navegador.' },
         ],

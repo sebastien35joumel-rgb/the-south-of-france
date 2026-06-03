@@ -6,6 +6,7 @@ import type { AboutContent } from '../../data/about';
 interface Props { locale: Locale; c: AboutContent; }
 const { locale, c } = Astro.props;
 const home = localizedPath(locale, 'home');
+const contribHref = localizedPath(locale, 'become-contributor');
 ---
 <header class="ahero">
   <img src={c.heroImg} alt={c.heroAlt} />
@@ -64,6 +65,27 @@ const home = localizedPath(locale, 'home');
         </div>
       ))}
     </div>
+  </div>
+</section>
+
+<section class="ctb">
+  <div class="wrap">
+    <div class="eds-head">
+      <div class="label">{c.contribLabel}</div>
+      <h2 class="didone" set:html={c.contribHeading}></h2>
+      <p class="ctb-intro">{c.contribIntro}</p>
+    </div>
+    <div class="ctb-grid">
+      {c.contributors.map((p) => (
+        <div class="ctb-c">
+          <div class="mono" aria-hidden="true">{p.initials}</div>
+          <h4 class="didone">{p.name}</h4>
+          <div class="role">{p.role}</div>
+          <p set:html={p.text}></p>
+        </div>
+      ))}
+    </div>
+    <a class="ctb-link" href={contribHref}>{c.contribCta} &nbsp;→</a>
   </div>
 </section>
 

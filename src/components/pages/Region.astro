@@ -1,11 +1,59 @@
 ---
 import '../../styles/pages/region.css';
-import { localizedPath, type Locale } from '../../i18n/config';
+import { localizedPath, nestedPath, type Locale, type SectionKey } from '../../i18n/config';
 import type { RegionContent } from '../../data/regions';
 
-interface Props { locale: Locale; c: RegionContent; }
-const { locale, c } = Astro.props;
+interface Props { locale: Locale; c: RegionContent; sectionKey: SectionKey; }
+const { locale, c, sectionKey } = Astro.props;
 const home = localizedPath(locale, 'home');
+const journal = localizedPath(locale, 'journal');
+
+// ── Internal-link wiring ──────────────────────────────────────
+// Each region/hub surfaces a "grand report", a grid of cards and an
+// address book. Where a card or address corresponds to a real nested
+// page we link it; the rest stay as plain blocks. Keyed by sectionKey
+// and, for cards/addresses, by their stable index in the data.
+type Ref = { parent: SectionKey; entry: string };
+
+const FEAT_REF: Partial<Record<SectionKey, Ref>> = {
+  provence: { parent: 'provence', entry: 'luberon-weekend' },
+  'french-riviera': { parent: 'french-riviera', entry: 'riviera-in-three-days' },
+  languedoc: { parent: 'languedoc', entry: 'languedoc-guide' },
+  camargue: { parent: 'camargue', entry: 'camargue-guide' },
+  'the-table': { parent: 'the-table', entry: 'provence-table-guide' },
+  stays: { parent: 'stays', entry: 'mas-de-peint' },
+};
+
+const CARD_REF: Partial<Record<SectionKey, Record<number, Ref>>> = {
+  provence: {
+    0: { parent: 'stays', entry: 'crillon-le-brave' },
+    1: { parent: 'provence', entry: 'roussillon-ochre' },
+  },
+  'french-riviera': { 3: { parent: 'french-riviera', entry: 'eze-village' } },
+  languedoc: { 0: { parent: 'languedoc', entry: 'canal-du-midi-velo' } },
+  camargue: { 1: { parent: 'camargue', entry: 'aigues-mortes-salt' } },
+  stays: {
+    1: { parent: 'stays', entry: 'mas-de-peint' },
+    3: { parent: 'stays', entry: 'la-colombe-d-or' },
+    4: { parent: 'stays', entry: 'chateau-les-carrasses' },
+  },
+};
+
+const ADR_REF: Partial<Record<SectionKey, Record<number, Ref>>> = {
+  'french-riviera': { 0: { parent: 'stays', entry: 'la-colombe-d-or' } },
+  camargue: { 0: { parent: 'stays', entry: 'mas-de-peint' } },
+  stays: {
+    2: { parent: 'stays', entry: 'mas-de-peint' },
+    4: { parent: 'stays', entry: 'la-colombe-d-or' },
+    5: { parent: 'stays', entry: 'crillon-le-brave' },
+  },
+};
+
+const featRef = FEAT_REF[sectionKey];
+const featHref = featRef ? nestedPath(locale, featRef.parent, featRef.entry) : journal;
+const cardRefs = CARD_REF[sectionKey] ?? {};
+const adrRefs = ADR_REF[sectionKey] ?? {};
+const hrefOf = (r: Ref) => nestedPath(locale, r.parent, r.entry);
 ---
 <header class="rhero">
   <img src={c.heroImg} alt={c.heroAlt} />
@@ -46,7 +94,7 @@ const home = localizedPath(locale, 'home');
         <h2 class="didone" set:html={c.feat.h2}></h2>
         <p class="deck">{c.feat.deck}</p>
         <div class="by">{c.feat.by}</div>
-        <a class="read" href={localizedPath(locale, 'journal')}>{c.feat.read}</a>
+        <a class="read" href={featHref}>{c.feat.read}</a>
       </div>
     </div>
   </div>
@@ -56,18 +104,22 @@ const home = localizedPath(locale, 'home');
   <div class="wrap">
     <div class="grid-head">
       <h3 class="didone" set:html={c.gridHeading}></h3>
-      <a class="all" href={localizedPath(locale, 'journal')}>{c.gridAll}</a>
+      <a class="all" href={journal}>{c.gridAll}</a>
     </div>
     <div class="a-grid">
-      {c.cards.map((card) => (
-        <a class="card" href="#">
-          <div class="ph"><img src={card.img} alt={card.alt} /></div>
-          <div class="rk">{card.rk}</div>
-          <h4 class="didone">{card.title}</h4>
-          <p>{card.text}</p>
-          <div class="pl">{card.place}</div>
-        </a>
-      ))}
+      {c.cards.map((card, i) => {
+        const r = cardRefs[i];
+        const Tag = r ? 'a' : 'div';
+        return (
+          <Tag class="card" href={r ? hrefOf(r) : undefined}>
+            <div class="ph"><img src={card.img} alt={card.alt} /></div>
+            <div class="rk">{card.rk}</div>
+            <h4 class="didone">{card.title}</h4>
+            <p>{card.text}</p>
+            <div class="pl">{card.place}</div>
+          </Tag>
+        );
+      })}
     </div>
   </div>
 </section>
@@ -79,13 +131,17 @@ const home = localizedPath(locale, 'home');
       <h3 class="didone" set:html={c.adrHeading}></h3>
     </div>
     <div class="adr-grid">
-      {c.adrItems.map((it) => (
-        <div class="adr-item">
-          <div class="cat">{it.cat}</div>
-          <h5 class="didone">{it.name}</h5>
-          <div class="loc">{it.loc}</div>
-        </div>
-      ))}
+      {c.adrItems.map((it, i) => {
+        const r = adrRefs[i];
+        const Tag = r ? 'a' : 'div';
+        return (
+          <Tag class="adr-item" href={r ? hrefOf(r) : undefined}>
+            <div class="cat">{it.cat}</div>
+            <h5 class="didone">{it.name}</h5>
+            <div class="loc">{it.loc}</div>
+          </Tag>
+        );
+      })}
     </div>
     <div class="more-wrap"><a href={localizedPath(locale, 'stays')}>{c.adrMore}</a></div>
   </div>

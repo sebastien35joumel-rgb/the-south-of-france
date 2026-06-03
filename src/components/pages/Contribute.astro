@@ -1,0 +1,73 @@
+---
+import '../../styles/pages/contribute.css';
+import { localizedPath, type Locale } from '../../i18n/config';
+import type { ContributeContent } from '../../data/contribute';
+
+interface Props { locale: Locale; c: ContributeContent; }
+const { locale, c } = Astro.props;
+const home = localizedPath(locale, 'home');
+const ctaHref = localizedPath(locale, c.ctaSection);
+---
+<header class="cw-hero">
+  <img src={c.heroImg} alt={c.heroAlt} />
+  <div class="veil"></div>
+  <div class="inner">
+    <div class="wrap" style="padding-bottom:52px;">
+      <div class="crumb"><a href={home}>The South of France</a> &nbsp;/&nbsp; {c.crumb}</div>
+      <h1 class="didone" set:html={c.h1}></h1>
+      <p class="lede" set:html={c.lede}></p>
+    </div>
+  </div>
+</header>
+
+<section class="cw-intro">
+  <div class="wrap narrow">
+    <div class="cols">
+      {c.introCols.map((p) => (
+        <p set:html={p}></p>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="cw-steps">
+  <div class="wrap">
+    <div class="cw-head">
+      <div class="label">{c.stepsLabel}</div>
+      <h2 class="didone" set:html={c.stepsHeading}></h2>
+    </div>
+    <div class="cw-grid">
+      {c.steps.map((s) => (
+        <div class="cw-step">
+          <div class="no">{s.no}</div>
+          <h3 class="didone">{s.title}</h3>
+          <p>{s.text}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="cw-guards">
+  <div class="wrap narrow">
+    <div class="cw-head">
+      <div class="label">{c.guardLabel}</div>
+      <h2 class="didone" set:html={c.guardHeading}></h2>
+    </div>
+    <p class="cw-guard-intro">{c.guardIntro}</p>
+    <ul class="cw-guard-list">
+      {c.guards.map((g) => (
+        <li>{g}</li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<section class="cw-cta">
+  <div class="wrap">
+    <div class="label">{c.ctaLabel}</div>
+    <h2 class="didone" set:html={c.ctaHeading}></h2>
+    <p>{c.ctaText}</p>
+    <a class="cw-btn" href={ctaHref}>{c.ctaButton} &nbsp;→</a>
+  </div>
+</section>

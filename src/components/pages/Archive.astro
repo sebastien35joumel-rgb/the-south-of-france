@@ -1,13 +1,51 @@
 ---
 import '../../styles/pages/archive.css';
-import { localizedPath, type Locale, type SectionKey } from '../../i18n/config';
+import { localizedPath, nestedPath, type Locale, type SectionKey } from '../../i18n/config';
 import type { ArchiveContent } from '../../data/archive';
+import { NESTED } from '../../data/nested';
+import { articles } from '../../data/article';
+import { adresses } from '../../data/adresse';
 
 interface Props { locale: Locale; c: ArchiveContent; }
 const { locale, c } = Astro.props;
 
 const cardHref = (href: string) =>
   href === '#' ? '#' : localizedPath(locale, href as SectionKey);
+
+// The featured report on the Journal is the Îles d'Or piece.
+const featHref = nestedPath(locale, 'provence', 'iles-d-or');
+
+// A handful of editorial cards correspond to real nested pages — wire
+// those by their stable index; the rest keep their section href.
+const CARD_NESTED: Record<number, { parent: SectionKey; entry: string }> = {
+  0: { parent: 'stays', entry: 'crillon-le-brave' },
+  4: { parent: 'provence', entry: 'luberon-weekend' },
+  5: { parent: 'stays', entry: 'mas-de-peint' },
+};
+const resolveCard = (href: string, i: number) => {
+  const n = CARD_NESTED[i];
+  return n ? nestedPath(locale, n.parent, n.entry) : cardHref(href);
+};
+
+// Complete, orphan-free index of every nested page (articles + adresses),
+// built from the single source of truth so nothing is left unlinked.
+const indexHeading: Record<Locale, string> = {
+  en: 'The complete index',
+  fr: 'L’index complet',
+  it: 'L’indice completo',
+  de: 'Das vollständige Verzeichnis',
+  es: 'El índice completo',
+};
+const indexItems = NESTED.map((n) => {
+  const store: any = n.kind === 'article' ? articles[n.entry] : adresses[n.entry];
+  const content = store?.[locale];
+  if (!content) return null;
+  return {
+    href: nestedPath(locale, n.parent, n.entry),
+    rk: n.kind === 'article' ? content.kicker : content.cat,
+    title: content.h1 as string,
+  };
+}).filter((x): x is { href: string; rk: string; title: string } => x !== null);
 ---
 <header class="jhead">
   <div class="wrap">
@@ -37,7 +75,7 @@ const cardHref = (href: string) =>
         <h2 class="didone" set:html={c.feat.h2}></h2>
         <p class="deck">{c.feat.deck}</p>
         <div class="by">{c.feat.by}</div>
-        <a class="read" href={localizedPath(locale, 'journal')}>{c.feat.read}</a>
+        <a class="read" href={featHref}>{c.feat.read}</a>
       </div>
     </div>
   </div>
@@ -50,8 +88,8 @@ const cardHref = (href: string) =>
       <span class="cnt">{c.gridCount}</span>
     </div>
     <div class="a-grid">
-      {c.cards.map((card) => (
-        <a class="card" href={cardHref(card.href)}>
+      {c.cards.map((card, i) => (
+        <a class="card" href={resolveCard(card.href, i)}>
           <div class="ph"><img src={card.img} alt={card.alt} /><span class="iss">{card.iss}</span></div>
           <div class="rk">{card.rk}</div>
           <h4 class="didone">{card.title}</h4>
@@ -60,6 +98,25 @@ const cardHref = (href: string) =>
         </a>
       ))}
     </div>
+  </div>
+</section>
+
+<section class="jindex">
+  <div class="wrap">
+    <div class="grid-head">
+      <h3 class="didone">{indexHeading[locale]}</h3>
+      <span class="cnt">{indexItems.length}</span>
+    </div>
+    <ul class="jindex-list">
+      {indexItems.map((it) => (
+        <li>
+          <a href={it.href}>
+            <span class="ix-rk">{it.rk}</span>
+            <span class="ix-title" set:html={it.title}></span>
+          </a>
+        </li>
+      ))}
+    </ul>
   </div>
 </section>
 

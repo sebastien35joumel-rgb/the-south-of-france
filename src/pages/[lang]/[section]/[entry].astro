@@ -5,24 +5,23 @@ import Footer from '../../../components/Footer.astro';
 import Article from '../../../components/pages/Article.astro';
 import Adresse from '../../../components/pages/Adresse.astro';
 import { slugs, liveLocales, nestedUrl, nestedAlternates, type Locale, type SectionKey } from '../../../i18n/config';
-import { article } from '../../../data/article';
-import { adresse } from '../../../data/adresse';
+import { articles } from '../../../data/article';
+import { adresses } from '../../../data/adresse';
+import { NESTED } from '../../../data/nested';
 
 // Nested content pages: an article lives under its region, an address
-// under "stays". The entry slug is stable across locales; only the
-// parent (section) slug is translated.
+// under its region or under "stays" / "the-table". The entry slug is
+// stable across locales; only the parent (section) slug is translated.
+// The registry (parent → URL segment) lives in data/nested.ts so the
+// Journal index can build a complete, orphan-free list from the same set.
 export function getStaticPaths() {
-  const NESTED = [
-    { kind: 'article', parent: 'provence', entry: 'iles-d-or', store: article },
-    { kind: 'adresse', parent: 'stays', entry: 'crillon-le-brave', store: adresse },
-  ] as const;
-
   const paths: any[] = [];
   for (const lang of liveLocales) {
     for (const n of NESTED) {
-      if (!n.store[lang]) continue;
+      const store: any = n.kind === 'article' ? articles[n.entry] : adresses[n.entry];
+      if (!store || !store[lang]) continue;
       paths.push({
-        params: { lang, section: slugs[n.parent as SectionKey][lang], entry: n.entry },
+        params: { lang, section: slugs[n.parent][lang], entry: n.entry },
         props: { kind: n.kind, parent: n.parent, entry: n.entry, locale: lang },
       });
     }
@@ -36,7 +35,7 @@ const kind = props.kind as string;
 const parent = props.parent as SectionKey;
 const entry = props.entry as string;
 
-const content: any = kind === 'article' ? article[locale] : adresse[locale];
+const content: any = kind === 'article' ? articles[entry][locale] : adresses[entry][locale];
 const canonicalUrl = nestedUrl(locale, parent, entry);
 const alternates = nestedAlternates(parent, entry);
 ---

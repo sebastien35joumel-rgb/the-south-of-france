@@ -1,0 +1,65 @@
+/* Contribute / Become-a-contributor — page-specific styles
+   (shared chrome lives in global.css). */
+.cw-intro .narrow, .cw-guards .narrow { max-width: 760px; }
+
+/* ——— HERO ——— */
+.cw-hero { position: relative; height: 56vh; min-height: 440px; overflow: hidden; }
+.cw-hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.cw-hero .veil { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(8,24,36,0.72), rgba(8,24,36,0.10) 55%, rgba(8,24,36,0.34)); }
+.cw-hero .inner { position: absolute; inset: 0; z-index: 3; display: flex; flex-direction: column; justify-content: flex-end; }
+.cw-hero .crumb { font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(255,255,255,0.8); margin-bottom: 18px; }
+.cw-hero .crumb a { color: rgba(255,255,255,0.8); text-decoration: none; }
+.cw-hero .crumb a:hover { color: #fff; }
+.cw-hero h1 { font-family: 'Bodoni Moda', serif; font-weight: 300; font-size: clamp(44px, 7.2vw, 104px); line-height: 0.94; letter-spacing: -0.012em; color: #fff; text-shadow: 0 2px 50px rgba(0,0,0,0.3); }
+.cw-hero h1 em { font-style: italic; }
+.cw-hero .lede { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300; font-size: clamp(20px, 2.6vw, 28px); line-height: 1.4; color: rgba(255,255,255,0.92); margin-top: 22px; max-width: 30em; }
+.cw-hero .lede em { font-style: normal; }
+
+/* ——— INTRO ——— */
+.cw-intro { padding: 92px 0 84px; border-bottom: 1px solid var(--line-faint); }
+.cw-intro .cols { columns: 2; column-gap: 56px; }
+.cw-intro .cols p { font-size: 18.5px; line-height: 1.74; color: var(--ink-soft); margin-bottom: 20px; break-inside: avoid; }
+.cw-intro .cols p:first-child::first-letter { font-family: 'Bodoni Moda', serif; font-weight: 400; font-size: 58px; line-height: 0.8; float: left; padding: 6px 12px 0 0; color: var(--ink); }
+.cw-intro .cols strong { font-weight: 500; color: var(--ink); }
+
+/* ——— SHARED SECTION HEAD ——— */
+.cw-head { text-align: center; margin-bottom: 58px; }
+.cw-head .label { margin-bottom: 16px; }
+.cw-head h2 { font-family: 'Bodoni Moda', serif; font-weight: 300; font-size: 40px; }
+.cw-head h2 em { font-style: italic; }
+
+/* ——— STEPS ——— */
+.cw-steps { padding: 92px 0; }
+.cw-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--line); }
+.cw-step { padding: 44px 30px 50px; border-bottom: 1px solid var(--line-faint); }
+.cw-step + .cw-step { border-left: 1px solid var(--line-faint); }
+.cw-step .no { font-family: 'Bodoni Moda', serif; font-style: italic; font-size: 16px; color: var(--sea); margin-bottom: 16px; }
+.cw-step h3 { font-family: 'Bodoni Moda', serif; font-weight: 400; font-size: 22px; line-height: 1.14; margin-bottom: 12px; }
+.cw-step p { font-size: 16px; line-height: 1.6; color: var(--ink-soft); }
+
+/* ——— GUARD-RAILS ——— */
+.cw-guards { padding: 92px 0 96px; background: var(--sea-wash, #eef3f3); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.cw-guard-intro { font-family: 'Cormorant Garamond', serif; font-size: clamp(20px, 2.2vw, 25px); font-style: italic; line-height: 1.5; color: var(--ink); text-align: center; max-width: 28em; margin: 0 auto 40px; }
+.cw-guard-list { list-style: none; max-width: 680px; margin: 0 auto; }
+.cw-guard-list li { position: relative; padding: 20px 0 20px 38px; border-top: 1px solid var(--line); font-size: 17px; line-height: 1.62; color: var(--ink-soft); }
+.cw-guard-list li:last-child { border-bottom: 1px solid var(--line); }
+.cw-guard-list li::before { content: ''; position: absolute; left: 4px; top: 29px; width: 9px; height: 9px; border-radius: 50%; background: var(--sea); }
+
+/* ——— CTA ——— */
+.cw-cta { padding: 100px 0; text-align: center; }
+.cw-cta .label { margin-bottom: 26px; }
+.cw-cta h2 { font-family: 'Bodoni Moda', serif; font-weight: 300; font-size: clamp(30px, 4vw, 52px); line-height: 1.05; }
+.cw-cta h2 em { font-style: italic; }
+.cw-cta p { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 20px; color: var(--ink-soft); margin: 20px auto 34px; max-width: 26em; }
+.cw-btn { display: inline-block; font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--paper); background: var(--sea-deep); text-decoration: none; padding: 16px 34px; transition: background 0.3s; }
+.cw-btn:hover { background: var(--sea); }
+
+@media (max-width: 900px) {
+  .cw-intro .cols { columns: 1; }
+  .cw-grid { grid-template-columns: 1fr 1fr; }
+  .cw-step:nth-child(odd) { border-left: none; }
+}
+@media (max-width: 600px) {
+  .cw-grid { grid-template-columns: 1fr; }
+  .cw-step { border-left: none !important; }
+}

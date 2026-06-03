@@ -6,6 +6,9 @@ dist/
 node_modules/
 # logs
 npm-debug.log*
+preview.log
+# local agent state
+.claude/
 # env
 .env
 .env.production

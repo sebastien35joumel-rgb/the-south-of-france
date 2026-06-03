@@ -35,7 +35,10 @@
 .form-card select { -webkit-appearance: none; appearance: none; cursor: pointer; }
 .form-card .submit { margin-top: 8px; display: inline-flex; align-items: center; gap: 12px; background: var(--sea-deep); color: var(--paper); border: 0; cursor: pointer; font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 0.26em; text-transform: uppercase; padding: 16px 34px; transition: background 0.3s; }
 .form-card .submit:hover { background: var(--sea); }
-.form-card .note { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 14px; color: var(--grey); margin-top: 20px; }
+.form-card .note { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 14px; color: var(--grey); margin-top: 20px; transition: color 0.3s; }
+.form-card .note[data-state="ok"] { color: var(--sea); font-style: normal; }
+.form-card .note[data-state="err"] { color: var(--terra, #b5532f); font-style: normal; }
+.form-card .submit:disabled { opacity: 0.55; cursor: default; }
 
 /* ——— PROMISE BAND ——— */
 /* Base band (.band + .label/.q em/.sig) is shared chrome (global.css).
