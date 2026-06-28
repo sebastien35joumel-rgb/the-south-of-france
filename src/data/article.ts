@@ -216,6 +216,7 @@ export const articles: Record<string, Partial<Record<Locale, ArticleContent>>> =
       { type: 'h2', num: 'III.', html: 'La ville les onze autres mois' },
       { type: 'p', html: 'Montez du front de mer vers <b>Le Suquet</b>, la vieille ville, et Cannes change de visage : ruelles en escalier, tour romane carrée, linge tendu entre les volets. Le <b>marché Forville</b>, en contrebas, est là où les restaurants s’approvisionnent — et où vous devriez le faire aussi. À vingt minutes de bateau du Vieux Port, les <b>îles de Lérins</b> : Sainte-Marguerite et son fort, la cellule du Masque de fer ; Saint-Honorat, où des moines font du vin depuis des siècles et le font encore.' },
       { type: 'p', html: 'Le soir, nous étions de retour sur la Croisette, une glace à la main et aucune avant-première en vue, à regarder la lumière virer au rose sur l’Estérel. La ville célèbre et la ville ordinaire tiennent dans les mêmes quelques rues ; il suffit de venir la bonne semaine pour les distinguer.' },
+      { type: 'p', html: 'Cette lumière si particulière attire les peintres sur la Côte d’Azur depuis plus d’un siècle ; pour prolonger côté toiles, voyez notre panorama des <a class="inline" href="https://peinture-abstraite.com/blog/styles-de-peinture/">grands styles de peinture</a>.' },
     ],
     pratiqueHeading: 'Préparer la <em>visite</em>',
     pratiqueRows: [
