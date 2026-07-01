@@ -59,6 +59,7 @@ export const NESTED: NestedEntry[] = [
   { kind: 'article', parent: 'provence', entry: 'lourmarin' },
   // ── SEO blog guides (low-KD long-tail) ──
   { kind: 'article', parent: 'things-to-do', entry: 'south-of-france-in-october' },
+  { kind: 'article', parent: 'the-table', entry: 'mediterranean-diet' },
   { kind: 'adresse', parent: 'stays', entry: 'crillon-le-brave' },
   { kind: 'adresse', parent: 'stays', entry: 'la-colombe-d-or' },
   { kind: 'adresse', parent: 'the-table', entry: 'oustau-de-baumaniere' },

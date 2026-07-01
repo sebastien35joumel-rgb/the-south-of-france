@@ -18,6 +18,8 @@ interface Props {
   /** Override canonical/hreflang for nested pages (article, address). */
   canonicalUrl?: string;
   alternates?: { hreflang: string; href: string }[];
+  /** Optional JSON-LD structured data (already stringified). */
+  jsonLd?: string;
 }
 
 const {
@@ -28,6 +30,7 @@ const {
   noindex = false,
   canonicalUrl,
   alternates: alternatesOverride,
+  jsonLd,
 } = Astro.props;
 const canonical = canonicalUrl ?? localizedUrl(locale, section);
 const alternates = alternatesOverride ?? hreflangAlternates(section);
@@ -51,6 +54,7 @@ const alternates = alternatesOverride ?? hreflangAlternates(section);
   <meta property="og:description" content={description} />
   <meta property="og:url" content={canonical} />
   <meta property="og:locale" content={htmlLang[locale]} />
+  {jsonLd && <script type="application/ld+json" set:html={jsonLd} />}
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link

@@ -38,6 +38,20 @@ const entry = props.entry as string;
 const content: any = kind === 'article' ? articles[entry][locale] : adresses[entry][locale];
 const canonicalUrl = nestedUrl(locale, parent, entry);
 const alternates = nestedAlternates(parent, entry);
+
+// FAQPage structured data for articles that carry a `faq` field.
+let jsonLd: string | undefined;
+if (kind === 'article' && Array.isArray(content.faq) && content.faq.length) {
+  jsonLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: content.faq.map((f: { q: string; a: string }) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  });
+}
 ---
 <Base
   locale={locale}
@@ -46,6 +60,7 @@ const alternates = nestedAlternates(parent, entry);
   description={content.description}
   canonicalUrl={canonicalUrl}
   alternates={alternates}
+  jsonLd={jsonLd}
 >
   <Nav locale={locale} section={parent} />
   {kind === 'article' && <Article locale={locale} c={content} />}
