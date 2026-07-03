@@ -7,6 +7,23 @@ interface Props {
 }
 const { locale } = Astro.props;
 const f = chrome[locale].footer;
+
+// Credit line — links to the agency that built the site. Marked rel="sponsored"
+// as it is a paid/commercial relationship rather than an editorial citation.
+const creditLabel: Record<Locale, string> = {
+  en: 'Site by',
+  fr: 'Site réalisé par',
+  it: 'Sito realizzato da',
+  de: 'Website von',
+  es: 'Sitio realizado por',
+};
+const partnerLabel: Record<Locale, string> = {
+  en: 'In partnership with',
+  fr: 'En partenariat avec',
+  it: 'In collaborazione con',
+  de: 'In Partnerschaft mit',
+  es: 'En colaboración con',
+};
 ---
 <footer class="footer">
   <div class="wrap">
@@ -14,6 +31,7 @@ const f = chrome[locale].footer;
       <div class="foot-brand">
         <div class="mk didone">The South <em>of</em> France</div>
         <p>{f.blurb}</p>
+        <p class="partner">{partnerLabel[locale]} <a href="https://allovoyages.fr">allovoyages</a>.</p>
       </div>
       <div class="foot-col">
         <h5>{f.sections.heading}</h5>
@@ -38,6 +56,7 @@ const f = chrome[locale].footer;
     </div>
     <div class="foot-bottom">
       <span class="fine" set:html={f.fineLeft.replace('·', '<span class="dot">·</span>')} />
+      <span class="fine credit">{creditLabel[locale]} <a href="https://newp.fr" rel="sponsored noopener" target="_blank">NEWP</a></span>
       <span class="fine" set:html={f.fineRight.replace('·', '<span class="dot">·</span>')} />
     </div>
   </div>
