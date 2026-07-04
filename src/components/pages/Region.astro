@@ -28,10 +28,22 @@ const CARD_REF: Partial<Record<SectionKey, Record<number, Ref>>> = {
   provence: {
     0: { parent: 'stays', entry: 'crillon-le-brave' },
     1: { parent: 'provence', entry: 'roussillon-ochre' },
+    5: { parent: 'provence', entry: 'isle-sur-la-sorgue' },
   },
-  'french-riviera': { 3: { parent: 'french-riviera', entry: 'eze-village' } },
-  languedoc: { 0: { parent: 'languedoc', entry: 'canal-du-midi-velo' } },
-  camargue: { 1: { parent: 'camargue', entry: 'aigues-mortes-salt' } },
+  'french-riviera': {
+    1: { parent: 'french-riviera', entry: 'saint-paul-de-vence' },
+    3: { parent: 'french-riviera', entry: 'eze-village' },
+  },
+  languedoc: {
+    0: { parent: 'languedoc', entry: 'canal-du-midi-velo' },
+    2: { parent: 'languedoc', entry: 'carcassonne' },
+    3: { parent: 'languedoc', entry: 'collioure' },
+  },
+  camargue: {
+    0: { parent: 'camargue', entry: 'pont-de-gau-flamingos' },
+    1: { parent: 'camargue', entry: 'aigues-mortes-salt' },
+    3: { parent: 'camargue', entry: 'saintes-maries-de-la-mer' },
+  },
   stays: {
     1: { parent: 'stays', entry: 'mas-de-peint' },
     3: { parent: 'stays', entry: 'la-colombe-d-or' },

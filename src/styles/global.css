@@ -42,6 +42,10 @@ img { max-width: 100%; }
 .nav .links .lang.on { color: var(--ink); }
 .nav .links .lang:hover { color: var(--sea); }
 .nav .langrow { display: contents; }
+/* Lead-capture CTA — accent pill, sits at the far right of the bar. */
+.nav .links a.cta { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #fff; background: var(--sea); text-decoration: none; padding: 9px 18px; margin-left: 12px; line-height: 1; border-radius: 2px; transition: background 0.3s; }
+.nav .links a.cta:hover { color: #fff; background: var(--sea-deep); }
+.nav .links a.cta.cur { background: var(--sea-deep); }
 /* Mobile menu toggle — hidden on desktop, surfaced under the tablet breakpoint. */
 .nav .nav-toggle { display: none; }
 .nav .burger { display: none; }
@@ -198,6 +202,10 @@ img { max-width: 100%; }
   .nav .links a.navlink {
     width: 100%; line-height: 1; padding: 16px 0; font-size: 13px;
     border-bottom: 1px solid var(--line-faint);
+  }
+  .nav .links a.cta {
+    width: 100%; text-align: center; margin: 16px 0 4px;
+    padding: 14px 0; font-size: 12px; border-radius: 2px;
   }
   .nav .links > .langsep { display: none; }
   .nav .langrow { display: flex; gap: 4px; padding-top: 18px; }

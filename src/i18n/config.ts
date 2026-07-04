@@ -51,6 +51,7 @@ export type SectionKey =
   | 'newsletter'
   | 'contribute'
   | 'become-contributor'
+  | 'plan-trip'
   | 'legal';
 
 export const slugs: Record<SectionKey, Record<Locale, string>> = {
@@ -69,6 +70,7 @@ export const slugs: Record<SectionKey, Record<Locale, string>> = {
   newsletter: { en: 'newsletter', fr: 'newsletter', it: 'newsletter', de: 'newsletter', es: 'newsletter' },
   contribute: { en: 'write-for-us', fr: 'rediger-un-article', it: 'scrivi-per-noi', de: 'fuer-uns-schreiben', es: 'escribe-para-nosotros' },
   'become-contributor': { en: 'become-a-contributor', fr: 'devenir-contributeur', it: 'diventare-collaboratore', de: 'mitwirken', es: 'colaborar-con-nosotros' },
+  'plan-trip': { en: 'plan-my-trip', fr: 'organiser-mon-voyage', it: 'organizza-il-viaggio', de: 'reise-planen', es: 'planificar-mi-viaje' },
   legal: { en: 'legal', fr: 'mentions-legales', it: 'note-legali', de: 'impressum', es: 'aviso-legal' },
 };
 

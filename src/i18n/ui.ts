@@ -17,6 +17,8 @@ export interface FooterCol {
 
 export interface Chrome {
   nav: NavItem[];
+  /** Header lead-capture call-to-action ("Plan my trip"). */
+  cta: string;
   footer: {
     blurb: string;
     sections: FooterCol;
@@ -40,6 +42,7 @@ export const chrome: Record<Locale, Chrome> = {
       { section: 'journal', label: 'The Journal' },
       { section: 'about', label: 'About', sub: true },
     ],
+    cta: 'Plan my trip',
     footer: {
       blurb:
         'An independent multilingual journal of the Mediterranean. Four issues a year, in print and online — for those who travel the Midi slowly.',
@@ -82,6 +85,7 @@ export const chrome: Record<Locale, Chrome> = {
       { section: 'journal', label: 'Le Journal' },
       { section: 'about', label: 'À propos', sub: true },
     ],
+    cta: 'Organiser mon voyage',
     footer: {
       blurb:
         'Un journal indépendant et multilingue de la Méditerranée. Quatre numéros par an, en papier et en ligne — pour celles et ceux qui parcourent le Midi sans se presser.',
@@ -124,6 +128,7 @@ export const chrome: Record<Locale, Chrome> = {
       { section: 'journal', label: 'Il Giornale' },
       { section: 'about', label: 'Chi siamo', sub: true },
     ],
+    cta: 'Organizza il viaggio',
     footer: {
       blurb:
         'Una rivista indipendente e multilingue del Mediterraneo. Quattro numeri all’anno, su carta e online — per chi percorre il Midi senza fretta.',
@@ -166,6 +171,7 @@ export const chrome: Record<Locale, Chrome> = {
       { section: 'journal', label: 'Das Journal' },
       { section: 'about', label: 'Über uns', sub: true },
     ],
+    cta: 'Reise planen',
     footer: {
       blurb:
         'Ein unabhängiges, mehrsprachiges Journal des Mittelmeers. Vier Ausgaben im Jahr, gedruckt und online — für alle, die den Midi mit Muße bereisen.',
@@ -208,6 +214,7 @@ export const chrome: Record<Locale, Chrome> = {
       { section: 'journal', label: 'El Diario' },
       { section: 'about', label: 'Quiénes somos', sub: true },
     ],
+    cta: 'Planificar mi viaje',
     footer: {
       blurb:
         'Una revista independiente y multilingüe del Mediterráneo. Cuatro números al año, en papel y en línea — para quienes recorren el Midi sin prisa.',

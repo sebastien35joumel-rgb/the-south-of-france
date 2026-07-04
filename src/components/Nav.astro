@@ -8,6 +8,8 @@ interface Props {
 }
 const { locale, section } = Astro.props;
 const nav = chrome[locale].nav;
+const ctaLabel = chrome[locale].cta;
+const ctaHref = localizedPath(locale, 'plan-trip');
 ---
 <nav class="nav">
   <div class="wrap">
@@ -24,6 +26,7 @@ const nav = chrome[locale].nav;
           set:html={item.label}
         />
       ))}
+      <a class={`cta${section === 'plan-trip' ? ' cur' : ''}`} href={ctaHref}>{ctaLabel}</a>
       <span class="langsep">·</span>
       <span class="langrow">
         {liveLocales.map((loc, i) => (

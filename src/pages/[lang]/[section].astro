@@ -10,6 +10,7 @@ import Newsletter from '../../components/pages/Newsletter.astro';
 import Legal from '../../components/pages/Legal.astro';
 import ComingSoon from '../../components/pages/ComingSoon.astro';
 import Contribute from '../../components/pages/Contribute.astro';
+import PlanTrip from '../../components/pages/PlanTrip.astro';
 import { slugs, liveLocales, type Locale, type SectionKey } from '../../i18n/config';
 import { regions, type RegionKey } from '../../data/regions';
 import { hubs } from '../../data/hubs';
@@ -20,6 +21,7 @@ import { newsletter } from '../../data/newsletter';
 import { legal } from '../../data/legal';
 import { comingSoon } from '../../data/comingsoon';
 import { contribute } from '../../data/contribute';
+import { tripLead } from '../../data/tripLead';
 
 // One dispatcher for every single-segment section page. Slugs are
 // translated, so we emit one path per (locale, section) from the slug
@@ -36,6 +38,7 @@ export function getStaticPaths() {
     { kind: 'legal', section: 'legal', store: legal },
     { kind: 'contribute', section: 'contribute', store: contribute['contribute'] },
     { kind: 'contribute', section: 'become-contributor', store: contribute['become-contributor'] },
+    { kind: 'plantrip', section: 'plan-trip', store: tripLead },
     { kind: 'comingsoon', section: 'things-to-do', store: comingSoon['things-to-do'] },
     { kind: 'comingsoon', section: 'riviera-jewellers', store: comingSoon['riviera-jewellers'] },
   ] as const;
@@ -90,6 +93,7 @@ if (kind === 'region') {
     'become-contributor': contribute['become-contributor'],
     'things-to-do': comingSoon['things-to-do'],
     'riviera-jewellers': comingSoon['riviera-jewellers'],
+    'plan-trip': tripLead,
   };
   content = stores[sectionKey][locale];
 }
@@ -111,6 +115,7 @@ const noindex = kind === 'legal' || kind === 'comingsoon';
   {kind === 'newsletter' && <Newsletter locale={locale} c={content} />}
   {kind === 'legal' && <Legal locale={locale} c={content} />}
   {kind === 'contribute' && <Contribute locale={locale} c={content} />}
+  {kind === 'plantrip' && <PlanTrip locale={locale} />}
   {kind === 'comingsoon' && <ComingSoon locale={locale} c={content} />}
   <Footer locale={locale} />
 </Base>

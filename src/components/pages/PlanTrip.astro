@@ -1,0 +1,62 @@
+---
+import TripLead from '../TripLead.astro';
+import { localizedPath, type Locale } from '../../i18n/config';
+import { tripLead } from '../../data/tripLead';
+
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const t = tripLead[locale];
+---
+<header class="pt-hero">
+  <div class="wrap">
+    <nav class="pt-crumb"><a href={localizedPath(locale, 'home')}>{t.crumbHome}</a> <span>/</span> <em>{t.h1}</em></nav>
+    <div class="label">{t.eyebrow}</div>
+    <h1 class="didone">{t.h1}</h1>
+    <p class="pt-lede" set:html={t.lede}></p>
+    <ul class="pt-points">
+      {t.points.map((p) => <li>{p}</li>)}
+    </ul>
+  </div>
+</header>
+
+<section class="pt-body">
+  <div class="wrap">
+    <TripLead locale={locale} />
+  </div>
+</section>
+
+<style>
+  .pt-hero { background: var(--sea-deep); color: var(--paper); padding: 64px 0 52px; }
+  .pt-hero .wrap { max-width: 860px; }
+  .pt-crumb {
+    font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 0.22em;
+    text-transform: uppercase; color: rgba(255, 255, 255, 0.55); margin-bottom: 26px;
+  }
+  .pt-crumb a { color: rgba(255, 255, 255, 0.78); text-decoration: none; }
+  .pt-crumb a:hover { color: #fff; }
+  .pt-crumb em { font-style: normal; color: rgba(255, 255, 255, 0.88); }
+  .pt-hero .label { color: rgba(255, 255, 255, 0.6); margin-bottom: 16px; }
+  .pt-hero h1 {
+    font-family: 'Bodoni Moda', serif; font-weight: 300;
+    font-size: clamp(38px, 6vw, 68px); line-height: 0.98; color: #fff; margin-bottom: 20px;
+  }
+  .pt-lede {
+    font-family: 'Cormorant Garamond', serif; font-size: 21px; line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9); max-width: 34em;
+  }
+  .pt-lede strong { font-weight: 500; color: #fff; }
+  .pt-points {
+    list-style: none; display: flex; flex-wrap: wrap; gap: 12px 28px;
+    margin: 28px 0 0; padding: 0;
+  }
+  .pt-points li {
+    font-family: 'Inter', sans-serif; font-weight: 400; font-size: 11px;
+    letter-spacing: 0.06em; color: rgba(255, 255, 255, 0.9);
+  }
+  .pt-body { padding: 52px 0 96px; }
+  .pt-body .wrap { max-width: 860px; }
+  @media (max-width: 600px) {
+    .pt-hero { padding: 44px 0 38px; }
+    .pt-body { padding: 36px 0 64px; }
+  }
+</style>

@@ -1,0 +1,142 @@
+---
+// Traveller lead capture ("Plan my trip"), modelled on allovoyages.
+// The visitor describes their project → connected with a partner travel
+// advisor. Sent via FormSubmit (→ contact@newp.fr). Honeypot `_honey`.
+// Styled with the site's own "Vogue" palette (--sea accent). No new colours.
+import { localizedPath, localizedUrl, type Locale } from '../i18n/config';
+import { FORMSUBMIT_ACTION } from '../data/contact';
+import { tripLead } from '../data/tripLead';
+
+interface Props {
+  locale: Locale;
+  source?: string;
+}
+const { locale, source } = Astro.props;
+const t = tripLead[locale];
+const src = source ?? `the-south-of-france — plan-my-trip (${locale})`;
+const privacyHref = localizedPath(locale, 'legal');
+const nextUrl = localizedUrl(locale, 'home');
+---
+<section class="triplead">
+  <div class="tl-card">
+    <form action={FORMSUBMIT_ACTION} method="POST">
+      <input type="hidden" name="_subject" value="Nouveau lead voyage — the-south-of-france.com" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_next" value={nextUrl} />
+      <input type="hidden" name="source" value={src} />
+      <input type="hidden" name="locale" value={locale} />
+      <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+      <div class="grid">
+        <label class="full">
+          <span>{t.destinationLabel} <b>*</b></span>
+          <input type="text" name="destination" required placeholder={t.destinationPlaceholder} />
+        </label>
+        <label>
+          <span>{t.periodLabel}</span>
+          <input type="text" name="period" placeholder={t.periodPlaceholder} />
+        </label>
+        <label>
+          <span>{t.travellersLabel}</span>
+          <select name="travellers">
+            <option value={t.travellers.one}>{t.travellers.one}</option>
+            <option value={t.travellers.two} selected>{t.travellers.two}</option>
+            <option value={t.travellers.family}>{t.travellers.family}</option>
+            <option value={t.travellers.group}>{t.travellers.group}</option>
+          </select>
+        </label>
+        <label>
+          <span>{t.budgetLabel}</span>
+          <select name="budget">
+            <option value={t.budget.under}>{t.budget.under}</option>
+            <option value={t.budget.low}>{t.budget.low}</option>
+            <option value={t.budget.mid}>{t.budget.mid}</option>
+            <option value={t.budget.over}>{t.budget.over}</option>
+            <option value={t.budget.tbd} selected>{t.budget.tbd}</option>
+          </select>
+        </label>
+        <label>
+          <span>{t.firstNameLabel} <b>*</b></span>
+          <input type="text" name="first_name" required placeholder={t.firstNamePlaceholder} />
+        </label>
+        <label>
+          <span>{t.emailLabel} <b>*</b></span>
+          <input type="email" name="email" required placeholder={t.emailPlaceholder} />
+        </label>
+        <label class="full">
+          <span>{t.phoneLabel} <em>{t.phoneHint}</em></span>
+          <input type="tel" name="phone" placeholder={t.phonePlaceholder} />
+        </label>
+        <label class="full">
+          <span>{t.wishesLabel} <em>{t.wishesHint}</em></span>
+          <textarea name="wishes" rows="3" placeholder={t.wishesPlaceholder}></textarea>
+        </label>
+      </div>
+
+      <label class="consent">
+        <input type="checkbox" name="consent" value="yes" required />
+        <span>{t.consentBefore}<a href={privacyHref}>{t.consentLink}</a>{t.consentAfter}</span>
+      </label>
+
+      <button type="submit" class="tl-submit">{t.submit}</button>
+      <p class="tl-fine">{t.fine}</p>
+    </form>
+  </div>
+</section>
+<style>
+  .triplead { margin: 12px 0 8px; }
+  .tl-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: 34px 34px 30px;
+    box-shadow: 0 18px 48px rgba(12, 58, 87, 0.07);
+  }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .grid .full { grid-column: 1 / -1; }
+  label {
+    display: flex; flex-direction: column; gap: 7px;
+    font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 400;
+    letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-soft);
+  }
+  label b { color: var(--sea); }
+  label em { font-weight: 400; color: var(--grey); font-style: normal; text-transform: none; letter-spacing: 0.04em; }
+  .tl-card input, .tl-card select, .tl-card textarea {
+    width: 100%; padding: 12px 14px;
+    border: 1px solid var(--line); border-radius: 0;
+    background: #fff; color: var(--ink);
+    font-family: 'Cormorant Garamond', Georgia, serif; font-size: 17px;
+  }
+  .tl-card input::placeholder, .tl-card textarea::placeholder { color: var(--grey); font-style: italic; }
+  .tl-card input:focus, .tl-card select:focus, .tl-card textarea:focus {
+    outline: none; border-color: var(--sea);
+    box-shadow: 0 0 0 3px rgba(30, 111, 159, 0.12);
+  }
+  .tl-card textarea { resize: vertical; }
+  .consent {
+    flex-direction: row; align-items: flex-start; gap: 11px;
+    margin: 22px 0 4px; font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 15px; letter-spacing: 0; text-transform: none;
+    font-weight: 400; color: var(--ink-soft); line-height: 1.5;
+  }
+  .consent input { width: 17px; height: 17px; margin-top: 3px; flex: none; accent-color: var(--sea); }
+  .consent a { color: var(--sea); text-decoration: underline; }
+  .tl-submit {
+    margin-top: 22px; width: 100%; cursor: pointer;
+    border: 0; background: var(--sea); color: #fff;
+    font-family: 'Inter', sans-serif; font-size: 11px;
+    letter-spacing: 0.24em; text-transform: uppercase;
+    padding: 17px; transition: background 0.3s;
+  }
+  .tl-submit:hover { background: var(--sea-deep); }
+  .tl-fine {
+    margin-top: 14px; text-align: center;
+    font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic;
+    font-size: 14px; color: var(--grey);
+  }
+  .hp { display: none; }
+  @media (max-width: 600px) {
+    .tl-card { padding: 24px 20px; }
+    .grid { grid-template-columns: 1fr; gap: 14px; }
+  }
+</style>
