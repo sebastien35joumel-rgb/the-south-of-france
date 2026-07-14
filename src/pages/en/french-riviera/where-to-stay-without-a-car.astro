@@ -1,0 +1,225 @@
+---
+// Standalone long-form guide (car-free Riviera bases). Reuses the site
+// chrome (Base layout + Nav/Footer) and the shared article.css gabarit so
+// the page matches the visual system, but carries its own body markup
+// because it needs lists and a comparison table. NOINDEX via the Base prop.
+import Base from '../../../layouts/Base.astro';
+import Nav from '../../../components/Nav.astro';
+import Footer from '../../../components/Footer.astro';
+import '../../../styles/pages/article.css';
+import { SITE_URL, type Locale, type SectionKey } from '../../../i18n/config';
+
+const locale: Locale = 'en';
+const section: SectionKey = 'french-riviera';
+
+const title = 'Where to Stay on the French Riviera Without a Car';
+const description =
+  "Skip the rental car and let the coastal train do the driving. A local's framework for choosing between Nice, Antibes and Menton as your Riviera base.";
+const canonicalUrl = SITE_URL + '/en/french-riviera/where-to-stay-without-a-car/';
+
+const heroImg = 'https://images.unsplash.com/photo-1491166617655-0723a0999cfc?w=1200';
+const heroAlt =
+  'The French Riviera coastline at golden hour, its seaside towns strung along the coast the train follows';
+---
+<Base
+  locale={locale}
+  section={section}
+  title={title}
+  description={description}
+  noindex={true}
+  canonicalUrl={canonicalUrl}
+  alternates={[]}
+>
+  <Nav locale={locale} section={section} />
+
+  <header class="art-hero">
+    <img src={heroImg} alt={heroAlt} loading="lazy" />
+    <div class="veil"></div>
+    <div class="head">
+      <div class="wrap">
+        <div class="kicker">French Riviera · Car-free travel</div>
+        <h1 class="didone">Where to Stay on the French Riviera <em>Without a Car</em></h1>
+        <p class="deck">{description}</p>
+      </div>
+    </div>
+  </header>
+
+  <article class="article">
+    <h2 class="didone">Why a car-free Riviera is the smarter luxury</h2>
+    <p class="lede">Deciding where to stay on the French Riviera usually comes down to the wrong question. Most guides rank towns by their beaches or their Instagram value. The question that actually shapes your week is quieter: how easily can you leave the town you sleep in, and come back for dinner without touching a steering wheel?</p>
+    <p>Here is the piece the glossy lists skip. A single regional train line — the TER that runs along the coast from Marseille toward Ventimiglia on the Italian border — strings the best of the Côte d'Azur together like beads on a wire. Cannes, Antibes, Juan-les-Pins, Nice, Villefranche-sur-Mer, Monaco, Menton: they are stops, not expeditions. Choose a base within walking distance of one of those stations and you unlock the whole coast without the two things that quietly ruin a Riviera summer — the search for parking in Nice's old town, and the crawl along the Basse Corniche in August heat.</p>
+    <p>So this is not a "prettiest village" ranking. It is a decision framework. Below, three bases — Nice, Antibes, Menton — matched to the kind of traveller you actually are, and to how far you realistically want to roam each day.</p>
+
+    <h2 class="didone">Nice: the connected all-rounder</h2>
+    <p>If you want the widest reach for the least planning, Nice is the default answer, and it earns it. It sits roughly in the middle of the coastal line, so day trips fan out in both directions: Cannes and Antibes to the west, Monaco and Menton to the east, all reachable in well under an hour by train. It is also home to the region's main international airport, which means you can land and be on the Promenade des Anglais without a car ever entering the equation.</p>
+    <p>Nice rewards the traveller who wants a real city underneath the holiday: a proper old town (Vieux Nice) that stays alive after the day-trippers leave, a food market on the Cours Saleya, and the tram to carry you from the station to the sea.</p>
+    <p>The trade-off is honest. Nice is a city, with a city's density and a city's crowds in high season. The beaches are pebble, not sand. If your fantasy is a hushed harbour and quiet mornings, this is not it.</p>
+    <p>Nice suits you if:</p>
+    <ul>
+      <li>You want one base for a first Riviera trip and don't want to overthink logistics.</li>
+      <li>You value nightlife, restaurants and museums as much as the coast.</li>
+      <li>You're flying in and out and want zero transfer friction.</li>
+      <li>You plan to day-trip aggressively in both directions.</li>
+    </ul>
+    <p>For a slower parallel, our <a class="inline" href="/en/french-riviera/nice-vieux-nice/">guide to a weekend in Vieux Nice</a> leans into the mornings-before-the-crowds version of the city.</p>
+
+    <h2 class="didone">Antibes: the harbour town in the middle</h2>
+    <p>Antibes is the base I most often recommend to people who found Nice "a bit much" on a previous trip. Geographically it is the quiet winner: it sits between Cannes and Nice, so your westward stops (Cannes, the Îles de Lérins by ferry) and your eastward stops (Nice, and beyond to Monaco) are both within comfortable train reach. You give up a little eastern range compared with Nice, and gain a calmer place to come home to.</p>
+    <p>The town itself does a rare double act. Old Antibes is a walled harbour town with the largest yacht marina on the coast on one side and a genuine daily Provençal market on the other. Walk twenty minutes and you reach Juan-les-Pins, a separate resort quarter with sandy beaches and a different, breezier mood. Push on to Cap d'Antibes and the pines and villas begin — the coastal path around the cape is one of the finest free experiences on the Riviera.</p>
+    <p>Antibes suits you if:</p>
+    <ul>
+      <li>You want harbour-town charm without giving up train connectivity.</li>
+      <li>You'd like both a walkable old town and easy sandy beaches (Juan-les-Pins) in one base.</li>
+      <li>You're travelling as a couple or family and want calm evenings.</li>
+    </ul>
+    <p>If yachts and film-festival glamour are the pull, pair a day west with this <a class="inline" href="https://cannes-city.com/">Cannes city guide</a> — a fifteen-minute hop down the same line.</p>
+
+    <h2 class="didone">Menton: the slow eastern edge</h2>
+    <p>Menton is the choice for travellers who have already "done" the Riviera and want the version with the volume turned down. It is the last French town before Italy, and it feels it: the light is softer, the pace slower, the architecture visibly Ligurian. This is the base for readers who measure a holiday in unhurried lunches rather than sights ticked off.</p>
+    <p>The catch is the same thing that makes it special: it's at the end of the line. Menton is perfectly placed for Monaco (minutes away) and for crossing into Italy for a Ventimiglia market morning. But Cannes and Antibes become longer commitments — you can still reach them by train, you'll simply spend more of the day doing it. Base here and your centre of gravity shifts firmly east.</p>
+    <p>Menton rewards slowness with real substance: the gardens it's famous for, the ochre old town climbing to the Saint-Michel basilica, and a lemon-forward food culture that peaks with the town's winter citrus festival. In summer it's the coast at its most residential and least frantic.</p>
+    <p>Menton suits you if:</p>
+    <ul>
+      <li>You want quiet, and you're happy to trade some western range for it.</li>
+      <li>Italy-on-a-day-trip appeals as much as the French coast.</li>
+      <li>You've visited the Riviera before and want its gentler register.</li>
+    </ul>
+
+    <h2 class="didone">The side-by-side decision, in one table</h2>
+    <p>The honest way to choose is to match your base to your appetite for movement. The table below compares the three on the factors that actually change your week — not the ones that photograph well.</p>
+    <div class="table-scroll">
+      <table class="rtable">
+        <thead>
+          <tr>
+            <th scope="col">Factor</th>
+            <th scope="col">Nice</th>
+            <th scope="col">Antibes</th>
+            <th scope="col">Menton</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Position on the line</th>
+            <td>Central</td>
+            <td>West-central</td>
+            <td>Eastern end</td>
+          </tr>
+          <tr>
+            <th scope="row">Day-trip range</th>
+            <td>Widest, both directions</td>
+            <td>Broad, both directions</td>
+            <td>Strong east, longer west</td>
+          </tr>
+          <tr>
+            <th scope="row">Airport transfer</th>
+            <td>Effortless (main hub)</td>
+            <td>Easy</td>
+            <td>Longer</td>
+          </tr>
+          <tr>
+            <th scope="row">Character</th>
+            <td>Lively city</td>
+            <td>Harbour town + resort</td>
+            <td>Slow border town</td>
+          </tr>
+          <tr>
+            <th scope="row">Beaches</th>
+            <td>Pebble, urban</td>
+            <td>Pebble old town / sand at Juan-les-Pins</td>
+            <td>Pebble, calm</td>
+          </tr>
+          <tr>
+            <th scope="row">Best for</th>
+            <td>First trip, maximum reach</td>
+            <td>Balance of charm and access</td>
+            <td>Return visitors, quiet</td>
+          </tr>
+          <tr>
+            <th scope="row">Watch-out</th>
+            <td>Crowds, city density</td>
+            <td>Slightly less eastern reach</td>
+            <td>Far from the western coast</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>A simple rule of thumb: pick <strong>Nice</strong> for reach, <strong>Antibes</strong> for balance, <strong>Menton</strong> for calm. First-timers who want to see everything should weight the top of that list; returning travellers chasing atmosphere should weight the bottom.</p>
+
+    <h2 class="didone">Going genuinely car-free once you arrive</h2>
+    <p>Choosing a base by its station is only half the plan. Here is how the car-free week actually holds together on the ground — and the one honest exception.</p>
+    <ol>
+      <li><strong>Lean on the coastal train for the headline stops.</strong> Nearly every marquee name on the Riviera has a station within walking distance of its centre. This is your spine.</li>
+      <li><strong>Use local buses for the hilltop villages.</strong> The most photogenic perched villages — Èze among them — sit above the coast road, not on the rail line. Regional buses climb to them for the price of a coffee; check the return times before you go up so you're not stranded.</li>
+      <li><strong>Take to the water where it beats the road.</strong> Seasonal ferries reach places like the Îles de Lérins off Cannes, turning a transfer into part of the day out.</li>
+      <li><strong>Walk the coastal paths.</strong> The sentier du littoral around Cap d'Antibes and the Cap Ferrat peninsula are free, flat-ish, and reach coves no bus serves.</li>
+    </ol>
+    <p>The exception worth naming plainly: the deep inland Provence beyond the coast — the Gorges du Verdon, the lavender plateaus, the more remote hill villages — is genuinely hard without a car, and no amount of train planning fixes that. If those are the heart of your trip, the smart move is a car-free coastal base for most of the week plus one or two days of a rental or a guided tour for the interior, rather than paying to park a car by the sea you never drive.</p>
+    <p>For readers building a longer Mediterranean itinerary around this coast, our <a class="inline" href="/en/provence/">slow Provence road-trip planner</a> covers where a car finally earns its keep — and where, as here, it only gets in the way.</p>
+    <p>The Riviera doesn't ask you to choose between freedom and ease. Pick your station, and both come with the ticket.</p>
+  </article>
+
+  <Footer locale={locale} />
+</Base>
+
+<style>
+  /* List + table styles the shared article.css doesn't cover, kept tight to
+     the reading column and fully responsive (no horizontal overflow). */
+  .article ul,
+  .article ol {
+    max-width: 100%;
+    margin: 0 0 30px;
+    padding-left: 1.25em;
+  }
+  .article li {
+    font-size: 19px;
+    line-height: 1.72;
+    color: #232629;
+    margin-bottom: 12px;
+  }
+  .article li strong {
+    font-weight: 500;
+  }
+  .article a.inline strong {
+    font-weight: 500;
+  }
+
+  .table-scroll {
+    max-width: 100%;
+    margin: 34px 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border: 1px solid var(--line);
+  }
+  .rtable {
+    width: 100%;
+    min-width: 640px;
+    border-collapse: collapse;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+  }
+  .rtable th,
+  .rtable td {
+    padding: 12px 14px;
+    text-align: left;
+    vertical-align: top;
+    line-height: 1.5;
+    border: 1px solid var(--line);
+  }
+  .rtable thead th {
+    background: var(--sea-deep);
+    color: #fff;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+  .rtable tbody th {
+    background: rgba(30, 111, 159, 0.06);
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  @media (max-width: 900px) {
+    .article li {
+      font-size: 17.5px;
+    }
+  }
+</style>
