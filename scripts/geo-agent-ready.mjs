@@ -68,9 +68,13 @@ function extractBody(html) {
 }
 
 const meta = (html, name) => {
-  const re = new RegExp(`<meta[^>]+name=["']${name}["'][^>]*content=["']([^"']*)["']`, 'i');
+  // On capture le guillemet ouvrant, puis on ferme sur LE MÊME (backreference \1).
+  // Piège : [^"']* s'arrête à la PREMIÈRE apostrophe. En français, « multiple d'EBE »
+  // dans un attribut en guillemets doubles tronquait toutes les descriptions à
+  // « multiple d ». Les agents IA lisaient des phrases coupées en plein milieu.
+  const re = new RegExp(`<meta[^>]+name=["']${name}["'][^>]*content=(["'])([\\s\\S]*?)\\1`, 'i');
   const m = html.match(re);
-  return m ? m[1] : '';
+  return m ? m[2] : '';
 };
 const titleOf = (html) => {
   const m = html.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
@@ -155,7 +159,12 @@ for (const file of files) {
 // Nom du site : déduit du <title> de la home si non fourni (« X — baseline » -> « X »).
 if (!SITE_NAME) {
   const home = pages.find((p) => p.urlPath === '/');
-  SITE_NAME = home?.title?.split(/[—|–|-]/)[0].trim() || SITE.replace(/^https?:\/\//, '');
+  // Couper UNIQUEMENT sur un tiret cadratin/demi-cadratin/pipe entouré d'espaces.
+  // Piège : la classe [—|–|-] inclut le trait d'union, donc une marque qui en contient
+  // un est amputée — « Cession-Affaire — Transmission… » donnait « Cession ».
+  // (« · » est le séparateur de titre de sornettes.com — sans lui, SITE_NAME vaut
+  //  le titre entier et le nettoyage des libellés du llms.txt ne retire rien.)
+  SITE_NAME = home?.title?.split(/\s+[—–|·]\s+/)[0].trim() || SITE.replace(/^https?:\/\//, '');
 }
 
 if (DRY) {
@@ -200,7 +209,9 @@ llms += `Version Markdown de chaque page : ajouter \`.md\` à l'URL (ex. ${SITE}
 for (const [g, items] of [...groups].sort((a, b) => a[0].localeCompare(b[0]))) {
   llms += `## ${g.charAt(0).toUpperCase() + g.slice(1)}\n\n`;
   // Retirer le suffixe de marque «  — Nom du site » répété dans chaque <title>.
-  const label = (t) => (t || '').replace(new RegExp(`\\s*[—|–-]\\s*${SITE_NAME.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*$`, 'i'), '').trim();
+  // Séparateur entouré d'espaces uniquement (même piège que SITE_NAME : un `-` collé
+  // appartient à la marque). Couvre — – | · pour tout le réseau.
+  const label = (t) => (t || '').replace(new RegExp(`\\s+[—–|·]\\s+${SITE_NAME.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*$`, 'i'), '').trim();
   for (const p of items) llms += `- [${label(p.title) || p.urlPath}](${SITE}${p.mdPath})${p.desc ? `: ${p.desc}` : ''}\n`;
   llms += '\n';
 }
