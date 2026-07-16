@@ -6,12 +6,16 @@
   "description": "The South of France — a multilingual editorial journal of the Mediterranean (static, Astro).",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build && npm run geo",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "geo": "node scripts/geo-agent-ready.mjs --dist ./dist --site https://the-south-of-france.com"
   },
   "dependencies": {
     "astro": "^5.6.1",
     "@astrojs/sitemap": "^3.3.0"
+  },
+  "devDependencies": {
+    "turndown": "^7.2.4"
   }
 }

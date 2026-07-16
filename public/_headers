@@ -1,0 +1,8 @@
+# Versions Markdown agent-ready (GEO) — cf. scripts/geo-agent-ready.mjs
+# Sans ceci Cloudflare sert les .md en application/octet-stream (téléchargement forcé).
+/*.md
+  Content-Type: text/markdown; charset=utf-8
+  X-Robots-Tag: noindex
+
+/llms.txt
+  Content-Type: text/plain; charset=utf-8
