@@ -1,6 +1,16 @@
 User-agent: *
 Allow: /
 
+# Les .md sont des copies des pages HTML (couche GEO agent-ready).
+# Le X-Robots-Tag: noindex de _headers est inopérant sur GitHub Pages,
+# donc les moteurs classiques sont écartés des .md ici pour éviter la
+# duplication. Les bots IA plus bas y ont accès : c'est leur raison d'être.
+User-agent: Googlebot
+Disallow: /*.md$
+
+User-agent: Bingbot
+Disallow: /*.md$
+
 # Bots IA bienvenus (GEO)
 User-agent: GPTBot
 Allow: /
