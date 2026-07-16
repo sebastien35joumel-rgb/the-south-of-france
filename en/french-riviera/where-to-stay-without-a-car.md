@@ -1,5 +1,5 @@
 # Where to Stay on the French Riviera Without a Car
-> Skip the rental car and let the coastal train do the driving. A local
+> Skip the rental car and let the coastal train do the driving. A local's framework for choosing between Nice, Antibes and Menton as your Riviera base.
 
 *Source : https://the-south-of-france.com/en/french-riviera/where-to-stay-without-a-car/*
 
