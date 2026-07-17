@@ -117,6 +117,40 @@ function pathsFor(file) {
   return { urlPath: `/${rel}`, mdPath: `/${rel}.md` };
 }
 
+// Garde-fou anti-dist-périmé.
+//
+// Ce script ne build pas : il réécrit le HTML déjà présent dans dist/. Lancé sans
+// `astro build` devant, il repeint donc un vieux build, qui part ensuite en prod.
+// Vécu le 09/07/2026 sur assistance-informatique-nice.com : 3 balises de
+// vérification netlinking ajoutées au layout sont restées absentes du site
+// pendant une semaine, alors que le code source était juste et poussé.
+//
+// Repère de la date du build : les assets hashés de dist/_astro/, qu'on ne touche
+// jamais. Surtout pas les .html — ce script réécrit leur mtime à chaque passage,
+// donc ils paraissent frais même quand leur contenu est périmé.
+const newestMtime = (path) => {
+  try {
+    const st = statSync(path);
+    if (!st.isDirectory()) return st.mtimeMs;
+    return readdirSync(path).reduce((max, e) => Math.max(max, newestMtime(join(path, e))), 0);
+  } catch {
+    return 0; // chemin absent : ne compte pas
+  }
+};
+
+const buildTime = newestMtime(join(DIST, '_astro'));
+const srcTime = Math.max(newestMtime('src'), newestMtime('astro.config.mjs'));
+
+if (buildTime && srcTime > buildTime && !args.includes('--force')) {
+  const mins = Math.round((srcTime - buildTime) / 60000);
+  const age = mins >= 1440 ? `${Math.round(mins / 1440)} j` : mins >= 60 ? `${Math.round(mins / 60)} h` : `${mins} min`;
+  console.error(`❌ dist/ est périmé : les sources ont ${age} d'avance sur le build.`);
+  console.error('   Ce script ne build pas, il ne ferait que repeindre un vieux HTML.');
+  console.error('   Lance `npm run build` (astro build + geo), pas `npm run geo` seul.');
+  console.error('   (--force pour passer outre en connaissance de cause)');
+  process.exit(1);
+}
+
 const files = walk(DIST);
 if (!files.length) {
   console.error(`❌ Aucun .html trouvé dans ${DIST} — le site est-il bien buildé ?`);
