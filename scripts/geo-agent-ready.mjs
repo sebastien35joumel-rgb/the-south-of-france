@@ -18,7 +18,7 @@
 // + le <link rel=alternate> + llms.txt sont la voie découvrable standard et suffisent
 // aux crawlers qui suivent la spec. Le Worker de négociation est une étape ultérieure.
 
-import { readFileSync, writeFileSync, readdirSync, statSync } from 'node:fs';
+import { readFileSync, writeFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join, relative, sep } from 'node:path';
 import TurndownService from 'turndown';
 
@@ -251,10 +251,36 @@ for (const [g, items] of [...groups].sort((a, b) => a[0].localeCompare(b[0]))) {
 }
 writeFileSync(join(DIST, 'llms.txt'), llms, 'utf8');
 
+// 4) Content-Signal dans robots.txt (politique réseau : « tout autoriser »).
+// On opère sur dist/robots.txt (le fichier final servi), quelle que soit son origine
+// (copié de public/ ou généré par une intégration Astro) → uniforme sur tout le parc.
+// Rejoué à chaque build (le geo tourne en post-build) donc durable malgré les rebuilds flotte.
+// Directive ANCRÉE sous un groupe `User-agent: *` : au niveau racine, GSC lève
+// « Syntax not understood ». Google fusionne les groupes User-agent identiques,
+// donc ce groupe trailing s'ajoute au principal sans retirer ses Allow/Disallow.
+const CS_MARKER = '# BEGIN GEO Content-Signal';
+const robotsPath = join(DIST, 'robots.txt');
+let robots = existsSync(robotsPath) ? readFileSync(robotsPath, 'utf8') : 'User-agent: *\nAllow: /\n';
+let robotsAction = 'inchangé';
+if (!robots.includes(CS_MARKER)) {
+  robots = robots.trimEnd() + '\n\n' + [
+    CS_MARKER,
+    '# Politique d\'usage IA — https://contentsignals.org/',
+    'User-agent: *',
+    'Content-Signal: search=yes, ai-train=yes, ai-input=yes',
+    'Allow: /',
+    '# END GEO Content-Signal',
+    '',
+  ].join('\n');
+  writeFileSync(robotsPath, robots, 'utf8');
+  robotsAction = existsSync(robotsPath) ? 'Content-Signal ajouté' : 'robots.txt créé';
+}
+
 console.log(`✅ GEO agent-ready — ${SITE}`);
 console.log(`   ${pages.length} fichier(s) .md générés`);
 console.log(`   ${injected} <link rel="alternate"> injectés`);
 console.log(`   llms.txt écrit (${groups.size} section(s))`);
+console.log(`   robots.txt : ${robotsAction} (Content-Signal search/ai-train/ai-input=yes)`);
 console.log(`   → vérifie après déploiement :`);
 console.log(`      curl -s ${SITE}/llms.txt | head`);
 console.log(`      curl -sI ${SITE}/about.md   (attendu : content-type text/markdown)`);
