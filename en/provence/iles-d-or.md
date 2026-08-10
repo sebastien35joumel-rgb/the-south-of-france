@@ -1,0 +1,110 @@
+# Forty-Eight Hours on the Îles d'Or — The South of France
+> Three islands off the Var coast, a notebook, and no return ticket. A slow weekend on Porquerolles, Port-Cros and Le Levant — the South as it was promised.
+
+*Source : https://the-south-of-france.com/en/provence/iles-d-or/*
+
+---
+
+By **The Editors** — _Hyères, Var_
+
+Spring 202612 min read Share LinkMail
+
+There is a stretch of the Var coast where the mainland loosens its grip and three islands float just offshore. Porquerolles, Port-Cros, Le Levant — the Îles d’Or, named for the way the schist catches the late sun and turns, briefly, to gold. We took the first boat out of La Tour Fondue with a notebook and no return ticket, and came back two days later convinced we had found the South as it was promised: pine, salt, and the long afternoon light that painters chase and never quite catch.
+
+The crossing takes twenty minutes. Long enough to watch the peninsula shrink, not long enough to lose the smell of the land. By the time the ferry rounds the breakwater at Porquerolles, the village has arranged itself like a stage set — a square of plane trees, a church the colour of bone, bicycles leaning where cars should be. There are no cars. That single fact rearranges everything that follows.
+
+## I. Porquerolles, on two wheels
+
+We hired bicycles before we had unpacked. The island is barely seven kilometres end to end, and every worthwhile thing on it — the lighthouse, the vineyards, the three great beaches of the north shore — is reachable on a rented bike with a basket and questionable brakes. The path to the Plage Notre-Dame runs through umbrella pines and the dry rattle of cicadas; it has twice been voted the most beautiful beach in Europe, a title it wears without the slightest crowd to justify it in May.
+
+Inland, the Domaine de la Courtade presses one of Provence’s most serious rosés on terraces the colour of terracotta. We tasted at a trestle table under a fig tree, the winemaker pouring with one eye on a thunderhead far out to sea that never arrived.
+
+“On the Îles d’Or, the absence of the car is not a restriction. It is the whole point.”
+
+From the notebook · Day one
+
+![A small Mediterranean harbour in the golden hour](https://images.unsplash.com/photo-1566720537031-8b3e498d2881?fm=jpg&q=74&w=1400&auto=format&fit=crop)
+
+The old harbour at dusk — the last ferry has gone, and the island exhales.
+
+## II. Port-Cros, the wild one
+
+If Porquerolles is the island that lets you in, Port-Cros is the one that asks you to behave. It is a national park — the first marine park in Europe — and it shows in the discipline of the place: marked trails, no fires, a snorkelling route staked out between two coves where the grouper have learned they are safe. We walked the Vallon de la Solède in the cool of the morning, the maquis closing overhead, and arrived at Port-Cros village to find perhaps forty people and one restaurant doing exactly what it should.
+
+Lunch was a whole sea bream, grilled, with nothing on it but oil and a wedge of lemon, eaten with the boat tugging at its line a metre below the terrace. It is the kind of meal that makes you suspicious of every complicated dish you have ever paid for.
+
+![The Mediterranean at sunset](https://images.unsplash.com/photo-1578330466360-bd27f92d2fb1?fm=jpg&q=76&w=2400&auto=format&fit=crop)
+
+Sunset from the western point — the schist turns gold, and the islands earn their name.
+
+## III. Le Levant, and the art of leaving
+
+The third island we admired mostly from the water. Le Levant is shared between the French navy and one of the oldest naturist communities in the country, which makes for an unlikely neighbourliness and a coastline best appreciated from the deck of a small boat. We hired one for the last afternoon — a wooden _pointu_ with an outboard and a skipper who had been making this loop for thirty years — and let him show us the calanques the trail map leaves out.
+
+By six we were back at the quay on Porquerolles, salt-stiff and sun-stupid, watching the day-trippers file onto the ferry. We stayed. There is a particular pleasure in being on an island when the last boat leaves without you: the light softens, the village empties, and for a few hours the place belongs to the people who chose to remain.
+
+The Practical Carnet · Carnet pratique
+
+### Plan the _crossing_
+
+Getting there
+
+Ferries to Porquerolles depart **La Tour Fondue** (Giens peninsula), year-round, 20 min. Port-Cros and Le Levant from Hyères or Le Lavandou.
+
+When to go
+
+May–June and September. July–August the day-boats arrive in force; come midweek or stay the night.
+
+Where to stay
+
+**Le Mas du Langoustier**, Porquerolles — a pink hotel at the island’s wild western end, half-board, no neighbours.
+
+The table
+
+**La Pinde**, Port-Cros — whatever came off the boat that morning, grilled. Reserve by phone.
+
+Read next
+
+The Var coast, end to end · Where to drink rosé in Provence
+
+E
+
+About the Author · L’auteur
+
+#### Élise Marchand
+
+Travel Editor — based in Marseille
+
+Élise has been driving the back roads of the Midi for the journal since its first issue. She pays for her own rooms and her own lunches — and only writes about the places she would return to.
+
+[More by Élise Marchand — voir ses articles](https://the-south-of-france.com/en/journal/)
+
+Continue reading · À lire ensuite
+
+### More from the _South_
+
+[
+
+![A hilltop village in Provence](https://images.unsplash.com/photo-1499002238440-d264edd596ec?fm=jpg&q=74&w=900&auto=format&fit=crop)
+
+Provence
+
+#### A weekend in the Luberon, village by village
+
+](https://the-south-of-france.com/en/provence/)[
+
+![A village on the French Riviera](https://images.unsplash.com/photo-1567602120426-ad92141680ea?fm=jpg&q=74&w=900&auto=format&fit=crop)
+
+Côte d’Azur
+
+#### Cassis and the calanques, on foot and by boat
+
+](https://the-south-of-france.com/en/french-riviera/)[
+
+![A hillside village among trees](https://images.unsplash.com/photo-1601370641788-548389c60155?fm=jpg&q=74&w=900&auto=format&fit=crop)
+
+The Table
+
+#### Six tables worth the detour this spring
+
+](https://the-south-of-france.com/en/the-table/)
