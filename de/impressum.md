@@ -31,7 +31,7 @@ Stammkapital
 
 Geschäftssitz
 
-4 route du Sept Un, 16100 Boutiers-Saint-Trojan, Frankreich
+33 route de Porte Fache, 16100 Boutiers-Saint-Trojan, Frankreich
 
 SIREN / SIRET
 
