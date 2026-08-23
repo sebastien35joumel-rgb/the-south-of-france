@@ -1,0 +1,203 @@
+---
+// Standalone long-form guide (visiting the Calanques National Park without the
+// crowds). Reuses the site chrome (Base layout + Nav/Footer) and the shared
+// article.css gabarit so the page matches the visual system, but carries its
+// own body markup because it needs lists and a comparison table.
+// NOINDEX via the Base prop.
+import Base from '../../../layouts/Base.astro';
+import Nav from '../../../components/Nav.astro';
+import Footer from '../../../components/Footer.astro';
+import '../../../styles/pages/article.css';
+import { SITE_URL, type Locale, type SectionKey } from '../../../i18n/config';
+
+const locale: Locale = 'en';
+const section: SectionKey = 'provence';
+
+const title = 'Calanques National Park: How to Visit Without the Crowds';
+const description =
+  'Choose the right cove, book the free Sugiton slot and go car-free: a 2026 local\'s guide to visiting the Calanques National Park near Marseille.';
+const canonicalUrl = SITE_URL + '/en/provence/calanques-national-park/';
+
+const heroImg = 'https://images.unsplash.com/photo-1596627116790-af6f46dddbae?w=1200';
+const heroAlt =
+  'Turquoise water in a limestone cove of the Calanques National Park between Marseille and Cassis';
+---
+<Base
+  locale={locale}
+  section={section}
+  title={title}
+  description={description}
+  noindex={true}
+  canonicalUrl={canonicalUrl}
+  alternates={[]}
+>
+  <Nav locale={locale} section={section} />
+
+  <header class="art-hero">
+    <img src={heroImg} alt={heroAlt} loading="lazy" />
+    <div class="veil"></div>
+    <div class="head">
+      <div class="wrap">
+        <div class="kicker">Provence · Coast &amp; nature</div>
+        <h1 class="didone">Calanques National Park: How to Visit <em>Without the Crowds</em></h1>
+        <p class="deck">{description}</p>
+      </div>
+    </div>
+  </header>
+
+  <article class="article">
+    <p class="lede">Low morning light slides across the white limestone, and the water below turns a green so clear it seems lit from within. This is the Calanques National Park, a wild fold of coast created in 2012 between Marseille and Cassis, and one of the few in Europe to press right up against a major city. Seeing it well takes more than good shoes: daily quotas, mineral heat and roads closed to cars all quietly shape the day.</p>
+
+    <h2 class="didone">Reading the coves: Sugiton, Sormiou and En-Vau</h2>
+    <p>The Calanques split into two natural approaches. On the Marseille side, trails drop from the Luminy campus toward Sugiton and Morgiou, or from the Baumettes district toward broad Sormiou. On the Cassis side, a coastal path threads Port-Miou, then Port-Pin, then the theatrical En-Vau, where limestone pincers plunge into turquoise water. The scenery is superb everywhere. What really differs is the walk you are willing to take under a hard sun.</p>
+    <p>Port-Miou is the gentlest doorway: the path leaves the Cassis marina, barely climbs, and suits a first, family-friendly approach. En-Vau asks the opposite, an exposed hike of roughly ninety minutes to two hours, repaid by the most cinematic cove of all. Between those poles, Sugiton and Port-Pin offer the best ratio of effort to swim.</p>
+    <p>Read the table below not as a ranking of beauty, but as a way to match a cove to the distance you actually want to walk in the heat.</p>
+    <div class="table-scroll">
+      <table class="rtable">
+        <thead>
+          <tr>
+            <th scope="col">Cove</th>
+            <th scope="col">Starting point</th>
+            <th scope="col">Walk (one way)</th>
+            <th scope="col">Profile</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Port-Miou</th>
+            <td>Cassis marina</td>
+            <td>about 20 min</td>
+            <td>Easy, almost flat</td>
+          </tr>
+          <tr>
+            <th scope="row">Port-Pin</th>
+            <td>Cassis marina</td>
+            <td>30 to 40 min</td>
+            <td>Moderate</td>
+          </tr>
+          <tr>
+            <th scope="row">Sugiton</th>
+            <td>Luminy campus</td>
+            <td>about 45 min</td>
+            <td>Moderate, steep final drop</td>
+          </tr>
+          <tr>
+            <th scope="row">Sormiou</th>
+            <td>Les Baumettes</td>
+            <td>40 to 60 min</td>
+            <td>Moderate</td>
+          </tr>
+          <tr>
+            <th scope="row">En-Vau</th>
+            <td>Cassis marina</td>
+            <td>1 hr 30 to 2 hr</td>
+            <td>Demanding, exposed path</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 class="didone">The free Sugiton reservation, explained</h2>
+    <p>Here is the detail that still catches newcomers off guard. Since the summer of 2022, the Calanques National Park requires a free reservation to reach Sugiton and the neighbouring Pierres Tombées during the peak season. The measure answers visible trail erosion and an overcrowding that was wearing the site down. A daily cap limits entries and keeps the descent to the cove moving.</p>
+    <p>The process is simple: you reserve a time slot online, at no cost, then show your confirmation at the trailhead. During control periods, arriving without a valid booking means being turned away. Because the exact dates, quotas and opening rules change from one year to the next, check them on <a class="inline" href="https://www.calanques-parcnational.fr/" target="_blank" rel="noopener">the official Calanques National Park website</a> rather than on any secondhand blog. It is the one source that stays current.</p>
+    <p>Keep the distinction clear: this booking does not cover every cove. Port-Miou, Port-Pin and En-Vau stay freely open, though the whole massif can close on high fire-risk days, a point that earns its own section below.</p>
+
+    <h2 class="didone">Reaching the coves without a car</h2>
+    <p>The car is often a false friend here. In summer, road access to Sormiou and Morgiou is heavily restricted for private vehicles, and the car parks at Luminy and Cassis fill well before mid-morning. Public transport becomes the more reliable way onto the trails.</p>
+    <ul>
+      <li><strong>From Marseille:</strong> a city bus runs out to the Luminy campus, the launch point for the paths to Sugiton and Morgiou.</li>
+      <li><strong>From Cassis:</strong> the railway station sits a few kilometres above the port, with a shuttle down to the centre, where the paths to Port-Miou and En-Vau begin.</li>
+      <li><strong>By sea:</strong> the Cassis boatmen run trips that skirt the coves, a fine option on the days heat makes hiking unappealing.</li>
+    </ul>
+    <p>For train times and connections, trust official timetables over half-remembered figures: the <a class="inline" href="https://allovoyages.fr/" target="_blank" rel="noopener">Provence transport notes on allovoyages.fr</a> are a useful place to start planning. If the trip drifts east afterward, <a class="inline" href="/en/french-riviera/where-to-stay-without-a-car/">our car-free Riviera base guide</a> shows how the coastal train stitches the next stretch together, and this <a class="inline" href="https://cannes-city.com/" target="_blank" rel="noopener">Cannes and Croisette guide from cannes-city.com</a> caps a glamorous end to the loop.</p>
+
+    <h2 class="didone">Timing your visit: light, heat and fire closures</h2>
+    <p>In summer the ideal window falls before ten in the morning. Raking light sculpts the limestone, the water lies calm, and the trails still breathe. After midday the rock throws back a punishing heat and the coves fill. Setting out early cuts both the crowds and the real risk of heat exhaustion on paths that offer almost no shade.</p>
+    <p>The right day matters as much as the right hour. On high fire-risk episodes the préfecture closes access to the massif, a decision taken the evening before for the following day and applied without exception. Always check the day's access level before you leave. Once you are on the trail, a few habits change everything:</p>
+    <ol>
+      <li>Carry at least a litre and a half of water per person: there is no kiosk in the coves.</li>
+      <li>Wear grippy soles, because polished limestone turns slick.</li>
+      <li>Pack shade and sunscreen, since the walls give little cover.</li>
+      <li>Take every scrap of rubbish back out, as the park keeps no bins on the trails.</li>
+      <li>Check the time of the last bus or shuttle before you commit to a final swim.</li>
+    </ol>
+    <p>After the mineral effort, it is worth softening the day. <a class="inline" href="/en/provence/calanques-de-cassis/">A slow morning in the port of Cassis</a>, coffee by the fishing boats and a wander through the market, stretches the pleasure without repeating the same hike.</p>
+
+    <h2 class="didone">Your questions before setting out for the Calanques</h2>
+    <p><strong>Do you need to reserve for every cove?</strong></p>
+    <p>No. Only Sugiton and the Pierres Tombées require the free high-season booking. The other coves stay open, though the entire massif can close on days of serious fire risk.</p>
+    <p><strong>Can you swim in the calanques?</strong></p>
+    <p>Yes, and the water is among the clearest in the Mediterranean. You enter from the rocks, with no sand or built beach, so sturdy footwear and some ease in open water help.</p>
+    <p><strong>How long should a visit take?</strong></p>
+    <p>Allow a half day for a close cove like Port-Miou, and a full day for En-Vau or a pairing of two calanques, always factoring in the heat.</p>
+    <p><strong>Are the calanques suitable for children?</strong></p>
+    <p>Port-Miou and Port-Pin, short and gentle, work for families. Sugiton is manageable with children used to walking, while En-Vau really suits confident hikers.</p>
+    <p><strong>Is coming by car worth it?</strong></p>
+    <p>In summer, rarely. Road access is restricted and car parks fill early. The train to Cassis, the bus to Luminy or a boat from the port all make for a calmer arrival.</p>
+  </article>
+
+  <Footer locale={locale} />
+</Base>
+
+<style>
+  /* List + table styles the shared article.css doesn't cover, kept tight to
+     the reading column and fully responsive (no horizontal overflow). */
+  .article ul,
+  .article ol {
+    max-width: 100%;
+    margin: 0 0 30px;
+    padding-left: 1.25em;
+  }
+  .article li {
+    font-size: 19px;
+    line-height: 1.72;
+    color: #232629;
+    margin-bottom: 12px;
+  }
+  .article li strong {
+    font-weight: 500;
+  }
+  .article a.inline strong {
+    font-weight: 500;
+  }
+
+  .table-scroll {
+    max-width: 100%;
+    margin: 34px 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border: 1px solid var(--line);
+  }
+  .rtable {
+    width: 100%;
+    min-width: 640px;
+    border-collapse: collapse;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+  }
+  .rtable th,
+  .rtable td {
+    padding: 12px 14px;
+    text-align: left;
+    vertical-align: top;
+    line-height: 1.5;
+    border: 1px solid var(--line);
+  }
+  .rtable thead th {
+    background: var(--sea-deep);
+    color: #fff;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+  .rtable tbody th {
+    background: rgba(30, 111, 159, 0.06);
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  @media (max-width: 900px) {
+    .article li {
+      font-size: 17.5px;
+    }
+  }
+</style>
