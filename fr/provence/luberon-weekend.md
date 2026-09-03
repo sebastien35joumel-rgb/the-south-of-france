@@ -25,7 +25,7 @@ Roussillon — le village et la falaise sont tirés de la même terre rouge.
 
 ## II. Jour deux — le versant sud
 
-Traversez la montagne vers **Bonnieux** et **Ménerbes**, puis terminez à **Lourmarin**, le plus doux, où Albert Camus repose au cimetière du village. Calez-vous sur le marché du vendredi à **Lourmarin** ou celui du samedi à **Apt**, et laissez le déjeuner suivre le panier.
+Traversez la montagne vers **Bonnieux** et **Ménerbes**, puis terminez à **Lourmarin**, le plus doux, où Albert Camus repose au cimetière du village. Calez-vous sur le marché du vendredi à **Lourmarin** ou celui du samedi à **Apt**, et laissez le déjeuner suivre le panier. Pour hésiter encore un peu entre les villages, allovoyages a dressé sa sélection des [plus beaux villages du Luberon](https://allovoyages.fr/destinations/plus-beaux-villages-du-luberon/).
 
 Le carnet pratique · The Practical Carnet
 
