@@ -8,8 +8,10 @@ interface Props {
 const { locale } = Astro.props;
 const f = chrome[locale].footer;
 
-// Credit line — links to the agency that built the site. Marked rel="sponsored"
+// Credit line — links to the agency that built the site. Marked rel="nofollow sponsored"
 // as it is a paid/commercial relationship rather than an editorial citation.
+// Network links in this sitewide footer are nofollow (anti-footprint rule);
+// dofollow to allovoyages only in contextual article body links.
 const creditLabel: Record<Locale, string> = {
   en: 'Site by',
   fr: 'Site réalisé par',
@@ -31,7 +33,7 @@ const partnerLabel: Record<Locale, string> = {
       <div class="foot-brand">
         <div class="mk didone">The South <em>of</em> France</div>
         <p>{f.blurb}</p>
-        <p class="partner">{partnerLabel[locale]} <a href="https://allovoyages.fr" rel="dofollow">allovoyages</a>.</p>
+        <p class="partner">{partnerLabel[locale]} <a href="https://allovoyages.fr" rel="nofollow noopener">allovoyages</a>.</p>
       </div>
       <div class="foot-col">
         <h5>{f.sections.heading}</h5>
@@ -56,7 +58,7 @@ const partnerLabel: Record<Locale, string> = {
     </div>
     <div class="foot-bottom">
       <span class="fine" set:html={f.fineLeft.replace('·', '<span class="dot">·</span>')} />
-      <span class="fine credit">{creditLabel[locale]} <a href="https://newp.fr" rel="sponsored noopener" target="_blank">NEWP</a></span>
+      <span class="fine credit">{creditLabel[locale]} <a href="https://newp.fr" rel="nofollow sponsored noopener" target="_blank">NEWP</a></span>
       <span class="fine" set:html={f.fineRight.replace('·', '<span class="dot">·</span>')} />
     </div>
   </div>

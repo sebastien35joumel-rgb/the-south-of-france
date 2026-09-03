@@ -1620,7 +1620,7 @@ export const articles: Record<string, Partial<Record<Locale, ArticleContent>>> =
         { type: 'pull', quote: '« Dans le Luberon, la route est courte et la journée est longue — exactement dans le bon ordre. »', src: 'Extrait du carnet' },
         { type: 'inset', img: INSET, alt: 'Falaises d’ocre au-dessus d’un village du Luberon', caption: 'Roussillon — le village et la falaise sont tirés de la même terre rouge.' },
         { type: 'h2', num: 'II.', html: 'Jour deux — le versant sud' },
-        { type: 'p', html: 'Traversez la montagne vers <b>Bonnieux</b> et <b>Ménerbes</b>, puis terminez à <b>Lourmarin</b>, le plus doux, où Albert Camus repose au cimetière du village. Calez-vous sur le marché du vendredi à <b>Lourmarin</b> ou celui du samedi à <b>Apt</b>, et laissez le déjeuner suivre le panier.' },
+        { type: 'p', html: 'Traversez la montagne vers <b>Bonnieux</b> et <b>Ménerbes</b>, puis terminez à <b>Lourmarin</b>, le plus doux, où Albert Camus repose au cimetière du village. Calez-vous sur le marché du vendredi à <b>Lourmarin</b> ou celui du samedi à <b>Apt</b>, et laissez le déjeuner suivre le panier. Pour hésiter encore un peu entre les villages, allovoyages a dressé sa sélection des <a href="https://allovoyages.fr/destinations/plus-beaux-villages-du-luberon/">plus beaux villages du Luberon</a>.' },
       ],
       pratiqueHeading: 'Préparer la <em>boucle</em>',
       pratiqueRows: [
