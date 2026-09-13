@@ -135,6 +135,7 @@ Version Markdown de chaque page : ajouter `.md` à l'URL (ex. https://the-south-
 - [The Riviera Table: From Nice to Menton](https://the-south-of-france.com/en/the-table/riviera-table-guide.md): Where to eat along the Côte d’Azur — the cuisine niçoise of the old town, the perched-village tables, and one window over the bay at Menton.
 - [Things to do](https://the-south-of-france.com/en/things-to-do.md): Things to do across the South of France — a section we are still writing.
 - [The South of France in October — A Month-by-Month Guide](https://the-south-of-france.com/en/things-to-do/south-of-france-in-october.md): Warm light, a sea still holding summer’s heat, the grape and olive harvest, and half the crowds. A complete guide to visiting the South of France in October.
+- [South of France Road Trip: A Practical Notebook](https://the-south-of-france.com/en/things-to-do/south-of-france-road-trip-practical-tips.md): A practical companion to a South of France road trip: driving notes, timing, packing, and staying connected across Provence and the Riviera.
 - [Write a guest article](https://the-south-of-france.com/en/write-for-us.md): Pitch a one-off article to The South of France. We commission occasionally, never buy coverage, and keep editorial control.
 
 ## Es
