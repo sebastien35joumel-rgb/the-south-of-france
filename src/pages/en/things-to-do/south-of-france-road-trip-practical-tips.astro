@@ -1,0 +1,162 @@
+---
+// Standalone guest guide (practical notebook for a South of France road trip).
+// Reuses the site chrome (Base layout + Nav/Footer) and the shared article.css
+// gabarit; carries its own body markup for the discount-code table and FAQ.
+// Images: Pexels, self-hosted WebP in /images/articles/<slug>/.
+// noindex={false}: index-ready page (EN only, no translations → no hreflang).
+import Base from '../../../layouts/Base.astro';
+import Nav from '../../../components/Nav.astro';
+import Footer from '../../../components/Footer.astro';
+import '../../../styles/pages/article.css';
+import { SITE_URL, type Locale, type SectionKey } from '../../../i18n/config';
+
+const locale: Locale = 'en';
+const section: SectionKey = 'things-to-do';
+
+const title = 'South of France Road Trip: A Practical Notebook';
+const description =
+  'A practical companion to a South of France road trip: driving notes, timing, packing, and staying connected across Provence and the Riviera.';
+const canonicalUrl = SITE_URL + '/en/things-to-do/south-of-france-road-trip-practical-tips/';
+
+const IMG = '/images/articles/south-of-france-road-trip-practical-tips';
+const heroImg = `${IMG}/lavender-fields-provence.webp`;
+const heroAlt =
+  'Rows of lavender fields in the south of France, with wooded hills and mountains on the horizon';
+---
+<Base
+  locale={locale}
+  section={section}
+  title={title}
+  description={description}
+  noindex={false}
+  canonicalUrl={canonicalUrl}
+  alternates={[]}
+>
+  <Nav locale={locale} section={section} />
+
+  <header class="art-hero">
+    <img src={heroImg} alt={heroAlt} width="1600" height="1066" loading="eager" fetchpriority="high" />
+    <div class="veil"></div>
+    <div class="head">
+      <div class="wrap">
+        <div class="kicker">Things to do · On the road</div>
+        <h1 class="didone">South of France Road Trip: <em>A Practical Notebook</em></h1>
+        <p class="deck">{description}</p>
+      </div>
+    </div>
+  </header>
+
+  <article class="article">
+    <p>Planning a <strong>South of France road trip</strong> across Provence, the Riviera, Camargue, and Languedoc takes more than a route on a map. It takes a working sense of timing, driving conditions, and a handful of small logistics, from toll roads to mobile coverage, that decide whether the days feel unhurried or rushed. This notebook gathers the practical side of a self driven trip through the south, meant to sit alongside a proper itinerary rather than replace one.</p>
+
+    <h2 class="didone">Before You Go: Route and Timing</h2>
+    <p>The south of France rewards travelers who resist the urge to see everything. A loop linking the <a class="inline" href="https://the-south-of-france.com/en/french-riviera/riviera-in-three-days/">French Riviera</a>, a <a class="inline" href="https://the-south-of-france.com/en/provence/luberon-weekend/">weekend in the Luberon</a>, and the wetlands of the <a class="inline" href="https://the-south-of-france.com/en/camargue/camargue-guide/">Camargue</a> can be driven comfortably in ten to fourteen days, though each region alone easily fills a long weekend on its own. Blocking two or three nights per base, rather than one, cuts down on packing and unpacking and leaves room for the kind of wandering the region rewards.</p>
+    <p>Distances on the map are deceptive. A stretch that looks like forty minutes in a straight line can take twice that once it winds through hill villages, so building slack into each day matters more than covering ground.</p>
+
+    <h2 class="didone">Behind the Wheel: Driving Notes</h2>
+
+    <figure class="inset">
+      <img src={`${IMG}/provence-village-lane.webp`} alt="A narrow stone village lane in Provence lined with shuttered houses and potted plants" width="1200" height="800" loading="lazy" />
+    </figure>
+
+    <p>Renting the smallest car that comfortably fits the group pays off the first time a village street narrows to a single lane. Most rental fleets in the south run on manual transmission, so an automatic should be requested well ahead of arrival if that matters. Tolls on the A7 and A8 motorways bill automatically to a card at the péage booths, and full network details sit on <a class="inline" href="https://www.autoroutes.fr/en/toll.htm" rel="nofollow">the official Autoroutes tolls site</a>. Fuel is worth topping up before heading into the hills, where stations thin out fast.</p>
+    <p>Midday itself is worth planning around. Between roughly 1pm and 4pm in high summer, village centers empty out and the heat peaks, so treating that window as a lunch and shade break, rather than driving time, keeps the whole pace comfortable.</p>
+
+    <h2 class="didone">Staying Connected and Saving on Data</h2>
+    <p>Mobile coverage across the south is generally solid along the coast and in larger towns, but it thins out fast in the Camargue's back roads, the Luberon's hill villages, and the higher stretches near the Verdon. Downloading offline maps before setting out is standard advice for a reason: a missed turn without signal in the marshes near the Digue à la Mer costs more than a few minutes.</p>
+    <p>An <strong>eSIM</strong> bought ahead of the trip solves most of this more simply than hunting for a physical SIM card on arrival. It activates before landing, works across the whole route without swapping chips, and avoids the flat daily charges some home carriers still apply abroad. Several providers sell short term <strong>data plans</strong> built for exactly this kind of trip, and discount codes are common enough that it is worth checking before paying full price. <a class="inline" href="https://mybestsim.com/en/esim-discount-codes/">MyBestSim</a> keeps a running comparison of these offers, useful for anyone weighing options before departure.</p>
+    <p>A snapshot of current codes, though these shift often and are worth confirming close to booking:</p>
+
+    <div class="table-scroll">
+      <table class="rtable">
+        <thead>
+          <tr><th scope="col">Provider</th><th scope="col">Code</th><th scope="col">Discount</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>BNESIM</td><td>MYBESTSIM</td><td>Up to 30% off</td></tr>
+          <tr><td>ChillSIM</td><td>MYBESTSIM25</td><td>25% off</td></tr>
+          <tr><td>Yesim</td><td>MYBESTSIM20</td><td>20% off</td></tr>
+          <tr><td>Nomad</td><td>MYBESTSIM20</td><td>20% off</td></tr>
+          <tr><td>Airalo</td><td>MYBEST15</td><td>15% off</td></tr>
+          <tr><td>aloSIM</td><td>MYBESTSIM</td><td>15% off</td></tr>
+          <tr><td>Saily</td><td>MYBESTSIM</td><td>10% off</td></tr>
+          <tr><td>Holafly</td><td>MYBESTSIM</td><td>5% off</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>Dozens of other providers run similar offers at any given time, and the list above shifts as codes expire and new ones launch, so a quick check close to departure beats relying on a screenshot saved months earlier.</p>
+
+    <h2 class="didone">Packing Notes</h2>
+
+    <figure class="inset">
+      <img src={`${IMG}/road-trip-packing-essentials.webp`} alt="Travel essentials laid out on a wooden table, including a phone, a hat and a folded paper map" width="1200" height="800" loading="lazy" />
+    </figure>
+
+    <p>Beyond the obvious sun cream and swimwear, a few items earn their space in the car: a hands free phone mount for GPS on unfamiliar roads, a portable charger for long driving days, comfortable shoes for cobbled village centers, and a folded paper map as backup for the stretches where a phone screen is not the most reliable co-pilot.</p>
+
+    <h2 class="didone">When to Go</h2>
+    <p>Late spring and early autumn take the pressure off both roads and reservations. Checking seasonal averages on <a class="inline" href="https://meteofrance.com/en" rel="nofollow">Météo-France</a> before locking in dates helps set expectations for heat and rain. For a quieter version of the same trip, with markets still running and the light holding late into the afternoon, October is worth serious consideration over the crowded height of summer.</p>
+
+    <h2 class="didone">Frequently Asked Questions</h2>
+
+    <h3 class="faq-q">How many days does a South of France road trip need?</h3>
+    <p>Ten to fourteen days covers Provence, the Riviera, and Camargue at a comfortable pace. A single region, such as the Luberon or the Riviera alone, fits into a long weekend.</p>
+
+    <h3 class="faq-q">Is it easy to drive in the south of France?</h3>
+    <p>Yes, with a few adjustments: expect narrow village streets, automatic toll billing on the motorways, and journey times that run longer than the map suggests once hill roads are involved.</p>
+
+    <h3 class="faq-q">Do I need mobile data for the whole trip?</h3>
+    <p>Coverage is reliable along the coast and in towns but drops in rural stretches of the Camargue and higher Provence. Offline maps and a prebooked eSIM plan cover most of the gaps.</p>
+
+    <h3 class="faq-q">When is the best time to go for fewer crowds?</h3>
+    <p>Late September and October bring warm weather, open markets, and noticeably lighter traffic than July and August.</p>
+  </article>
+
+  <Footer locale={locale} />
+</Base>
+
+<style>
+  /* Table + FAQ styles the shared article.css doesn't cover, kept tight to the
+     reading column and fully responsive (no horizontal overflow). */
+  .article h3.faq-q {
+    font-family: 'Bodoni Moda', serif;
+    font-weight: 400;
+    font-size: 23px;
+    line-height: 1.25;
+    margin: 34px 0 12px;
+  }
+  .table-scroll {
+    max-width: 100%;
+    margin: 34px 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border: 1px solid var(--line);
+  }
+  .rtable {
+    width: 100%;
+    min-width: 420px;
+    border-collapse: collapse;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+  }
+  .rtable th,
+  .rtable td {
+    padding: 12px 14px;
+    text-align: left;
+    vertical-align: top;
+    line-height: 1.5;
+    border: 1px solid var(--line);
+  }
+  .rtable thead th {
+    background: var(--sea-deep);
+    color: #fff;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+  @media (max-width: 900px) {
+    .article h3.faq-q {
+      font-size: 20px;
+    }
+  }
+</style>
