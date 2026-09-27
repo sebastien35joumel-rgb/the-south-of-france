@@ -13,7 +13,7 @@ Roussillon se dresse sur une crête au cœur du Luberon, et le village tout enti
 
 ## I. Le village de la couleur de ses falaises
 
-Montez jusqu’au **Castrum**, tout en haut, pour la vue, puis redescendez par les ruelles — une façade lie-de-vin, la suivante safran, des volets du vert des vieux cuivres. Roussillon est l’un des **Plus Beaux Villages de France**, et fait rare, il mérite le titre au ras du pavé plutôt qu’à distance de carte postale.
+Montez jusqu’au **Castrum**, tout en haut, pour la vue, puis redescendez par les ruelles — une façade lie-de-vin, la suivante safran, des volets du vert des vieux cuivres. Roussillon est l’un des **Plus Beaux Villages de France**, et fait rare, il mérite le titre au ras du pavé plutôt qu’à distance de carte postale. Pour qui restaure une maison dans le coin, cette palette rappelle qu’on ne touche pas aux façades à la légère : modifier l’aspect extérieur, couleur des menuiseries comprise, demande une déclaration préalable en mairie, et mieux vaut s’être renseigné sur ce qu’implique de [changer ses fenêtres en Provence-Alpes-Côte d’Azur](https://artisanatfrancais.com/fenetres-volets-provence-alpes-cote-d-azur) avant de choisir modèle et teinte.
 
 « Les maisons sont peintes avec la colline elle-même — il n’y a pas d’autre palette ici. »
 
