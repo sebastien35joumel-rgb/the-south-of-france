@@ -13,7 +13,7 @@ Antibes garde intacts ses remparts de mer et sa vieille ville entre Nice et Cann
 
 ## I. Les remparts et le marché
 
-Longez les remparts de mer pour la vue jusqu’à la ligne de neige des Alpes, puis descendez au **marché provençal** du cours Masséna — une halle couverte de fleurs, de fromages et de **socca** chaque matin. Au-delà de la vieille ville, le **port Vauban** est la plus grande marina d’Europe, le **fort Carré** la gardant depuis sa presqu’île.
+Longez les remparts de mer pour la vue jusqu’à la ligne de neige des Alpes, puis descendez au **marché provençal** du cours Masséna — une halle couverte de fleurs, de fromages et de **socca** chaque matin. Au-delà de la vieille ville, le **port Vauban** est la plus grande marina d’Europe, le **fort Carré** la gardant depuis sa presqu’île. Derrière ces coques immobiles travaille tout un monde d’équipages, de gestionnaires et de courtiers : ce guide explique [comment fonctionnent le yachting et ses services à bord](https://equipements-bateaux.com/guide-yachting-services).
 
 « Une ville assez petite pour garder son marché, assez grande pour abriter les yachts du monde. »
 
