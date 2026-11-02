@@ -31,7 +31,7 @@ Share capital
 
 Registered office
 
-33 route de Porte Fache, 16100 Boutiers-Saint-Trojan, France
+4 route du Sept Un, 16100 Boutiers-Saint-Trojan, France
 
 Phone
 
