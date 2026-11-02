@@ -29,7 +29,7 @@ The old port at dusk, once the festival crowds have gone.
 
 ## III. The town the other eleven months
 
-Climb away from the seafront into **Le Suquet**, the old town, and Cannes becomes a different place: stepped lanes, a square Romanesque tower, washing strung between shutters. The **Marché Forville** below it is where the restaurants buy, and where you should too. And a twenty-minute boat from the Vieux Port lie the **Îles de Lérins** — Sainte-Marguerite with its fort and the cell that held the Man in the Iron Mask, Saint-Honorat where monks have made wine for centuries and still do.
+Climb away from the seafront into **Le Suquet**, the old town, and Cannes becomes a different place: stepped lanes, a square Romanesque tower, washing strung between shutters. The **Marché Forville** below it is where the restaurants buy, and where you should too. And a twenty-minute boat from the Vieux Port lie the **Îles de Lérins** — Sainte-Marguerite with its fort and the cell that held the Man in the Iron Mask, Saint-Honorat where monks have made wine for centuries and still do. The two islands are served by different ferry companies, so it is usually one island per trip; [a practical guide to the Lérins Islands](https://cannes-city.com/things-to-do/lerins-islands/) helps you choose between the fort and the monastery.
 
 By evening we were back on the Croisette with an ice cream and no premiere to attend, watching the light go pink over the Estérel. The famous town and the ordinary one are the same handful of streets; you just have to come in the right week to tell them apart.
 
