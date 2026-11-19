@@ -1,0 +1,62 @@
+# Moving to the South of France: The Paperwork Nobody Warns You About
+> Settling in the South of France? Residence permits, a French bank account, tenant insurance, health cover, licence and car: the admin to sort in your first months.
+
+*Source : https://the-south-of-france.com/en/french-riviera/moving-to-the-south-of-france-paperwork/*
+
+---
+
+People who move to the South of France tend to plan the pleasant part in great detail: which village, which market day, how far from the sea. The part that decides how the first year actually feels gets far less attention. France runs on documents, and most of them depend on one another. You need an address to open a bank account, a bank account to sign a lease or a utility contract, a lease to get home insurance, and proof of all of the above for almost everything that follows.
+
+None of it is complicated once you know the order. What catches newcomers out is the handful of deadlines that start running the day you arrive, and the obligations that nobody mentions until a landlord, a police officer or a hospital asks for the paper. Here is the admin worth sorting in your first months, whether you are settling in the old town of [Nice](https://the-south-of-france.com/en/french-riviera/nice-vieux-nice/) or in a stone house above the Luberon.
+
+## Your right to stay: the clock starts at the border
+
+Citizens of the European Union, the European Economic Area and Switzerland can live in France without a residence permit. Everyone else needs one for a stay of more than three months, and since Brexit that includes British newcomers.
+
+Most non-European arrivals come in on a long-stay visa that doubles as a residence permit, known as a _VLS-TS_. The detail people miss is that this visa has to be validated online, on the French government's foreigners' portal (_administration-etrangers-en-france.interieur.gouv.fr_), within three months of entering France. You will need the visa number, your date of entry, your French address and a means of paying the tax that goes with it. Let the three months slip and you are no longer lawfully resident; the online service stops accepting the file and you have to deal with the _préfecture_ instead. Put a reminder in your phone the day you land.
+
+## A French bank account, sooner than you think
+
+A foreign card works for shopping, but French life runs on the _RIB_, the bank details slip that landlords, energy suppliers, phone operators and the health insurance office all ask for. Direct debits from a foreign account are accepted in theory and refused often enough in practice to cause trouble.
+
+Expect to show your passport, proof of address and sometimes proof of income. If a bank turns you down and you have no other individual account, French law gives you a way out: the _droit au compte_. Anyone domiciled in France, whatever their nationality, can ask the Banque de France to designate a bank that must then open a basic account. It is a safety net rather than a first choice, but worth knowing about before you spend weeks going from branch to branch.
+
+## Renting? Home insurance is not optional
+
+This is the one that surprises people from countries where contents insurance is a personal choice. In France, a tenant renting a main home must be insured, at the very least, against the _risques locatifs_: fire, explosion and water damage that could harm the property. You hand over the insurance certificate when you collect the keys, and the landlord can ask for it again every year.
+
+The landlord's options if you do not are not pleasant. The lease can provide for its termination, or the landlord can take out a policy in your place and pass the cost on to you. In practice, most letting agents will not hand over the keys without the certificate, so arrange the insurance before moving day.
+
+Buyers face a different picture. An owner in a building run as a _copropriété_, the French system of shared ownership found in most Riviera apartment blocks, must hold third-party liability cover. A standalone house is not legally required to be insured, but a mortgage lender will almost always insist on it, and in a region exposed to storms, flash floods and summer wildfires it would be a brave decision to go without.
+
+## Insurance in a language you actually read
+
+Home, car and health contracts in France are long, precise and written in a dense administrative French that defeats even fluent speakers. The trouble rarely shows at signing. It shows the day you make a claim and discover an exclusion, a deadline for declaring the damage, or a condition about locks and shutters that you never noticed.
+
+That is why many newcomers prefer to deal with someone who will walk them through the contract in English. Best French Insurance, a bilingual team based in Cognac that has worked with English-speaking clients across France for more than twenty years, handles home, car and health cover for people in exactly this situation. If you would rather have the clauses explained before you sign, you can [see their English-speaking advisors](https://best-french-insurance.com/) and ask the questions that matter: what is excluded, how long you have to report a claim, and which documents you would need to provide.
+
+## Health cover: three months, then the Carte Vitale
+
+France's public health insurance, the _Assurance Maladie_, is open to people who live in the country in a stable and regular way. If you are not working in France, stable generally means more than three months of uninterrupted residence before you can join, with a few exceptions. If you take a job here, you are covered through your employment.
+
+Registration goes through your local _CPAM_, the health insurance office for your department. Once your file is complete you receive a permanent social security number and, with it, the green _Carte Vitale_ that pharmacies and doctors swipe. State pensioners from another European country or the United Kingdom are usually registered through an S1 form issued by their home system, so ask for it before you leave.
+
+Two details save money. First, declare a _médecin traitant_, a regular GP, as soon as you can: adults who skip this step are reimbursed less. Second, the public scheme does not pay for everything. Most residents add a _complémentaire santé_, often called a _mutuelle_, to cover the rest. It is not compulsory for individuals, though employers must offer one to their staff, and checking when your previous cover ends and the French one starts avoids an uncomfortable gap in the first months.
+
+## Driving licence and car: two different deadlines
+
+A licence issued in another EU or EEA country remains valid in France. You only have to exchange it in specific cases, for instance when it expires, is lost or stolen, or after a traffic offence that costs you points.
+
+Licences from outside Europe are a different matter. They are valid for one year after you take up normal residence in France, and the exchange for a French licence must be requested within that year, online through the ANTS, the agency that handles licences and vehicle registration. Exchange is only possible with countries that have an agreement with France, so check yours early. British licences have their own rule: one issued before 2021 does not need exchanging while it remains valid, while one issued in 2021 or later must be exchanged.
+
+If you bring your own car, it has to be registered in France within one month of settling, again through the ANTS. A car more than four years old will need a recent French roadworthiness test, the _contrôle technique_. Car insurance is compulsory from the first kilometre, and the statement of your claims history from your previous insurer is the document that keeps your premium reasonable, so ask for it before you go.
+
+## An order that saves weeks
+
+The sequence that works for most people is simple. Before leaving, gather birth certificates, your claims statements from your current insurers and, if relevant, your S1 form. In the first days, secure an address and open a bank account. Before moving into a rental, arrange home insurance. Within the first three months, validate your visa if you have one. After three months of residence, apply for health cover. Within the year, deal with the licence and, within the first month, the car.
+
+One piece of good news to end on: the _taxe d'habitation_ on main homes, the council tax that used to land every autumn, has been abolished since 2023. It still applies to second homes, which matters if you keep a flat in town and a house in the hills, but for most people settling here full time it is one bill fewer.
+
+## Then the South starts to feel like home
+
+The expats who settle in fastest are rarely the most fluent; they are the ones who did things in the right order and kept copies of everything. Get the paperwork behind you in the first season, and the rest of the year can go to the reasons you came: long lunches, a weekend in [Aix-en-Provence](https://the-south-of-france.com/en/provence/aix-en-provence/), the light on the water in October.
